@@ -1,0 +1,70 @@
+<interface>
+  <object class="GtkWindow">
+    <property name="width-request">350</property>
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <property name="margin-top">50</property>
+        <property name="margin-bottom">50</property>
+        <property name="margin-start">50</property>
+        <property name="margin-end">50</property>
+        <property name="spacing">10</property>
+        <!--Header text start-->
+        <child>
+          <object class="GtkLabel">
+            <property name="css-classes">long-description-title</property>
+            <property name="label">Kurozora ID</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="label">Sign in with your Kurozora ID to use the library and other Kurozora services.</property>
+            <property name="margin-bottom">50</property>
+          </object>
+        </child>
+        <!--Header text end-->
+        <child>
+          <!--Kurozora ID-->
+          <object class="GtkEntry">
+            <property name="placeholder-text">The cool Kurozora ID you claimed</property>
+          </object>
+        </child>
+        <child>
+          <!--Password-->
+          <object class="GtkPasswordEntry">
+            <property name="placeholder-text">Your super secret password</property>
+            <property name="show-peek-icon">true</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton">
+            <property name="halign">end</property>
+            <property name="hexpand">true</property>
+            <property name="label">Login</property>
+          </object>
+        </child>
+          <!--Forgot Password / Singup-->
+        <child>
+          <object class="GtkLabel">
+            <property name="css-classes">hyper-text</property>
+            <property name="label">Forgot your password? Let's reset</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="css-classes">hyper-text</property>
+            <property name="label">New to Kurozora? Join us</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="vexpand">true</property>
+            <property name="valign">end</property>
+            <property name="margin-top">20</property>
+            <property name="label">Your Kurozora ID is the email you use to access all Kurozora services.</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
