@@ -1,0 +1,60 @@
+/* All the classes with the "sample-" prefix are there just as a filler for images and such */
+box.sample-preview {
+    background-color: rgba(129, 51, 255, 0.6);
+}
+
+box.preview-poster {
+    background-color: rgb(155, 31, 31);
+}
+
+box.preview-overlay {
+    background-color: rgba(250, 250, 250, 0.6);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+box.preview-overlay label.title {
+    font-weight: bold;
+}
+
+box.preview-overlay label.infos {
+    font-weight: normal;
+}
+
+box.preview-overlay label.airing_status_airing {
+    background-color: rgb(0, 185, 0);
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+box.preview-overlay button.add-button {
+    background-color: rgba(255, 188, 4, 0.699);
+}
+
+box.preview-overlay button.add-button:hover {
+    background-color: rgba(197, 145, 0, 0.699);
+}
+
+box.info-bar-item label.rating-top {
+    color: orange;
+    font-weight: bold;
+    font-size: 15pt;
+}
+
+box.info-bar-item label.item-bottom {
+    font-weight: 400;
+    font-size: 10pt;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+textview.long-description {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+label.long-description-title {
+    font-weight: bolder;
+    font-size: 20pt;
+}

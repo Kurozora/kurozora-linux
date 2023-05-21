@@ -1,0 +1,606 @@
+<interface>
+  <object class="GtkWindow">
+    <property name="default-width">1920</property>
+    <property name="default-height">1080</property>
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">horizontal</property>
+        <child>
+          <object class="GtkBox">
+            <property name="orientation">vertical</property>
+            <property name="vexpand">true</property>
+            <child>
+              <object class="GtkSearchEntry">
+                <property name="activates-default">true</property>
+                <property name="placeholder-text">Search</property>
+                <property name="margin-top">10</property>
+                <property name="margin-bottom">10</property>
+                <property name="margin-start">10</property>
+                <property name="margin-end">10</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkStackSidebar">
+                <property name="vexpand">true</property>
+                <property name="stack">side_menu</property>
+                <property name="css-classes"></property> <!-- Temporary hack to get rid of border, will make a custom class -->
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkStack" id="side_menu">
+            <child>
+              <object class="GtkStackPage">
+                <property name="name">page1</property>
+                <property name="title">Explore</property>
+                <property name="child">
+                  <object class="GtkBox">
+                    <property name="orientation">vertical</property>
+                    <child>
+                      <object class="GtkOverlay">
+                        <child>
+                          <object class="GtkBox"> <!-- Temporarily using a GtkBox instead of a GtkPicture for testing -->
+                            <property name="css-classes">sample-preview</property> <!-- Temporary class to show where the image will be -->
+                            <property name="hexpand">true</property>
+                            <property name="height-request">700</property>
+                            <property name="valign">start</property>
+                            <property name="vexpand">false</property>
+                              <child>
+                                <object class="GtkBox">
+                                  <property name="halign">center</property>
+                                  <property name="hexpand">true</property>
+                                  <property name="valign">end</property>
+                                  <property name="margin-bottom">30</property>
+                                  <property name="css-classes">preview-overlay</property>
+                                  <child>
+                                    <object class="GtkBox">
+                                      <property name="orientation">horizontal</property>
+                                      <property name="spacing">10</property>
+                                      <child>
+                                        <object class="GtkBox">
+                                          <property name="css-classes">preview-poster</property>
+                                          <property name="width-request">72</property>
+                                          <property name="height-request">120</property>
+                                        </object>
+                                      </child>
+                                      <child>
+                                        <object class="GtkBox">
+                                          <property name="orientation">vertical</property>
+                                          <child>
+                                            <object class="GtkLabel">
+                                              <property name="css-classes">title</property>
+                                              <property name="label">Oshi No Ko Season 1</property>
+                                              <property name="halign">start</property>
+                                            </object>
+                                          </child>
+                                          <child>
+                                            <object class="GtkLabel">
+                                              <property name="css-classes">infos</property>
+                                              <property name="label">TV · PG-13 · 12 episodes · 24 minutes · Spring 2023</property>
+                                              <property name="halign">start</property>
+                                            </object>
+                                          </child>
+                                          <child>
+                                            <object class="GtkLabel">
+                                              <property name="css-classes">airing_status_airing</property>
+                                              <property name="label">Airing</property>
+                                              <property name="hexpand">true</property>
+                                              <property name="halign">fill</property>
+                                            </object>
+                                          </child>
+                                          <child>
+                                            <object class="GtkButton">
+                                              <property name="css-classes">add-button</property>
+                                              <property name="label">Add</property>
+                                              <property name="halign">start</property>
+                                              <property name="valign">end</property>
+                                              <property name="vexpand">true</property>
+                                            </object>
+                                          </child>
+                                        </object>
+                                      </child>
+                                    </object>
+                                  </child>
+                                </object>
+                              </child>
+                          </object>
+                        </child>
+                        <!-- <child>
+                          <object class="GtkLabel">
+                            <property name="label">AAAAA</property>
+                          </object>
+                        </child> -->
+                      </object>
+                    </child>
+                    <child>
+                      <!--Synopsis rating etc under the large poster-->
+                      <object class="GtkScrolledWindow">
+                        <property name="hscrollbar-policy">never</property>
+                        <property name="vexpand">true</property>
+                        <property name="valign">fill</property>
+                        <child>
+                          <object class="GtkBox">
+                            <property name="orientation">vertical</property>
+                            <property name="spacing">25</property>
+                            <child>
+                              <!--Base info, ratings etc-->
+                              <object class="GtkBox">
+                                <property name="orientation">horizontal</property>
+                                <property name="homogeneous">true</property>
+                                <property name="margin-top">25</property>
+                                <child>
+                                  <!-- Ratings -->
+                                  <object class="GtkBox">
+                                    <property name="css-classes">info-bar-item</property>
+                                    <property name="orientation">vertical</property>
+                                    <property name="spacing">5</property>
+                                    <child>
+                                      <object class="GtkLabel">
+                                        <property name="css-classes">rating-top</property>
+                                        <property name="label">5.0</property>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="GtkBox">
+                                        <property name="halign">center</property>
+                                        <property name="spacing">5</property>
+                                        <child>
+                                          <object class="GtkImage">
+                                            <!-- <property name="label">Icon Placeholder</property> -->
+                                            <property name="icon-name">emblem-favorite</property>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkImage">
+                                            <!-- <property name="label">Icon Placeholder</property> -->
+                                            <property name="icon-name">emblem-favorite</property>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkImage">
+                                            <!-- <property name="label">Icon Placeholder</property> -->
+                                            <property name="icon-name">emblem-favorite</property>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkImage">
+                                            <!-- <property name="label">Icon Placeholder</property> -->
+                                            <property name="icon-name">emblem-favorite</property>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkImage">
+                                            <!-- <property name="label">Icon Placeholder</property> -->
+                                            <property name="icon-name">emblem-favorite</property>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="GtkLabel">
+                                        <property name="css-classes">item-bottom</property>
+                                        <property name="label">2mln ratings</property>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkSeparator">
+                                    <property name="halign">center</property>
+                                  </object>
+                                </child>
+                                <child>
+                                  <!-- Ratings -->
+                                  <object class="GtkBox">
+                                    <property name="css-classes">info-bar-item</property>
+                                    <property name="orientation">vertical</property>
+                                    <property name="spacing">5</property>
+                                    <child>
+                                      <object class="GtkLabel">
+                                        <property name="css-classes">rating-top</property>
+                                        <property name="label">5.0</property>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="GtkBox">
+                                        <property name="halign">center</property>
+                                        <property name="spacing">5</property>
+                                        <child>
+                                          <object class="GtkImage">
+                                            <!-- <property name="label">Icon Placeholder</property> -->
+                                            <property name="icon-name">emblem-favorite</property>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkImage">
+                                            <!-- <property name="label">Icon Placeholder</property> -->
+                                            <property name="icon-name">emblem-favorite</property>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkImage">
+                                            <!-- <property name="label">Icon Placeholder</property> -->
+                                            <property name="icon-name">emblem-favorite</property>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkImage">
+                                            <!-- <property name="label">Icon Placeholder</property> -->
+                                            <property name="icon-name">emblem-favorite</property>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkImage">
+                                            <!-- <property name="label">Icon Placeholder</property> -->
+                                            <property name="icon-name">emblem-favorite</property>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="GtkLabel">
+                                        <property name="css-classes">item-bottom</property>
+                                        <property name="label">2mln ratings</property>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkSeparator">
+                                    <property name="halign">center</property>
+                                  </object>
+                                </child>
+                                <child>
+                                  <!-- Ratings -->
+                                  <object class="GtkBox">
+                                    <property name="css-classes">info-bar-item</property>
+                                    <property name="orientation">vertical</property>
+                                    <property name="spacing">5</property>
+                                    <child>
+                                      <object class="GtkLabel">
+                                        <property name="css-classes">rating-top</property>
+                                        <property name="label">5.0</property>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="GtkBox">
+                                        <property name="halign">center</property>
+                                        <property name="spacing">5</property>
+                                        <child>
+                                          <object class="GtkImage">
+                                            <!-- <property name="label">Icon Placeholder</property> -->
+                                            <property name="icon-name">emblem-favorite</property>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkImage">
+                                            <!-- <property name="label">Icon Placeholder</property> -->
+                                            <property name="icon-name">emblem-favorite</property>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkImage">
+                                            <!-- <property name="label">Icon Placeholder</property> -->
+                                            <property name="icon-name">emblem-favorite</property>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkImage">
+                                            <!-- <property name="label">Icon Placeholder</property> -->
+                                            <property name="icon-name">emblem-favorite</property>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkImage">
+                                            <!-- <property name="label">Icon Placeholder</property> -->
+                                            <property name="icon-name">emblem-favorite</property>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="GtkLabel">
+                                        <property name="css-classes">item-bottom</property>
+                                        <property name="label">2mln ratings</property>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkSeparator">
+                                    <property name="halign">center</property>
+                                  </object>
+                                </child>
+                                <child>
+                                  <!-- Ratings -->
+                                  <object class="GtkBox">
+                                    <property name="css-classes">info-bar-item</property>
+                                    <property name="orientation">vertical</property>
+                                    <property name="spacing">5</property>
+                                    <child>
+                                      <object class="GtkLabel">
+                                        <property name="css-classes">rating-top</property>
+                                        <property name="label">5.0</property>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="GtkBox">
+                                        <property name="halign">center</property>
+                                        <property name="spacing">5</property>
+                                        <child>
+                                          <object class="GtkImage">
+                                            <!-- <property name="label">Icon Placeholder</property> -->
+                                            <property name="icon-name">emblem-favorite</property>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkImage">
+                                            <!-- <property name="label">Icon Placeholder</property> -->
+                                            <property name="icon-name">emblem-favorite</property>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkImage">
+                                            <!-- <property name="label">Icon Placeholder</property> -->
+                                            <property name="icon-name">emblem-favorite</property>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkImage">
+                                            <!-- <property name="label">Icon Placeholder</property> -->
+                                            <property name="icon-name">emblem-favorite</property>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkImage">
+                                            <!-- <property name="label">Icon Placeholder</property> -->
+                                            <property name="icon-name">emblem-favorite</property>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="GtkLabel">
+                                        <property name="css-classes">item-bottom</property>
+                                        <property name="label">2mln ratings</property>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkSeparator">
+                                    <property name="halign">center</property>
+                                  </object>
+                                </child>
+                                <child>
+                                  <!-- Ratings -->
+                                  <object class="GtkBox">
+                                    <property name="css-classes">info-bar-item</property>
+                                    <property name="orientation">vertical</property>
+                                    <property name="spacing">5</property>
+                                    <child>
+                                      <object class="GtkLabel">
+                                        <property name="css-classes">rating-top</property>
+                                        <property name="label">5.0</property>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="GtkBox">
+                                        <property name="halign">center</property>
+                                        <property name="spacing">5</property>
+                                        <child>
+                                          <object class="GtkImage">
+                                            <!-- <property name="label">Icon Placeholder</property> -->
+                                            <property name="icon-name">emblem-favorite</property>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkImage">
+                                            <!-- <property name="label">Icon Placeholder</property> -->
+                                            <property name="icon-name">emblem-favorite</property>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkImage">
+                                            <!-- <property name="label">Icon Placeholder</property> -->
+                                            <property name="icon-name">emblem-favorite</property>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkImage">
+                                            <!-- <property name="label">Icon Placeholder</property> -->
+                                            <property name="icon-name">emblem-favorite</property>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkImage">
+                                            <!-- <property name="label">Icon Placeholder</property> -->
+                                            <property name="icon-name">emblem-favorite</property>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="GtkLabel">
+                                        <property name="css-classes">item-bottom</property>
+                                        <property name="label">2mln ratings</property>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkSeparator">
+                                    <property name="halign">center</property>
+                                  </object>
+                                </child>
+                                <child>
+                                  <!-- Ratings -->
+                                  <object class="GtkBox">
+                                    <property name="css-classes">info-bar-item</property>
+                                    <property name="orientation">vertical</property>
+                                    <property name="spacing">5</property>
+                                    <property name="margin-start">25</property>
+                                    <property name="margin-end">25</property>
+                                    <child>
+                                      <object class="GtkLabel">
+                                        <property name="css-classes">rating-top</property>
+                                        <property name="label">5.0</property>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="GtkBox">
+                                        <property name="halign">center</property>
+                                        <property name="spacing">5</property>
+                                        <child>
+                                          <object class="GtkImage">
+                                            <!-- <property name="label">Icon Placeholder</property> -->
+                                            <property name="icon-name">emblem-favorite</property>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkImage">
+                                            <!-- <property name="label">Icon Placeholder</property> -->
+                                            <property name="icon-name">emblem-favorite</property>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkImage">
+                                            <!-- <property name="label">Icon Placeholder</property> -->
+                                            <property name="icon-name">emblem-favorite</property>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkImage">
+                                            <!-- <property name="label">Icon Placeholder</property> -->
+                                            <property name="icon-name">emblem-favorite</property>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkImage">
+                                            <!-- <property name="label">Icon Placeholder</property> -->
+                                            <property name="icon-name">emblem-favorite</property>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="GtkLabel">
+                                        <property name="css-classes">item-bottom</property>
+                                        <property name="label">2mln ratings</property>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkSeparator">
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkScrolledWindow">
+                                <property name="vexpand">true</property>
+                                <property name="valign">fill</property>
+                                <child>
+                                  <object class="GtkBox">
+                                    <property name="orientation">vertical</property>
+                                    <property name="spacing">25</property>
+                                    <property name="margin-start">20</property>
+                                    <property name="margin-end">20</property>
+                                    <child>
+                                      <object class="GtkLabel">
+                                        <property name="css-classes">long-description-title</property>
+                                        <property name="label">Synopsis</property>
+                                        <property name="halign">start</property>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="GtkTextView">
+                                        <property name="css-classes">long-description</property>
+                                        <property name="editable">false</property>
+                                        <property name="wrap-mode">GTK_WRAP_WORD_CHAR</property>
+                                        <property name="cursor-visible">false</property>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="GtkSeparator">
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="GtkLabel">
+                                        <property name="css-classes">long-description-title</property>
+                                        <property name="label">Ratings</property>
+                                        <property name="halign">start</property>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="GtkTextView">
+                                        <property name="css-classes">long-description</property>
+                                        <property name="editable">false</property>
+                                        <property name="wrap-mode">GTK_WRAP_WORD_CHAR</property>
+                                        <property name="cursor-visible">false</property>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkStackPage">
+                <property name="name">page2</property>
+                <property name="title">Library</property>
+                <property name="child">
+                  <object class="GtkLabel">
+                    <property name="label">Library</property>
+                  </object>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkStackPage">
+                <property name="name">page3</property>
+                <property name="title">Feed</property>
+                <property name="child">
+                  <object class="GtkLabel">
+                    <property name="label">Feed</property>
+                  </object>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkStackPage">
+                <property name="name">page4</property>
+                <property name="title">Notifications</property>
+                <property name="child">
+                  <object class="GtkLabel">
+                    <property name="label">Notifications</property>
+                  </object>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkStackPage">
+                <property name="name">page5</property>
+                <property name="title">Settings</property>
+                <property name="child">
+                  <object class="GtkLabel">
+                    <property name="label">Settings</property>
+                  </object>
+                </property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
