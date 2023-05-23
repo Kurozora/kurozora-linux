@@ -1,20 +1,9 @@
-#include <gtkmm.h>
-
-class MyWindow : public Gtk::Window
-{
-public:
-  MyWindow();
-};
-
-MyWindow::MyWindow()
-{
-  set_title("Basic application");
-  set_default_size(200, 200);
-}
+#include "kurozora/include/main-window.h"
+#include <iostream>
 
 int main(int argc, char* argv[])
 {
-  auto app = Gtk::Application::create("org.gtkmm.examples.base");
-
-  return app->make_window_and_run<MyWindow>(argc, argv);
+    std::cout << "Starting Kurozora" << std::endl;
+    auto app = Gtk::Application::create("app.Kurozora.Kurozora");
+    return app->make_window_and_run<kurozora::MainWindow>(argc, argv);
 }

@@ -1,0 +1,14 @@
+<interface>
+    <object class="GtkBox" id="main-window">
+        <property name="width-request">350</property>
+        <child>
+            <object class="GtkLabel">
+                <property name="label">Hello World</property>
+                <property name="halign">center</property>
+                <property name="valign">center</property>
+                <property name="hexpand">true</property>
+                <property name="vexpand">true</property>
+            </object>
+        </child>
+    </object>
+</interface>
