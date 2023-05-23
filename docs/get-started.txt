@@ -1,0 +1,7 @@
+In order to build GTK4 you must install GTKmm4.
+
+For now GTKmm4 is not contained in most package repositories by default.
+
+You do not with to manually build it, you can install it from the [universe] Ubuntu repository, but you must update to Ubuntu 22.10 (Kinetic) to get the package.
+
+(this is required only for building)
