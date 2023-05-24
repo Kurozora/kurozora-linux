@@ -7,6 +7,9 @@ add_compile_definitions(APPLICATION_VERSION="0.0.1")
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake/)
 
+set(CMAKE_CXX_COMPILER "/mingw64/bin/g++.exe")
+set(CMAKE_C_COMPILER "/mingw64/bin/gcc.exe")
+
 find_package(PkgConfig)
 pkg_check_modules(GTKMM gtkmm-4.0)
 pkg_check_modules(GLIB2 glib-2.0)
@@ -16,6 +19,29 @@ link_directories(
 )
 
 include_directories(
+    "/mingw64/lib/graphene-1.0/include",
+    "/mingw64/include/graphene-1.0",
+    "/mingw64/include/gtkmm-4.0/gtkmm",
+    "/mingw64/include/pangomm-2.48",
+    "/mingw64/include/gdk-pixbuf-2.0",
+    "/mingw64/include/harfbuzz",
+    "/mingw64/include/pango-1.0",
+    "/mingw64/include/gtk-4.0",
+    "/mingw64/include/freetype2",
+    "/mingw64/include/cairo",
+    "/mingw64/lib/cairomm-1.16/include",
+    "/mingw64/include/cairomm-1.16",
+    "/mingw64/lib/pangomm-2.48/include",
+    "/mingw64/lib/gtkmm-4.0/include",
+    "/mingw64/lib/giomm-2.68/include",
+    "/mingw64/include/giomm-2.68",
+    "/mingw64/lib/sigc++-3.0/include",
+    "/mingw64/include/sigc++-3.0",
+    "/mingw64/lib/glib-2.0/include",
+    "/mingw64/lib/glibmm-2.4/include",
+    "/mingw64/include/gtkmm-4.0",
+    "/mingw64/include/glib-2.0",
+    "/mingw64/include/glibmm-2.68",
     ${GTKMM_INCLUDE_DIRS},
     ${GLIB2_INCLUDE_DIRS}
 )
@@ -31,6 +57,8 @@ file(GLOB_RECURSE hnSourceFiles
 )
 
 add_executable(Kurozora ${hnSourceFiles})
+
+target_compile_options(Kurozora PRIVATE -lstdc++)
 
 # Add and link libraries
 target_link_libraries(Kurozora ${GTKMM_LIBRARIES})
