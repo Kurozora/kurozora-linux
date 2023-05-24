@@ -6,7 +6,7 @@ namespace kurozora
     {
         this->set_title("Kurozora");
         this->css_provider = Gtk::CssProvider::create();
-        this->css_provider->load_from_path("../ui/style/main-window.css");
+        this->css_provider->load_from_path("../ui/style/overrides.css");
         this->builder = Gtk::Builder::create_from_file("../ui/widgets/main-window.ui");
 
         this->main_box = std::shared_ptr<Gtk::Box>(builder->get_widget<Gtk::Box>("main-window"));
