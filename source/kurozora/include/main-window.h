@@ -11,8 +11,8 @@ namespace kurozora
         MainWindow();
         ~MainWindow();
     public:
-        Glib::RefPtr<Gtk::Application> application;
-        Glib::RefPtr<Gtk::Builder> builder;
+        std::shared_ptr<Gtk::Application> application;
+        std::shared_ptr<Gtk::Builder> builder;
         std::shared_ptr<Gtk::Box> window;
     };
 }
