@@ -1,3 +1,14 @@
-/*
-    This file will be applied to the main-window widget.
-*/
+/* Kurozora Overrides */
+
+/* Start Override GTK classes */
+
+.sidebar {
+    border-width: 0px;
+}
+
+.navigation-sidebar {
+    background-color: rgba(0,0,0,0);
+    border-color: rgba(0,0,0,0);
+}
+
+/* End Override GTK classes */
