@@ -19,8 +19,6 @@
                     <object class="GtkStackSidebar">
                         <property name="vexpand">true</property>
                         <property name="stack">side_menu</property>
-                        <property name="css-classes"></property>
-                        <!-- Temporary hack to get rid of border, will make a custom class -->
                     </object>
                 </child>
             </object>
