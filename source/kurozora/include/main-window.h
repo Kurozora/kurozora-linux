@@ -13,6 +13,7 @@ namespace kurozora
     public:
         std::shared_ptr<Gtk::Application> application;
         std::shared_ptr<Gtk::Builder> builder;
+        std::shared_ptr<Gtk::CssProvider> css_provider;
         std::shared_ptr<Gtk::Box> window;
     };
 }
