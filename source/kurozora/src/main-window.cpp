@@ -11,10 +11,10 @@ namespace kurozora
 
         // This CSS file will only be applied to the main windget, for Kurozora global themes
         // it will make sense to retrieve the display object and apply the theme globally
-        this->window = std::shared_ptr<Gtk::Box>(builder->get_widget<Gtk::Box>("main-window"));
-        this->window->get_style_context()->add_provider(this->css_provider, 1);
+        this->main_box = std::shared_ptr<Gtk::Box>(builder->get_widget<Gtk::Box>("main-window"));
+        this->main_box->get_style_context()->add_provider(this->css_provider, 1);
 
-        this->set_child(*this->window);
+        this->set_child(*this->main_box);
         this->show();
     }
 
