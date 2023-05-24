@@ -1,13 +1,87 @@
 <interface>
     <object class="GtkBox" id="main-window">
-        <property name="width-request">350</property>
+        <property name="orientation">horizontal</property>
         <child>
-            <object class="GtkLabel">
-                <property name="label">Hello World</property>
-                <property name="halign">center</property>
-                <property name="valign">center</property>
-                <property name="hexpand">true</property>
+            <object class="GtkBox">
+                <property name="orientation">vertical</property>
                 <property name="vexpand">true</property>
+                <child>
+                    <object class="GtkSearchEntry">
+                        <property name="activates-default">true</property>
+                        <property name="placeholder-text">Search</property>
+                        <property name="margin-top">10</property>
+                        <property name="margin-bottom">10</property>
+                        <property name="margin-start">10</property>
+                        <property name="margin-end">10</property>
+                    </object>
+                </child>
+                <child>
+                    <object class="GtkStackSidebar">
+                        <property name="vexpand">true</property>
+                        <property name="stack">side_menu</property>
+                        <property name="css-classes"></property>
+                        <!-- Temporary hack to get rid of border, will make a custom class -->
+                    </object>
+                </child>
+            </object>
+        </child>
+        <child>
+            <object class="GtkStack" id="side_menu">
+                <child>
+                    <object class="GtkStackPage">
+                        <property name="name">page1</property>
+                        <property name="title">Explore</property>
+                        <property name="child">
+                            <object class="GtkLabel">
+                                <property name="label">Explore</property>
+                            </object>
+                        </property>
+                    </object>
+                </child>
+                <child>
+                    <object class="GtkStackPage">
+                        <property name="name">page2</property>
+                        <property name="title">Library</property>
+                        <property name="child">
+                            <object class="GtkLabel">
+                                <property name="label">Library</property>
+                            </object>
+                        </property>
+                    </object>
+                </child>
+                <child>
+                    <object class="GtkStackPage">
+                        <property name="name">page3</property>
+                        <property name="title">Feed</property>
+                        <property name="child">
+                            <object class="GtkLabel">
+                                <property name="label">Feed</property>
+                            </object>
+                        </property>
+                    </object>
+                </child>
+                <child>
+                    <object class="GtkStackPage">
+                        <property name="name">page4</property>
+                        <property name="title">Notifications</property>
+                        <property name="child">
+                            <object class="GtkLabel">
+                                <property name="label">Notifications</property>
+                            </object>
+                        </property>
+                    </object>
+                </child>
+                <child>
+                    <object class="GtkStackPage">
+                        <property name="name">page5</property>
+                        <property name="title">Settings</property>
+                        <property name="child">
+                            <object class="GtkLabel">
+                                <property name="label">Settings</property>
+                            </object>
+                        </property>
+                    </object>
+                </child>
             </object>
         </child>
     </object>
