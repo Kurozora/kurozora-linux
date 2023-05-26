@@ -54,8 +54,14 @@ set_target_properties( Kurozora
 
 # Copy configs to binary
 file(COPY config DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/bin)
-file(COPY ui DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/bin)
+#file(COPY ui DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/bin)
 file(COPY resources DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/bin)
+
+# Compile Gresources
+execute_process(
+    COMMAND glib-compile-resources gresources.xml
+    WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/bin/resources"
+)
 
 # Respect source code folder structure
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
