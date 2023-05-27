@@ -12,3 +12,12 @@
 }
 
 /* End Override GTK classes */
+
+/* Start Custom CSS classes */
+
+label.page-header {
+    font-size: 28pt;
+    font-weight: bold;
+}
+
+/* End Custom CSS classes */
