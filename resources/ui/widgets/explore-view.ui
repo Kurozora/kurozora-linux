@@ -28,6 +28,11 @@
                             </object>
                         </child>
                         <child>
+                            <object class="GtkSeparator">
+                                <property name="orientation">horizontal</property>
+                            </object>
+                        </child>
+                        <child>
                             <!--{Season}{Year}-->
                             <object class="GtkScrolledWindow">
                                 <property name="vscrollbar-policy">never</property>
@@ -36,6 +41,11 @@
                                         <property name="orientation">horizontal</property>
                                     </object>
                                 </child>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="GtkSeparator">
+                                <property name="orientation">horizontal</property>
                             </object>
                         </child>
                         <child>
@@ -50,6 +60,11 @@
                             </object>
                         </child>
                         <child>
+                            <object class="GtkSeparator">
+                                <property name="orientation">horizontal</property>
+                            </object>
+                        </child>
+                        <child>
                             <!--Upcoming Shows-->
                             <object class="GtkScrolledWindow">
                                 <property name="vscrollbar-policy">never</property>
@@ -58,6 +73,11 @@
                                         <property name="orientation">horizontal</property>
                                     </object>
                                 </child>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="GtkSeparator">
+                                <property name="orientation">horizontal</property>
                             </object>
                         </child>
                         <child>
@@ -72,6 +92,11 @@
                             </object>
                         </child>
                         <child>
+                            <object class="GtkSeparator">
+                                <property name="orientation">horizontal</property>
+                            </object>
+                        </child>
+                        <child>
                             <!--Long Time Favorites-->
                             <object class="GtkScrolledWindow">
                                 <property name="vscrollbar-policy">never</property>
@@ -80,6 +105,11 @@
                                         <property name="orientation">horizontal</property>
                                     </object>
                                 </child>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="GtkSeparator">
+                                <property name="orientation">horizontal</property>
                             </object>
                         </child>
                         <child>
@@ -94,6 +124,11 @@
                             </object>
                         </child>
                         <child>
+                            <object class="GtkSeparator">
+                                <property name="orientation">horizontal</property>
+                            </object>
+                        </child>
+                        <child>
                             <!--Hot Tracks-->
                             <object class="GtkScrolledWindow">
                                 <property name="vscrollbar-policy">never</property>
@@ -102,6 +137,11 @@
                                         <property name="orientation">horizontal</property>
                                     </object>
                                 </child>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="GtkSeparator">
+                                <property name="orientation">horizontal</property>
                             </object>
                         </child>
                         <child>
