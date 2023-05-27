@@ -2,8 +2,111 @@
     <object class="GtkBox" id="explore_main_box">
         <property name="orientation">vertical</property>
         <child>
-            <object class="GtkLabel">
-                <property name="label">Placeholder for dynamically loaded view</property>
+            <object class="GtkScrolledWindow">
+                <property name="hscrollbar-policy">never</property>
+                <property name="vexpand">true</property>
+                <property name="valign">fill</property>"
+                <child>
+                    <object class="GtkBox">
+                        <property name="orientation">horizontal</property>
+                        <property name="halign">fille</property>
+                        <property name="hexpand">true</property>
+                        <child>
+                            <!--Explore-->
+                            <object class="GtkScrolledWindow">
+                                <property name="vscrollbar-policy">never</property>
+                                <child>
+                                    <object class="GtkBox" id="explore-explore">
+                                        <property name="orientation">horizontal</property>
+                                    </object>
+                                </child>
+                            </object>
+                        </child>
+                        <child>
+                            <!--{Season}{Year}-->
+                            <object class="GtkScrolledWindow">
+                                <property name="vscrollbar-policy">never</property>
+                                <child>
+                                    <object class="GtkBox" id="explore-season">
+                                        <property name="orientation">horizontal</property>
+                                    </object>
+                                </child>
+                            </object>
+                        </child>
+                        <child>
+                            <!--New Game Additions-->
+                            <object class="GtkScrolledWindow">
+                                <property name="vscrollbar-policy">never</property>
+                                <child>
+                                    <object class="GtkBox" id="explore-new-game-additions">
+                                        <property name="orientation">horizontal</property>
+                                    </object>
+                                </child>
+                            </object>
+                        </child>
+                        <child>
+                            <!--Upcoming Shows-->
+                            <object class="GtkScrolledWindow">
+                                <property name="vscrollbar-policy">never</property>
+                                <child>
+                                    <object class="GtkBox" id="explore-upcoming-shows">
+                                        <property name="orientation">horizontal</property>
+                                    </object>
+                                </child>
+                            </object>
+                        </child>
+                        <child>
+                            <!--Top Genres-->
+                            <object class="GtkScrolledWindow">
+                                <property name="vscrollbar-policy">never</property>
+                                <child>
+                                    <object class="GtkBox" id="explore-top-genres">
+                                        <property name="orientation">horizontal</property>
+                                    </object>
+                                </child>
+                            </object>
+                        </child>
+                        <child>
+                            <!--Long Time Favorites-->
+                            <object class="GtkScrolledWindow">
+                                <property name="vscrollbar-policy">never</property>
+                                <child>
+                                    <object class="GtkBox" id="explore-long-time-favorites">
+                                        <property name="orientation">horizontal</property>
+                                    </object>
+                                </child>
+                            </object>
+                        </child>
+                        <child>
+                            <!--What Are We Watching-->
+                            <object class="GtkScrolledWindow">
+                                <property name="vscrollbar-policy">never</property>
+                                <child>
+                                    <object class="GtkBox" id="explore-what-are-we-watching">
+                                        <property name="orientation">horizontal</property>
+                                    </object>
+                                </child>
+                            </object>
+                        </child>
+                        <child>
+                            <!--Hot Tracks-->
+                            <object class="GtkScrolledWindow">
+                                <property name="vscrollbar-policy">never</property>
+                                <child>
+                                    <object class="GtkBox" id="explore-hot-tracks">
+                                        <property name="orientation">horizontal</property>
+                                    </object>
+                                </child>
+                            </object>
+                        </child>
+                        <child>
+                            <!--Quick Links-->
+                            <object class="GtkLabel">
+                                <property name="label">Quick Links placeholder</property>
+                            </object>
+                        </child>
+                    </object>
+                </child>
             </object>
         </child>
     </object>
