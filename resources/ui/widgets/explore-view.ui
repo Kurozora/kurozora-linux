@@ -1,6 +1,11 @@
 <interface>
     <object class="GtkBox" id="explore_main_box">
         <property name="orientation">vertical</property>
+        <property name="spacing">10</property>
+        <property name="margin-top">10</property>
+        <property name="margin-bottom">10</property>
+        <property name="margin-start">10</property>
+        <property name="margin-end">10</property>
         <child>
             <object class="GtkScrolledWindow">
                 <property name="hscrollbar-policy">never</property>
