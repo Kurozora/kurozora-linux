@@ -20,4 +20,9 @@ label.page-header {
     font-weight: bold;
 }
 
+label.section-header {
+    font-size: 18pt;
+    font-weight: bold;
+}
+
 /* End Custom CSS classes */

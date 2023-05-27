@@ -23,13 +23,20 @@
                         <property name="orientation">vertical</property>
                         <property name="halign">fill</property>
                         <property name="hexpand">true</property>
-                        <property name="spacing">10</property>
+                        <property name="spacing">25</property>
                         <property name="margin-top">10</property>
                         <property name="margin-bottom">10</property>
                         <property name="margin-start">10</property>
                         <property name="margin-end">10</property>
+                        <!--Featured-->
                         <child>
-                            <!--Explore-->
+                            <object class="GtkLabel">
+                                <property name="css-classes">section-header</property>
+                                <property name="halign">start</property>
+                                <property name="label">Featured</property>
+                            </object>
+                        </child>
+                        <child>
                             <object class="GtkScrolledWindow">
                                 <property name="vscrollbar-policy">never</property>
                                 <child>
@@ -44,8 +51,15 @@
                                 <property name="orientation">horizontal</property>
                             </object>
                         </child>
+                        <!--{Season}{Year}-->
                         <child>
-                            <!--{Season}{Year}-->
+                            <object class="GtkLabel">
+                                <property name="css-classes">section-header</property>
+                                <property name="halign">start</property>
+                                <property name="label">This Season</property> <!--This label is controlled by the APIs-->
+                            </object>
+                        </child>
+                        <child>
                             <object class="GtkScrolledWindow">
                                 <property name="vscrollbar-policy">never</property>
                                 <child>
@@ -60,8 +74,15 @@
                                 <property name="orientation">horizontal</property>
                             </object>
                         </child>
+                        <!--New Game Additions-->
                         <child>
-                            <!--New Game Additions-->
+                            <object class="GtkLabel">
+                                <property name="css-classes">section-header</property>
+                                <property name="halign">start</property>
+                                <property name="label">New Game Additions</property>
+                            </object>
+                        </child>
+                        <child>
                             <object class="GtkScrolledWindow">
                                 <property name="vscrollbar-policy">never</property>
                                 <child>
@@ -76,8 +97,15 @@
                                 <property name="orientation">horizontal</property>
                             </object>
                         </child>
+                        <!--Upcoming Shows-->
                         <child>
-                            <!--Upcoming Shows-->
+                            <object class="GtkLabel">
+                                <property name="css-classes">section-header</property>
+                                <property name="halign">start</property>
+                                <property name="label">Upcoming Shows</property>
+                            </object>
+                        </child>
+                        <child>
                             <object class="GtkScrolledWindow">
                                 <property name="vscrollbar-policy">never</property>
                                 <child>
@@ -92,8 +120,15 @@
                                 <property name="orientation">horizontal</property>
                             </object>
                         </child>
+                        <!--Top Genres-->
                         <child>
-                            <!--Top Genres-->
+                            <object class="GtkLabel">
+                                <property name="css-classes">section-header</property>
+                                <property name="halign">start</property>
+                                <property name="label">Top Genres</property>
+                            </object>
+                        </child>
+                        <child>
                             <object class="GtkScrolledWindow">
                                 <property name="vscrollbar-policy">never</property>
                                 <child>
@@ -108,8 +143,15 @@
                                 <property name="orientation">horizontal</property>
                             </object>
                         </child>
+                        <!--Long Time Favorites-->
                         <child>
-                            <!--Long Time Favorites-->
+                            <object class="GtkLabel">
+                                <property name="css-classes">section-header</property>
+                                <property name="halign">start</property>
+                                <property name="label">Long Time Favorites</property>
+                            </object>
+                        </child>
+                        <child>
                             <object class="GtkScrolledWindow">
                                 <property name="vscrollbar-policy">never</property>
                                 <child>
@@ -124,8 +166,15 @@
                                 <property name="orientation">horizontal</property>
                             </object>
                         </child>
+                        <!--What Are We Watching-->
                         <child>
-                            <!--What Are We Watching-->
+                            <object class="GtkLabel">
+                                <property name="css-classes">section-header</property>
+                                <property name="halign">start</property>
+                                <property name="label">What Are We Watching</property>
+                            </object>
+                        </child>
+                        <child>
                             <object class="GtkScrolledWindow">
                                 <property name="vscrollbar-policy">never</property>
                                 <child>
@@ -140,8 +189,15 @@
                                 <property name="orientation">horizontal</property>
                             </object>
                         </child>
+                        <!--Hot Tracks-->
                         <child>
-                            <!--Hot Tracks-->
+                            <object class="GtkLabel">
+                                <property name="css-classes">section-header</property>
+                                <property name="halign">start</property>
+                                <property name="label">Hot Tracks</property>
+                            </object>
+                        </child>
+                        <child>
                             <object class="GtkScrolledWindow">
                                 <property name="vscrollbar-policy">never</property>
                                 <child>
@@ -156,8 +212,15 @@
                                 <property name="orientation">horizontal</property>
                             </object>
                         </child>
+                        <!--Quick Links-->
                         <child>
-                            <!--Quick Links-->
+                            <object class="GtkLabel">
+                                <property name="css-classes">section-header</property>
+                                <property name="halign">start</property>
+                                <property name="label">Quick Links</property>
+                            </object>
+                        </child>
+                        <child>
                             <object class="GtkLabel">
                                 <property name="label">Quick Links placeholder</property>
                             </object>
