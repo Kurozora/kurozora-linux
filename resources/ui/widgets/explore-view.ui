@@ -16,7 +16,7 @@
                             <object class="GtkScrolledWindow">
                                 <property name="vscrollbar-policy">never</property>
                                 <child>
-                                    <object class="GtkBox" id="explore-explore">
+                                    <object class="GtkBox" id="explore-featured">
                                         <property name="orientation">horizontal</property>
                                     </object>
                                 </child>
