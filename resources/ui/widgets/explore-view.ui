@@ -1,0 +1,10 @@
+<interface>
+    <object class="GtkBox" id="explore_main_box">
+        <property name="orientation">vertical</property>
+        <child>
+            <object class="GtkLabel">
+                <property name="label">Placeholder for dynamically loaded view</property>
+            </object>
+        </child>
+    </object>
+</interface>

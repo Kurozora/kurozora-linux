@@ -30,8 +30,8 @@
                         <property name="name">page1</property>
                         <property name="title">Explore</property>
                         <property name="child">
-                            <object class="GtkLabel">
-                                <property name="label">Explore</property>
+                            <object class="GtkBox" id="explore-container">
+                                <!--The contents of explore-view.ui will appear here!-->
                             </object>
                         </property>
                     </object>

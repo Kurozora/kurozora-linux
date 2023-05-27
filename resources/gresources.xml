@@ -1,6 +1,7 @@
 <gresources>
     <gresource prefix="/kurozora">
         <file compressed="true">ui/widgets/main-window.ui</file>
+        <file compressed="true">ui/widgets/explore-view.ui</file>
         <file compressed="true">ui/style/overrides.css</file>
     </gresource>
 </gresources>

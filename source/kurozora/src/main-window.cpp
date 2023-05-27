@@ -16,6 +16,10 @@ namespace kurozora
 
         this->set_child(*this->main_box);
         this->show();
+
+        // Build the various sections of the app
+        this->explore_view = std::make_unique<ExploreView>(ExploreView());
+        this->builder->get_widget<Gtk::Box>("explore-container")->insert_child_at_start(*this->explore_view);
     }
 
     MainWindow::~MainWindow() {}
