@@ -9,7 +9,7 @@
                 <child>
                     <object class="GtkBox">
                         <property name="orientation">horizontal</property>
-                        <property name="halign">fille</property>
+                        <property name="halign">fill</property>
                         <property name="hexpand">true</property>
                         <child>
                             <!--Explore-->
