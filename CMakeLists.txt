@@ -11,6 +11,19 @@ find_package(PkgConfig)
 pkg_check_modules(GTKMM gtkmm-4.0)
 pkg_check_modules(GLIB2 glib-2.0)
 
+# Copy resources
+
+# Copy configs to binary
+file(COPY config DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/bin)
+#file(COPY ui DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/bin)
+file(COPY resources DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/bin)
+
+# Compile Gresources
+execute_process(
+    COMMAND glib-compile-resources --target=resources.c --generate-source gresources.xml
+    WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/bin/resources"
+)
+
 link_directories(
     ${GTKMM_LIBRARY_DIRS}
 )
@@ -22,6 +35,7 @@ include_directories(
 
 # Add source files
 file(GLOB_RECURSE hnSourceFiles
+    "${CMAKE_CURRENT_BINARY_DIR}/bin/resources/resources.c" # The .c file containing all the gresources
     "source/*.h"
     "source/*.hpp"
     "source/*.c"
@@ -48,19 +62,6 @@ set_target_properties( Kurozora
     LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/bin/lib"
     RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/bin"
     
-)
-
-# Copy resources
-
-# Copy configs to binary
-file(COPY config DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/bin)
-#file(COPY ui DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/bin)
-file(COPY resources DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/bin)
-
-# Compile Gresources
-execute_process(
-    COMMAND glib-compile-resources gresources.xml
-    WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/bin/resources"
 )
 
 # Respect source code folder structure
