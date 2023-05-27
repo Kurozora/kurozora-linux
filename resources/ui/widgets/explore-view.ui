@@ -8,7 +8,7 @@
                 <property name="valign">fill</property>"
                 <child>
                     <object class="GtkBox">
-                        <property name="orientation">horizontal</property>
+                        <property name="orientation">vertical</property>
                         <property name="halign">fill</property>
                         <property name="hexpand">true</property>
                         <child>
