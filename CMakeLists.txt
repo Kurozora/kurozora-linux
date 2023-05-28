@@ -24,6 +24,8 @@ execute_process(
     WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/bin/resources"
 )
 
+add_subdirectory(libraries/cpr)
+
 link_directories(
     ${GTKMM_LIBRARY_DIRS}
 )
@@ -47,7 +49,7 @@ file(GLOB_RECURSE hnSourceFiles
 add_executable(Kurozora ${hnSourceFiles})
 
 # Add and link libraries
-target_link_libraries(Kurozora ${GTKMM_LIBRARIES})
+target_link_libraries(Kurozora PRIVATE ${GTKMM_LIBRARIES} PRIVATE cpr::cpr)
 
 # Specify targets output directory
 set_target_properties( Kurozora
