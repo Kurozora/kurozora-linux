@@ -1,3 +1,6 @@
 [submodule "libraries/cpr"]
 	path = libraries/cpr
 	url = https://github.com/libcpr/cpr
+[submodule "libraries/json"]
+	path = libraries/json
+	url = https://github.com/nlohmann/json

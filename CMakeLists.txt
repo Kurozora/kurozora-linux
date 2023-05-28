@@ -25,6 +25,7 @@ execute_process(
 )
 
 add_subdirectory(libraries/cpr)
+add_subdirectory(libraries/json)
 
 link_directories(
     ${GTKMM_LIBRARY_DIRS}
@@ -49,7 +50,7 @@ file(GLOB_RECURSE hnSourceFiles
 add_executable(Kurozora ${hnSourceFiles})
 
 # Add and link libraries
-target_link_libraries(Kurozora PRIVATE ${GTKMM_LIBRARIES} PRIVATE cpr::cpr)
+target_link_libraries(Kurozora PRIVATE ${GTKMM_LIBRARIES} PRIVATE cpr::cpr PRIVATE nlohmann_json)
 
 # Specify targets output directory
 set_target_properties( Kurozora
