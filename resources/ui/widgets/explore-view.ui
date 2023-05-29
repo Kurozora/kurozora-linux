@@ -233,7 +233,7 @@
                                         <property name="column-spacing">15</property>
                                         <property name="selection-mode">none</property>
                                         <child>
-                                            <object class="GtkFlowBoxChild">
+                                            <object class="GtkFlowBoxChild" id="explore-quick-link-1">
                                                 <property name="css-classes">quick-link</property>
                                                 <property name="margin-bottom">15</property>
                                                 <child>
@@ -245,7 +245,7 @@
                                             </object>
                                         </child>
                                         <child>
-                                            <object class="GtkFlowBoxChild">
+                                            <object class="GtkFlowBoxChild" id="explore-quick-link-2">
                                                 <property name="css-classes">quick-link</property>
                                                 <property name="margin-bottom">15</property>
                                                 <child>
@@ -257,7 +257,7 @@
                                             </object>
                                         </child>
                                         <child>
-                                            <object class="GtkFlowBoxChild">
+                                            <object class="GtkFlowBoxChild" id="explore-quick-link-3">
                                                 <property name="css-classes">quick-link</property>
                                                 <property name="margin-bottom">15</property>
                                                 <child>

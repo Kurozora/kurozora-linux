@@ -8,6 +8,7 @@ namespace kurozora
     {
     public:
         ExploreView();
+        void QuickLinkOpen(const std::string&& url);
     public:
         std::shared_ptr<Gtk::Box> explore_main_box;
         std::shared_ptr<Gtk::Builder> builder;
