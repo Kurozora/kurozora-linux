@@ -25,7 +25,6 @@
                         <property name="hexpand">true</property>
                         <property name="spacing">25</property>
                         <property name="margin-top">10</property>
-                        <property name="margin-bottom">10</property>
                         <property name="margin-start">10</property>
                         <property name="margin-end">10</property>
                         <!--Featured-->
@@ -222,7 +221,6 @@
                         </child>
                         <child>
                             <object class="GtkBox">
-                                <property name="margin-bottom">20</property>
                                 <property name="spacing">20</property>
                                 <property name="orientation">vertical</property>
                                 <child>
@@ -295,14 +293,23 @@
                                     </object>
                                 </child>
                                 <child>
-                                    <object class="GtkSeparator">
-                                        <property name="css-classes">thick-separator</property>
-                                        <property name="orientation">horizontal</property>
-                                        <!--Make this thicker-->
+                                    <object class="GtkBox">
+                                        <property name="orientation">vertical</property>
+                                        <property name="spacing">5px</property>
+                                        <child>
+                                            <object class="GtkSeparator">
+                                                <property name="css-classes">thick-separator</property>
+                                                <property name="orientation">horizontal</property>
+                                            </object>
+                                        </child>
+                                        <child>
+                                            <!--Kurozora & Privacy-->
+                                            <object class="GtkLabel" id="explore-kurozora-privacy-label">
+                                                <property name="halign">start</property>
+                                                <property name="label">Kurozora &#38; Privacy ></property>
+                                            </object>
+                                        </child>
                                     </object>
-                                </child>
-                                <child>
-                                    <!--Kurozora & Privacy-->
                                 </child>
                             </object>
                         </child>
