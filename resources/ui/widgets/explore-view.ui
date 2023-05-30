@@ -274,6 +274,25 @@
                                 </child>
                                 <child>
                                     <!--Horizontal box with buttons-->
+                                    <object class="GtkBox">
+                                        <property name="orientation">horizontal</property>
+                                        <property name="hexpand">true</property>
+                                        <property name="halign">center</property>
+                                        <property name="spacing">25</property>
+                                        <property name="homogeneous">true</property>
+                                        <child>
+                                            <object class="GtkButton" id="explore-redeem-button">
+                                                <property name="css-classes">large-button</property>
+                                                <property name="label">Redeem</property>
+                                            </object>
+                                        </child>
+                                        <child>
+                                            <object class="GtkButton" id="explore-view-subscription-button">
+                                                <property name="css-classes">large-button</property>
+                                                <property name="label">View Subscription</property>
+                                            </object>
+                                        </child>
+                                    </object>
                                 </child>
                                 <child>
                                     <object class="GtkSeparator">
