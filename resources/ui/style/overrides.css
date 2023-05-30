@@ -41,4 +41,8 @@ label.section-header {
     background-color: rgba(255,255,255,0.2);
 }
 
+.quick-link:active {
+    background-color: rgba(255,255,255,0.5);
+}
+
 /* End Custom CSS classes */
