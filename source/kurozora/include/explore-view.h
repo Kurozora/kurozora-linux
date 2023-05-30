@@ -13,6 +13,7 @@ namespace kurozora
         std::shared_ptr<Gtk::GestureClick> gesture_click;
         std::shared_ptr<Glib::Dispatcher> success_dispatcher;
         std::shared_ptr<Glib::Dispatcher> error_dispatcher;
+        std::shared_ptr<Gtk::Window> popup_window;
     };
 
     class ExploreView : public Gtk::Box

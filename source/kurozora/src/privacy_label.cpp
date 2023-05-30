@@ -15,6 +15,14 @@ namespace kurozora
     {
         label = std::shared_ptr<Gtk::Label>(builder->get_widget<Gtk::Label>(label_id));
 
+        // Initialize popup_window
+        popup_window = std::shared_ptr<Gtk::Window>(new Gtk::Window);
+        popup_window->set_hide_on_close();
+        //popup_window->signal_close_request().connect([this]() -> bool {
+        //    this->popup_window->hide();
+        //    return true; 
+        //}, false);
+
         //  Initialize callbacks
         success_dispatcher = std::shared_ptr<Glib::Dispatcher>(new Glib::Dispatcher);
         success_dispatcher->connect([this]() {
@@ -35,6 +43,7 @@ namespace kurozora
         gesture_click->signal_released().connect([this](const int&, const double&, const double&) {
             // Retrieve policy
             std::cout << "Clicked Button" << std::endl;
+            this->popup_window->show();
             std::thread retrieve_privacy_notice([this]() {
                 std::cout << "Thread running..." << std::endl;
                 // CPR to fetch and parse response
