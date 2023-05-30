@@ -35,7 +35,11 @@ label.section-header {
     font-size: 13pt;
 }
 
-    /* Explore */
+separator.thick-separator {
+    padding: 0.6px;
+}
+
+/* Explore */
 .quick-link {
     font-weight: bold;
     font-size: 12pt;

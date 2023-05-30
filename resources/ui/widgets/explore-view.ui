@@ -296,6 +296,7 @@
                                 </child>
                                 <child>
                                     <object class="GtkSeparator">
+                                        <property name="css-classes">thick-separator</property>
                                         <property name="orientation">horizontal</property>
                                         <!--Make this thicker-->
                                     </object>
