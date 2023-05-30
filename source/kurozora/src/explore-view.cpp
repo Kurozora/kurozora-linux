@@ -1,4 +1,6 @@
 #include "../include/explore-view.h"
+#include <thread>
+#include <iostream>
 
 namespace kurozora
 {
@@ -22,6 +24,9 @@ namespace kurozora
         auto quick_link_3_gesture = Gtk::GestureClick::create();
         quick_link_3_gesture->signal_released().connect([this](const int&, const double&, const double&) {QuickLinkOpen("https://kurozora.app/welcome"); });
         quick_link_3->add_controller(quick_link_3_gesture);
+
+        // Initialize the Kurozora & Privacy label
+        this->privacy_label = std::shared_ptr<PrivacyLabel>(new PrivacyLabel(this->builder, "explore-kurozora-privacy-label"));
 
         this->insert_child_at_start(*this->explore_main_box);
         this->show();
