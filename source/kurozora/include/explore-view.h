@@ -7,7 +7,7 @@ namespace kurozora
     class PrivacyLabel // This should be moved to it's own header file
     {
     public:
-        PrivacyLabel(std::shared_ptr<Gtk::Builder> builder, const std::string&& label_id);
+        PrivacyLabel(std::shared_ptr<Gtk::Window> parent, std::shared_ptr<Gtk::Builder> builder, const std::string&& label_id);
     public:
         std::shared_ptr<Gtk::Label> label;
         std::shared_ptr<Gtk::GestureClick> gesture_click;
@@ -19,9 +19,11 @@ namespace kurozora
     class ExploreView : public Gtk::Box
     {
     public:
-        ExploreView();
+        ExploreView(std::shared_ptr<Gtk::Window> parent_window);
         void QuickLinkOpen(const std::string&& url);
     public:
+        std::shared_ptr<Gtk::Window> parent_window;
+
         std::shared_ptr<Gtk::Box> explore_main_box;
         std::shared_ptr<Gtk::Builder> builder;
 

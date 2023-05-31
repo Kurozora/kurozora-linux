@@ -11,13 +11,15 @@ namespace kurozora
     // 3 - Thread notifies via the dispatcher object that the work is finished
     //
     // The dispatcher object is created in advanced, linked to a function and then passed to the working thread.
-    PrivacyLabel::PrivacyLabel(std::shared_ptr<Gtk::Builder> builder, const std::string&& label_id)
+    PrivacyLabel::PrivacyLabel(std::shared_ptr<Gtk::Window> parent, std::shared_ptr<Gtk::Builder> builder, const std::string&& label_id)
     {
         label = std::shared_ptr<Gtk::Label>(builder->get_widget<Gtk::Label>(label_id));
 
         // Initialize popup_window
         popup_window = std::shared_ptr<Gtk::Window>(new Gtk::Window);
         popup_window->set_hide_on_close();
+        popup_window->set_transient_for(*parent);
+        popup_window->set_modal(true);
         //popup_window->signal_close_request().connect([this]() -> bool {
         //    this->popup_window->hide();
         //    return true; 

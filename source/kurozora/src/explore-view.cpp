@@ -4,8 +4,10 @@
 
 namespace kurozora
 {
-    ExploreView::ExploreView()
+    ExploreView::ExploreView(std::shared_ptr<Gtk::Window> parent_window)
     {
+        this->parent_window = parent_window;
+
         this->builder = Gtk::Builder::create_from_resource("/kurozora/ui/widgets/explore-view.ui");
         this->explore_main_box = std::shared_ptr<Gtk::Box>(this->builder->get_widget<Gtk::Box>("explore_main_box"));
 
@@ -26,7 +28,7 @@ namespace kurozora
         quick_link_3->add_controller(quick_link_3_gesture);
 
         // Initialize the Kurozora & Privacy label
-        this->privacy_label = std::shared_ptr<PrivacyLabel>(new PrivacyLabel(this->builder, "explore-kurozora-privacy-label"));
+        this->privacy_label = std::shared_ptr<PrivacyLabel>(new PrivacyLabel(parent_window, this->builder, "explore-kurozora-privacy-label"));
 
         this->insert_child_at_start(*this->explore_main_box);
         this->show();
