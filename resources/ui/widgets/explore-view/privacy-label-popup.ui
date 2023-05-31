@@ -1,12 +1,16 @@
 <interface>
+    <object class="GtkTextBuffer" id="explore-privacy-label-popup-text-buffer">
+        <property name="text"></property>
+    </object>
     <object class="GtkWindow" id="explore-privacy-label-popup-window">
         <property name="modal">true</property> <!--Parent is set via code-->
         <property name="title">Kurozora &#38; Privacy</property>
         <child>
-            <object class="GtkTextView" id="explore-privacy-label-popup-text">
+            <object class="GtkTextView" id="explore-privacy-label-popup-text-view">
                 <property name="cursor-visible">false</property>
                 <property name="editable">false</property>
                 <property name="can-target">false</property>
+                <property name="buffer">explore-privacy-label-popup-text-buffer</property>
             </object>
         </child>
     </object>

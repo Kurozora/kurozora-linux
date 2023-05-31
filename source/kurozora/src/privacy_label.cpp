@@ -9,7 +9,8 @@ namespace kurozora
     {
         label = std::shared_ptr<Gtk::Label>(builder->get_widget<Gtk::Label>(label_id));
 
-        std::shared_ptr<Gtk::Builder> popup_builder = Gtk::Builder::create_from_resource("/kurozora/ui/widgets/explore-view/privacy-label-popup.ui");
+        popup_builder = Gtk::Builder::create_from_resource("/kurozora/ui/widgets/explore-view/privacy-label-popup.ui");
+        popup_text = std::shared_ptr<Gtk::TextView>(this->popup_builder->get_widget<Gtk::TextView>("explore-privacy-label-popup-text-view"));
         popup_window = std::shared_ptr<Gtk::Window>(popup_builder->get_widget<Gtk::Window>("explore-privacy-label-popup-window"));
         popup_window->set_transient_for(*parent);
         popup_window->set_hide_on_close(true);
@@ -19,6 +20,7 @@ namespace kurozora
         success_dispatcher->connect([this]() {
             // Success!
             std::cout << "Thread callback dispatcher success!" << std::endl;
+            popup_text->get_buffer()->set_text("Hello From Thread!");
             // Remove spinner and show text
         });
         error_dispatcher = std::shared_ptr<Glib::Dispatcher>(new Glib::Dispatcher);
