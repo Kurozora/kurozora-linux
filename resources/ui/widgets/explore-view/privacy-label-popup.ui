@@ -1,0 +1,13 @@
+<interface>
+    <object class="GtkWindow" id="explore-privacy-label-popup-window">
+        <property name="modal">true</property> <!--Parent is set via code-->
+        <property name="title">Kurozora &#38; Privacy</property>
+        <child>
+            <object class="GtkTextView" id="explore-privacy-label-popup-text">
+                <property name="cursor-visible">false</property>
+                <property name="editable">false</property>
+                <property name="can-target">false</property>
+            </object>
+        </child>
+    </object>
+</interface>
