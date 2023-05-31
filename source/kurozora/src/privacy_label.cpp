@@ -1,5 +1,7 @@
 #include "../include/explore-view.h" // TODO: Move this widget to it's own .h file
 #include <thread>
+#include <cpr/cpr.h>
+#include <nlohmann/json.hpp>
 #include <iostream> // Temporary for testing
 
 namespace kurozora
@@ -20,7 +22,6 @@ namespace kurozora
         success_dispatcher->connect([this]() {
             // Success!
             std::cout << "Thread callback dispatcher success!" << std::endl;
-            popup_text->get_buffer()->set_text("Hello From Thread!");
             // Remove spinner and show text
         });
         error_dispatcher = std::shared_ptr<Glib::Dispatcher>(new Glib::Dispatcher);
@@ -39,8 +40,20 @@ namespace kurozora
             this->popup_window->show();
             std::thread retrieve_privacy_notice([this]() {
                 std::cout << "Thread running..." << std::endl;
-                // CPR to fetch and parse response
-                sleep(5);
+                try
+                {
+                    cpr::Response response = cpr::Get(
+                        cpr::Url("https://api.kurozora.app/v1/legal/privacy-policy")
+                    );
+                    if (response.status_code != 200) { throw std::runtime_error("Error: Couldn't retrieve privacy policy"); }
+                    nlohmann::json response_object = nlohmann::json::parse(response.text);
+                    if (!response_object["data"]["attributes"]["text"].is_string()) { throw std::runtime_error("Error: malformed response"); }
+                    this->popup_text->get_buffer()->set_text(response_object["data"]["attributes"]["text"].dump());;
+                }
+                catch (std::exception& e)
+                {
+                    this->error_dispatcher->emit();
+                }
                 this->success_dispatcher->emit(); // Call the correct dispatcher
             });
             retrieve_privacy_notice.detach();
