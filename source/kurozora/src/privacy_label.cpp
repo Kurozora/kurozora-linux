@@ -4,13 +4,7 @@
 
 namespace kurozora
 {
-    // TODO: Complete this!
-    // This workflows allow you to not lock the main GTK thread while running long tasks
-    // 1 - Button receives input, starts a widget like a spinner and then starts and detatches a thread for a long task
-    // 2 - Thread does it's lengthy task like waiting for an HTTP response
-    // 3 - Thread notifies via the dispatcher object that the work is finished
-    //
-    // The dispatcher object is created in advanced, linked to a function and then passed to the working thread.
+
     PrivacyLabel::PrivacyLabel(std::shared_ptr<Gtk::Window> parent, std::shared_ptr<Gtk::Builder> builder, const std::string&& label_id)
     {
         label = std::shared_ptr<Gtk::Label>(builder->get_widget<Gtk::Label>(label_id));
@@ -19,10 +13,6 @@ namespace kurozora
         popup_window = std::shared_ptr<Gtk::Window>(popup_builder->get_widget<Gtk::Window>("explore-privacy-label-popup-window"));
         popup_window->set_transient_for(*parent);
         popup_window->set_hide_on_close(true);
-        //popup_window->signal_close_request().connect([this]() -> bool {
-        //    this->popup_window->hide();
-        //    return true; 
-        //}, false);
 
         //  Initialize callbacks
         success_dispatcher = std::shared_ptr<Glib::Dispatcher>(new Glib::Dispatcher);

@@ -1,6 +1,5 @@
 #include "../include/explore-view.h"
 #include <thread>
-#include <iostream>
 
 namespace kurozora
 {
