@@ -17,7 +17,7 @@ namespace kurozora
         popup_window->set_transient_for(*parent);
         popup_window->set_hide_on_close(true);
 
-        //  Initialize callbacks
+        //  Initialize callbacks (might not be necessary)
         success_dispatcher = std::shared_ptr<Glib::Dispatcher>(new Glib::Dispatcher);
         success_dispatcher->connect([this]() {
             // Success!
@@ -32,7 +32,6 @@ namespace kurozora
             // Show error message
         });
 
-        // Create gesture & attach it to the label
         gesture_click = Gtk::GestureClick::create();
         gesture_click->signal_released().connect([this](const int&, const double&, const double&) {
             // Retrieve policy
@@ -54,7 +53,7 @@ namespace kurozora
                 {
                     this->error_dispatcher->emit();
                 }
-                this->success_dispatcher->emit(); // Call the correct dispatcher
+                this->success_dispatcher->emit();
             });
             retrieve_privacy_notice.detach();
         });
