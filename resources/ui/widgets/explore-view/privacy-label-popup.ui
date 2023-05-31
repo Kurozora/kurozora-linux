@@ -11,6 +11,8 @@
                 <property name="editable">false</property>
                 <property name="can-target">false</property>
                 <property name="buffer">explore-privacy-label-popup-text-buffer</property>
+                <property name="width-request">600em</property>
+                <property name="height-request">800em</property>
             </object>
         </child>
     </object>
