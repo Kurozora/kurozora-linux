@@ -15,6 +15,7 @@
                         <property name="cursor-visible">false</property>
                         <property name="editable">false</property>
                         <property name="can-target">false</property>
+                        <property name="wrap-mode">word</property>
                         <property name="buffer">explore-privacy-label-popup-text-buffer</property>
                     </object>
                 </child>
