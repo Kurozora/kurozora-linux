@@ -1,4 +1,4 @@
-#include "../include/explore-view.h" // TODO: Move this widget to it's own .h file
+#include "../../include/explore-view/privacy_label.h"
 #include <thread>
 #include <cpr/cpr.h>
 #include <nlohmann/json.hpp>
