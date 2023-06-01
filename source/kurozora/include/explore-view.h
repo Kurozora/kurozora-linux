@@ -14,6 +14,9 @@ namespace kurozora
         std::shared_ptr<Gtk::Window> popup_window;
         std::shared_ptr<Gtk::TextView> popup_text;
         std::shared_ptr<Gtk::Builder> popup_builder;
+        std::shared_ptr<Glib::Dispatcher> popup_callback;
+        bool cached = false;
+        std::string policy_text;
     };
 
     class ExploreView : public Gtk::Box

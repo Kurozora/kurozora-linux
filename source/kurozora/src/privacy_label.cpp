@@ -17,6 +17,11 @@ namespace kurozora
         popup_window->set_transient_for(*parent);
         popup_window->set_hide_on_close(true);
 
+        popup_callback = std::shared_ptr<Glib::Dispatcher>(new Glib::Dispatcher());
+        popup_callback->connect([this]() {
+            this->popup_text->get_buffer()->set_text(this->policy_text);
+        });
+
         gesture_click = Gtk::GestureClick::create();
         gesture_click->signal_released().connect([this](const int&, const double&, const double&) {
             // Retrieve policy
@@ -26,13 +31,18 @@ namespace kurozora
                 std::cout << "Thread running..." << std::endl;
                 try
                 {
-                    cpr::Response response = cpr::Get(
-                        cpr::Url("https://api.kurozora.app/v1/legal/privacy-policy")
-                    );
-                    if (response.status_code != 200) { throw std::runtime_error("Error: Couldn't retrieve privacy policy"); }
-                    nlohmann::json response_object = nlohmann::json::parse(response.text);
-                    if (!response_object["data"]["attributes"]["text"].is_string()) { throw std::runtime_error("Error: malformed response"); }
-                    this->popup_text->get_buffer()->set_text(std::string(response_object["data"]["attributes"]["text"]));;
+                    if (!cached)
+                    {
+                        cpr::Response response = cpr::Get(
+                            cpr::Url("https://api.kurozora.app/v1/legal/privacy-policy")
+                        );
+                        if (response.status_code != 200) { throw std::runtime_error("Error: Couldn't retrieve privacy policy"); }
+                        nlohmann::json response_object = nlohmann::json::parse(response.text);
+                        if (!response_object["data"]["attributes"]["text"].is_string()) { throw std::runtime_error("Error: malformed response"); }
+                        this->policy_text = response_object["data"]["attributes"]["text"];
+                        this->cached = true;
+                        this->popup_callback->emit();
+                    }
                 }
                 catch (std::exception& e)
                 {
