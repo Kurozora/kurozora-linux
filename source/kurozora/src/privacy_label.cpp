@@ -17,21 +17,6 @@ namespace kurozora
         popup_window->set_transient_for(*parent);
         popup_window->set_hide_on_close(true);
 
-        //  Initialize callbacks (might not be necessary)
-        success_dispatcher = std::shared_ptr<Glib::Dispatcher>(new Glib::Dispatcher);
-        success_dispatcher->connect([this]() {
-            // Success!
-            std::cout << "Thread callback dispatcher success!" << std::endl;
-            // Remove spinner and show text
-        });
-        error_dispatcher = std::shared_ptr<Glib::Dispatcher>(new Glib::Dispatcher);
-        error_dispatcher->connect([this]() {
-            // Error :(
-            std::cout << "Thread callback dispatcher error!" << std::endl;
-            
-            // Show error message
-        });
-
         gesture_click = Gtk::GestureClick::create();
         gesture_click->signal_released().connect([this](const int&, const double&, const double&) {
             // Retrieve policy
@@ -51,9 +36,9 @@ namespace kurozora
                 }
                 catch (std::exception& e)
                 {
-                    this->error_dispatcher->emit();
+                    // An error Occurred
+                    this->popup_text->get_buffer()->set_text(std::string("An error occurred, please try again."));
                 }
-                this->success_dispatcher->emit();
             });
             retrieve_privacy_notice.detach();
         });

@@ -11,8 +11,6 @@ namespace kurozora
     public:
         std::shared_ptr<Gtk::Label> label;
         std::shared_ptr<Gtk::GestureClick> gesture_click;
-        std::shared_ptr<Glib::Dispatcher> success_dispatcher;
-        std::shared_ptr<Glib::Dispatcher> error_dispatcher;
         std::shared_ptr<Gtk::Window> popup_window;
         std::shared_ptr<Gtk::TextView> popup_text;
         std::shared_ptr<Gtk::Builder> popup_builder;
