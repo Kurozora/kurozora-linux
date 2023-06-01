@@ -1,7 +1,7 @@
 #pragma once
 
 #include <gtkmm.h>
-#include "explore-view/privacy_label.h"
+#include "privacy_label.h"
 
 namespace kurozora
 {
