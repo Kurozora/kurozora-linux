@@ -47,7 +47,11 @@ namespace kurozora
                 catch (std::exception& e)
                 {
                     // An error Occurred
-                    this->popup_text->get_buffer()->set_text(std::string("An error occurred, please try again."));
+                    std::stringstream ss;
+                    ss << "An error occurred, please try again. \n\n";
+                    ss << e.what();
+                    this->policy_text = std::string(ss.str());
+                    this->popup_callback->emit();
                 }
             });
             retrieve_privacy_notice.detach();
