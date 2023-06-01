@@ -1,4 +1,4 @@
-#include "../include/explore-view.h"
+#include "../../include/explore-view/explore-view.h"
 #include <thread>
 
 namespace kurozora

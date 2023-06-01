@@ -1,4 +1,5 @@
 #include "../include/main-window.h"
+#include "../include/explore-view/explore-view.h"
 
 namespace kurozora
 {

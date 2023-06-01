@@ -2,7 +2,7 @@
 
 #include <gtkmm.h>
 #include <iostream>
-#include "explore-view.h"
+#include "explore-view/explore-view.h"
 
 namespace kurozora
 {
