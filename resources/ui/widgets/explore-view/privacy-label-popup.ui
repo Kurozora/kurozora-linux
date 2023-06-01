@@ -4,6 +4,7 @@
     </object>
     <object class="GtkWindow" id="explore-privacy-label-popup-window">
         <property name="modal">true</property> <!--Parent is set via code-->
+        <property name="resizable">false</property>
         <property name="title">Kurozora &#38; Privacy</property>
         <child>
             <object class="GtkTextView" id="explore-privacy-label-popup-text-view">
