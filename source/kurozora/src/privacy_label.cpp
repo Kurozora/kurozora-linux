@@ -47,7 +47,7 @@ namespace kurozora
                     if (response.status_code != 200) { throw std::runtime_error("Error: Couldn't retrieve privacy policy"); }
                     nlohmann::json response_object = nlohmann::json::parse(response.text);
                     if (!response_object["data"]["attributes"]["text"].is_string()) { throw std::runtime_error("Error: malformed response"); }
-                    this->popup_text->get_buffer()->set_text(response_object["data"]["attributes"]["text"].dump());;
+                    this->popup_text->get_buffer()->set_text(std::string(response_object["data"]["attributes"]["text"]));;
                 }
                 catch (std::exception& e)
                 {
