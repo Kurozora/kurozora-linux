@@ -2,7 +2,8 @@
 #include <thread>
 #include <cpr/cpr.h>
 #include <nlohmann/json.hpp>
-#include <iostream> // Temporary for testing
+#include <sstream>
+#include <string>
 
 namespace kurozora
 {
@@ -25,10 +26,8 @@ namespace kurozora
         gesture_click = Gtk::GestureClick::create();
         gesture_click->signal_released().connect([this](const int&, const double&, const double&) {
             // Retrieve policy
-            std::cout << "Clicked Button" << std::endl;
             this->popup_window->show();
             std::thread retrieve_privacy_notice([this]() {
-                std::cout << "Thread running..." << std::endl;
                 try
                 {
                     if (!cached)
