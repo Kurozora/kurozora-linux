@@ -1,5 +1,5 @@
 <interface>
-    <object class="GtkBox">
+    <template parent="GtkBox" class="show-preview-entry">
         <child>
             <object class="GtkOverlay">
                 <child type="overlay">
@@ -56,5 +56,5 @@
                 </child>
             </object>
         </child>
-    </object>
+    </template>
 </interface>
