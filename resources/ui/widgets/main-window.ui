@@ -25,6 +25,7 @@
         </child>
         <child>
             <object class="GtkStack" id="side_menu">
+                <property name="transition-type">GTK_STACK_TRANSITION_TYPE_SLIDE_UP_DOWN</property>
                 <child>
                     <object class="GtkStackPage">
                         <property name="name">page1</property>
