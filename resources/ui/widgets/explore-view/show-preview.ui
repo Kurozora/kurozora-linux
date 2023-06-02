@@ -37,7 +37,7 @@
                         <child>
                             <object class="GtkButton">
                                 <property name="halign">end</property>
-                                <property name="valign">center</property>
+                                <property name="valign">end</property>
                                 <property name="label">Add</property>
                                 <!--Will depend from the status on the user list-->
                                 <property name="sensitive">false</property>
