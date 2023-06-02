@@ -7,5 +7,6 @@
         <!--CSS-->
         <file compressed="true">ui/style/overrides.css</file>
         <!--Media-->
+        <file compressed="false">ui/placeholders/show_banner.jpg</file>
     </gresource>
 </gresources>

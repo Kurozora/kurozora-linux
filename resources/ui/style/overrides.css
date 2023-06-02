@@ -40,6 +40,12 @@ separator.thick-separator {
 }
 
 /* Explore */
+.featured-show-preview {
+    min-height: 40em;
+    min-width: 60em;
+    border-radius: 25px;
+}
+
 .quick-link {
     font-weight: bold;
     font-size: 12pt;

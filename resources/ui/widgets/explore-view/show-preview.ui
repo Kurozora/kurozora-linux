@@ -1,0 +1,12 @@
+<interface>
+    <object class="GtkBox">
+        <child>
+            <object class="GtkPicture">
+                <property name="css-classes">featured-show-preview</property>
+                <property name="content-fit">GTK_CONTENT_FIT_FILL</property>
+                <!--Placeholder, overwritten via code-->
+                <property name="file">resource://kurozora/ui/placeholders/show_banner.jpg</property>
+            </object>
+        </child>
+    </object>
+</interface>
