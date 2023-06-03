@@ -84,4 +84,14 @@ separator.thick-separator {
     background-color: rgba(255,255,255,0.5);
 }
 
+.privacy-label-popup-title {
+    font-size: 28pt;
+    font-weight: bold;
+    padding: 1em;
+}
+
+.privacy-label-popup-text {
+    background-color: rgba(0,0,0,0);
+}
+
 /* End Custom CSS classes */
