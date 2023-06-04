@@ -40,6 +40,7 @@
                                 <property name="vscrollbar-policy">never</property>
                                 <child>
                                     <object class="GtkBox" id="explore-featured">
+                                        <property name="spacing">25</property>
                                         <property name="orientation">horizontal</property>
                                     </object>
                                 </child>
