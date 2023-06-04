@@ -26,7 +26,8 @@ namespace kurozora
         quick_link_3_gesture->signal_released().connect([this](const int&, const double&, const double&) {QuickLinkOpen("https://kurozora.app/welcome"); });
         quick_link_3->add_controller(quick_link_3_gesture);
 
-        // Initialize Featued
+        // Initialize Featured
+        // TODO: Update / (this is for demo only!)
         featured_container = std::shared_ptr<Gtk::Box>(this->builder->get_widget<Gtk::Box>("explore-featured"));
         featured_shows_previews.reserve(10);
         for (int i = 0; i < 10; ++i)
