@@ -26,6 +26,17 @@ namespace kurozora
         quick_link_3_gesture->signal_released().connect([this](const int&, const double&, const double&) {QuickLinkOpen("https://kurozora.app/welcome"); });
         quick_link_3->add_controller(quick_link_3_gesture);
 
+        // Initialize Featued
+        featured_container = std::shared_ptr<Gtk::Box>(this->builder->get_widget<Gtk::Box>("explore-featured"));
+        featured_shows_previews.reserve(10);
+        for (int i = 0; i < 10; ++i)
+        {
+            featured_shows_previews.push_back(ShowPreview());
+        }
+        for (ShowPreview& show_preview : featured_shows_previews)
+        {
+            featured_container->insert_child_at_start(show_preview);
+        }
         // Initialize the Kurozora & Privacy label
         this->privacy_label = std::shared_ptr<PrivacyLabel>(new PrivacyLabel(parent_window, this->builder, "explore-kurozora-privacy-label"));
 

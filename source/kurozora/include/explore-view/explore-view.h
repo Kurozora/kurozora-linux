@@ -2,6 +2,7 @@
 
 #include <gtkmm.h>
 #include "privacy_label.h"
+#include "show-preview.h"
 
 namespace kurozora
 {
@@ -16,6 +17,9 @@ namespace kurozora
         std::shared_ptr<Gtk::Box> explore_main_box;
         std::shared_ptr<Gtk::Builder> builder;
 
+        // Sample Show Preview
+        std::shared_ptr<Gtk::Box> featured_container;
+        std::vector<ShowPreview> featured_shows_previews = std::vector<ShowPreview>();
         // Quick Links Privacy Label
         std::shared_ptr<PrivacyLabel> privacy_label;
     };
