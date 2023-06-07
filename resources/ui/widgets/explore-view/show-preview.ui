@@ -13,14 +13,14 @@
                             <object class="GtkBox">
                                 <property name="orientation">vertical</property>
                                 <child>
-                                    <object class="GtkLabel">
+                                    <object class="GtkLabel" id="anime-title">
                                         <property name="css-classes">featured-show-overlay-box-label-title</property>
                                         <property name="halign">start</property>
                                         <property name="label">Oshi No Ko</property>
                                     </object>
                                 </child>
                                 <child>
-                                    <object class="GtkLabel">
+                                    <object class="GtkLabel" id="anime-subtitle">
                                         <property name="css-classes">featured-show-overlay-box-label-subtitle</property>
                                         <property name="halign">start</property>
                                         <property name="label">The bestest anime ever!</property>
@@ -35,7 +35,7 @@
                             </object>
                         </child>
                         <child>
-                            <object class="GtkButton">
+                            <object class="GtkButton" id="control-button">
                                 <property name="halign">end</property>
                                 <property name="valign">end</property>
                                 <property name="label">Add</property>
@@ -47,7 +47,7 @@
                     </object>
                 </child>
                 <child>
-                    <object class="GtkPicture">
+                    <object class="GtkPicture" id="preview-picture">
                         <property name="css-classes">featured-show-preview</property>
                         <property name="content-fit">GTK_CONTENT_FIT_FILL</property>
                         <!--Placeholder, overwritten via code-->
