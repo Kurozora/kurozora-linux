@@ -32,7 +32,7 @@ namespace kurozora
         featured_shows_previews.reserve(10);
         for (int i = 0; i < 10; ++i)
         {
-            featured_shows_previews.push_back(ShowPreview());
+            featured_shows_previews.push_back(ShowPreview("Oshi No Ko", "The best anime ever!", "https://cdn.kurozora.app/179317/3e9c35f0-bc3e-4144-992a-ecd70cfbde72.jpg?v=1685810356"));
         }
         for (ShowPreview& show_preview : featured_shows_previews)
         {
