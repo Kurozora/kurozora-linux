@@ -28,16 +28,18 @@ namespace kurozora
 
         // Initialize Featured
         // TODO: Update / (this is for demo only!)
+        sample_preview = std::shared_ptr<ShowPreview>(new ShowPreview("Oshi No Ko", "Bestest anime ever!", "https://images8.alphacoders.com/131/1315953.jpg"));
         featured_container = std::shared_ptr<Gtk::Box>(this->builder->get_widget<Gtk::Box>("explore-featured"));
-        featured_shows_previews.reserve(10);
-        for (int i = 0; i < 10; ++i)
-        {
-            featured_shows_previews.push_back(ShowPreview("Oshi No Ko", "The best anime ever!", "https://cdn.kurozora.app/179317/3e9c35f0-bc3e-4144-992a-ecd70cfbde72.jpg?v=1685810356"));
-        }
-        for (ShowPreview& show_preview : featured_shows_previews)
-        {
-            featured_container->insert_child_at_start(show_preview);
-        }
+        featured_container->insert_child_at_start(*sample_preview);
+        //featured_shows_previews.reserve(10);
+        //for (int i = 0; i < 10; ++i)
+        //{
+        //    featured_shows_previews.push_back(ShowPreview("Oshi No Ko", "The best anime ever!", "https://cdn.kurozora.app/179317/3e9c35f0-bc3e-4144-992a-ecd70cfbde72.jpg?v=1685810356"));
+        //}
+        //for (ShowPreview& show_preview : featured_shows_previews)
+        //{
+        //    featured_container->insert_child_at_start(show_preview);
+        //}
         // Initialize the Kurozora & Privacy label
         this->privacy_label = std::shared_ptr<PrivacyLabel>(new PrivacyLabel(parent_window, this->builder, "explore-kurozora-privacy-label"));
 
