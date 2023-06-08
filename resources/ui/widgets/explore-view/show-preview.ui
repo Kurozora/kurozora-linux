@@ -49,7 +49,7 @@
                 <child>
                     <object class="GtkPicture" id="preview-picture">
                         <property name="css-classes">featured-show-preview</property>
-                        <property name="content-fit">GTK_CONTENT_FIT_FILL</property>
+                        <property name="content-fit">GTK_CONTENT_FIT_COVER</property>
                         <!--Placeholder, overwritten via code-->
                         <property name="file">resource://kurozora/ui/placeholders/show_banner.jpg</property>
                     </object>
