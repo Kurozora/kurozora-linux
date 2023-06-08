@@ -2,7 +2,6 @@
 
 #include <gtkmm.h>
 #include <memory>
-#include <optional>
 #include <string>
 
 namespace kurozora
@@ -10,8 +9,9 @@ namespace kurozora
     class ShowPreview :  public Gtk::Box
     {
     public:
-        ShowPreview(const std::string&& title, const std::string&& subtitle, const std::optional<std::string>& picture_url = std::nullopt);
+        ShowPreview(int anime_id);
     private:
+        int anime_id;
         std::shared_ptr<Gtk::Builder> builder;
         std::shared_ptr<Gtk::Box> box;
         std::shared_ptr<Gtk::Label> anime_title;
@@ -21,5 +21,8 @@ namespace kurozora
         std::shared_ptr<Glib::Bytes> downloaded_buffer;
         std::shared_ptr<Gdk::Texture> downloaded_texture;
         std::shared_ptr<Glib::Dispatcher> download_completed;
+        std::string title = "Loading...";   // Temporary!
+        std::string tagline = "Get ready!"; // Temporary!
+        std::string banner_url;
     };
 }
