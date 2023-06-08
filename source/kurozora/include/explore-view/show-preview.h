@@ -20,5 +20,6 @@ namespace kurozora
         std::shared_ptr<Gtk::Picture> preview_picture;
         std::shared_ptr<Glib::Bytes> downloaded_buffer;
         std::shared_ptr<Gdk::Texture> downloaded_texture;
+        std::shared_ptr<Glib::Dispatcher> download_completed;
     };
 }

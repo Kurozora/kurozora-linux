@@ -1,6 +1,7 @@
 #include "../../include/explore-view/show-preview.h"
 #include <cpr/cpr.h>
 #include <exception>
+#include <iostream>
 
 namespace kurozora
 {
@@ -18,24 +19,24 @@ namespace kurozora
 
         if (picture_url.has_value())
         {
-            try
-            {
+
+            download_completed = std::shared_ptr<Glib::Dispatcher>(new Glib::Dispatcher());
+            download_completed->connect([this]() {
+                // TODO: Not sure if this means that the placeholder stays in memory, and if so a single gresource copy or many
+                preview_picture->set_paintable(downloaded_texture);
+            });
+
+            std::thread download_image([this]() {
                 // A picture URL has been specified, retrieve banner and replace placeholder immage
                 cpr::Response response = cpr::Get(
-                    cpr::Url(picture_url.value())
+                    cpr::Url("https://images8.alphacoders.com/131/1315953.jpg") // Temporary for testing
                 );
                 if (response.status_code != 200) { throw std::runtime_error("Error: Couldn't retrieve banner image"); }
                 downloaded_buffer = std::shared_ptr<Glib::Bytes>(Glib::Bytes::create(&response.text[0], response.text.length()));
                 downloaded_texture = std::shared_ptr<Gdk::Texture>(Gdk::Texture::create_from_bytes(downloaded_buffer));
-                // TODO: Not sure if this means that the placeholder stays in memory, and if so a single gresource copy or many
-                preview_picture->set_paintable(downloaded_texture);
-            }
-            catch (std::exception& e)
-            {
-                // It's fine, we can just display the already set placeholder
-                // TODO: Might want to display a popup or a label, or maybe a different placeholder for an existing
-                // image that we failed to retrieve
-            }
+                download_completed->emit();
+            });
+            download_image.detach();
         }
 
         anime_title->set_label(title);
