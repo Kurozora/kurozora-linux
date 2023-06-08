@@ -18,10 +18,9 @@ namespace kurozora
         std::shared_ptr<Gtk::Box> explore_main_box;
         std::shared_ptr<Gtk::Builder> builder;
 
-        // Sample Show Preview
+        // Featured Shows Previews
         std::shared_ptr<Gtk::Box> featured_container;
         std::vector<std::shared_ptr<ShowPreview>> featured_shows_previews = std::vector<std::shared_ptr<ShowPreview>>();
-        //std::shared_ptr<ShowPreview> sample_preview;
         // Quick Links Privacy Label
         std::shared_ptr<PrivacyLabel> privacy_label;
     };
