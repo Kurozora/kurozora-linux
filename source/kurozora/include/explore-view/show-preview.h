@@ -3,6 +3,7 @@
 #include <gtkmm.h>
 #include <memory>
 #include <string>
+#include <optional>
 
 namespace kurozora
 {
@@ -19,7 +20,7 @@ namespace kurozora
         std::shared_ptr<Gtk::Button> control_button;
         std::shared_ptr<Gtk::Picture> preview_picture;
         std::shared_ptr<Glib::Bytes> downloaded_buffer;
-        std::shared_ptr<Gdk::Texture> downloaded_texture;
+        std::optional<std::shared_ptr<Gdk::Texture>> downloaded_texture;
         std::shared_ptr<Glib::Dispatcher> download_completed;
         std::string title = "Loading...";   // Temporary!
         std::string tagline = "Get ready!"; // Temporary!

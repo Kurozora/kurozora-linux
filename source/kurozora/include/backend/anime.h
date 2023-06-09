@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <optional>
 
 namespace kurozora::backend
 {
@@ -10,8 +11,8 @@ namespace kurozora::backend
         Anime(int anime_id);
     // This should not be public and writable, it's temporary
     public:
-        std::string banner_url;
-        std::string title;
-        std::string tagline;
+        std::optional<std::string> banner_url = std::nullopt;
+        std::optional<std::string> title = std::nullopt;
+        std::optional<std::string> tagline = std::nullopt;
     };
 }

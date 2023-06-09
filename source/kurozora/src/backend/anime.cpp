@@ -1,5 +1,6 @@
 #include "../../include/backend/anime.h"
 #include <cpr/cpr.h>
+#include <sstream>
 #include <iostream>
 #include <nlohmann/json.hpp>
 
@@ -19,14 +20,23 @@ namespace kurozora::backend
 
             // Json validation
             //  Temporary! Needs to check and stuff, just adding something I need now
-            banner_url = json_object["data"][0]["attributes"]["banner"]["url"];
-            title = json_object["data"][0]["attributes"]["title"];
-            tagline = json_object["data"][0]["attributes"]["tagline"];
+            if (json_object["data"][0]["attributes"]["banner"]["url"].is_string())
+            {
+                banner_url = json_object["data"][0]["attributes"]["banner"]["url"];
+            }
+            if (json_object["data"][0]["attributes"]["title"].is_string())
+            {
+                title = json_object["data"][0]["attributes"]["title"];
+            }
+            if (json_object["data"][0]["attributes"]["tagline"].is_string())
+            {
+                tagline = json_object["data"][0]["attributes"]["tagline"];
+            }
         }
         catch (std::exception& e)
         {
             std::cerr << "ANIME OBJECT INIT ERROR:" << e.what() << std::endl;
-            throw e;
+            //throw e;
         }
     }
 }
