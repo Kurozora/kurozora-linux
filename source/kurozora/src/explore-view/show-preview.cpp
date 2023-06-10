@@ -12,6 +12,7 @@ namespace kurozora
         box = std::shared_ptr<Gtk::Box>(builder->get_widget<Gtk::Box>("show-preview-entry"));
         this->insert_child_at_start(*box);
 
+        loading_overlay = std::shared_ptr<Gtk::Box>(builder->get_widget<Gtk::Box>("loading-overlay"));
         anime_title = std::shared_ptr<Gtk::Label>(builder->get_widget<Gtk::Label>("anime-title"));
         anime_subtitle = std::shared_ptr<Gtk::Label>(builder->get_widget<Gtk::Label>("anime-subtitle"));
         control_button = std::shared_ptr<Gtk::Button>(builder->get_widget<Gtk::Button>("control-button"));
@@ -27,6 +28,7 @@ namespace kurozora
             }
             anime_title->set_label(title);
             anime_subtitle->set_label(tagline);
+            loading_overlay->hide();
         });
 
         this->anime_id = anime_id;

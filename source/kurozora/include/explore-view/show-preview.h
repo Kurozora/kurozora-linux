@@ -15,6 +15,7 @@ namespace kurozora
         int anime_id;
         std::shared_ptr<Gtk::Builder> builder;
         std::shared_ptr<Gtk::Box> box;
+        std::shared_ptr<Gtk::Box> loading_overlay;
         std::shared_ptr<Gtk::Label> anime_title;
         std::shared_ptr<Gtk::Label> anime_subtitle;
         std::shared_ptr<Gtk::Button> control_button;
