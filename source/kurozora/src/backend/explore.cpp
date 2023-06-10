@@ -17,13 +17,11 @@ namespace kurozora::backend
             // Iterated all the response sections
             for (auto& category : json_object["data"])
             {
-                std::cout << "\n\n\n" << category.dump() << "\n\n\n" << std::endl;
                 if (category["attributes"]["type"] == "most-popular-shows")
                 {
                     // Featured!
                     for (auto& data : category["relationships"]["shows"]["data"])
                     {
-                        std::cout << data["id"] << std::endl;
                         featured_anime_ids.push_back(data["id"]);
                     }
                 }
