@@ -27,19 +27,27 @@ namespace kurozora
         quick_link_3->add_controller(quick_link_3_gesture);
 
         // Initialize Featured
-        // TODO: Update / (this is for demo only!)
         featured_container = std::shared_ptr<Gtk::Box>(this->builder->get_widget<Gtk::Box>("explore-featured"));
+        featured_callback = std::make_shared<Glib::Dispatcher>();
+        featured_callback->connect([this]() {
+            for (int anime_id : explore->featured_anime_ids)
+            {
+                featured_shows_previews.push_back(std::shared_ptr<ShowPreview>(new ShowPreview(anime_id)));
+            }
+            for (std::shared_ptr<ShowPreview> show_preview : featured_shows_previews)
+            {
+                featured_container->insert_child_at_start(*show_preview);
+            }
+        });
+
         featured_shows_previews.reserve(10);
-        explore = std::make_shared<backend::Explore>();
-        for (int anime_id : explore->featured_anime_ids)
-        {
-            featured_shows_previews.push_back(std::shared_ptr<ShowPreview>(new ShowPreview(anime_id)));
-        }
-        for (std::shared_ptr<ShowPreview> show_preview : featured_shows_previews)
-        {
-            featured_container->insert_child_at_start(*show_preview);
-        }
-         //Initialize the Kurozora & Privacy label
+        std::thread download_explore([this]() {
+            explore = std::make_shared<backend::Explore>();
+            featured_callback->emit();
+        });
+        download_explore.detach();
+
+        //Initialize the Kurozora & Privacy label
         this->privacy_label = std::shared_ptr<PrivacyLabel>(new PrivacyLabel(parent_window, this->builder, "explore-kurozora-privacy-label"));
 
         this->insert_child_at_start(*this->explore_main_box);

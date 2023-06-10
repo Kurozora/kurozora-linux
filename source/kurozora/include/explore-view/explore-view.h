@@ -22,6 +22,7 @@ namespace kurozora
         // Explore Object
         std::shared_ptr<backend::Explore> explore;
         // Featured Shows Previews
+        std::shared_ptr<Glib::Dispatcher> featured_callback;
         std::shared_ptr<Gtk::Box> featured_container;
         std::vector<std::shared_ptr<ShowPreview>> featured_shows_previews = std::vector<std::shared_ptr<ShowPreview>>();
         // Quick Links Privacy Label
