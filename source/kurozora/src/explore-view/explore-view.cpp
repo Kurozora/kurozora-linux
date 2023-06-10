@@ -7,7 +7,7 @@ namespace kurozora
     {
         this->parent_window = parent_window;
 
-        this->builder = Gtk::Builder::create_from_resource("/kurozora/ui/widgets/explore-view.ui");
+        this->builder = Gtk::Builder::create_from_resource("/kurozora/ui/widgets/explore-view/explore-view.ui");
         this->explore_main_box = std::shared_ptr<Gtk::Box>(this->builder->get_widget<Gtk::Box>("explore_main_box"));
 
         // Initialize the Quick Links buttons
