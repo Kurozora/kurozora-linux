@@ -1,5 +1,6 @@
 #include "../../include/explore-view/show-preview.h"
 #include "../../include/backend/anime.h"
+#include "../../include/utils/widgets/show-preview.h"
 #include <cpr/cpr.h>
 #include <exception>
 #include <sstream>
@@ -27,26 +28,12 @@ namespace kurozora
             {
                 preview_picture->set_paintable(downloaded_texture.value());
             }
-            if (title.length() > 27)
-            {
-                anime_title->set_label(title.substr(0, 24).append("..."));
-                anime_title->set_tooltip_text(title);
-            }
-            else
-            {
-                anime_title->set_label(title);
-            }
+            anime_title->set_label(utils::show_preview::normalize_title(title));
+            if (title.length() > 27) { anime_title->set_tooltip_text(title); }
             if (tagline.has_value())
             {
-                if (tagline.value().length() > 40)
-                {
-                    anime_subtitle->set_label(tagline.value().substr(0, 37).append("..."));
-                    anime_subtitle->set_tooltip_text(tagline.value());
-                }
-                else
-                {
-                    anime_subtitle->set_label(tagline.value());
-                }
+                anime_subtitle->set_label(utils::show_preview::normalize_subtitle(tagline.value()));
+                if (tagline.value().length() > 40) { anime_subtitle->set_tooltip_text(tagline.value()); }
             }
             else if (genres.has_value())
             {
@@ -58,15 +45,8 @@ namespace kurozora
                 std::string genres_subtitle = ss.str();
                 genres_subtitle.pop_back(); // Remove last ` `
                 genres_subtitle.pop_back(); // Remove last `,`
-                if (genres_subtitle.length() > 40)
-                {
-                    anime_subtitle->set_label(genres_subtitle.substr(0, 37).append("..."));
-                    anime_subtitle->set_tooltip_text(genres_subtitle);
-                }
-                else
-                {
-                    anime_subtitle->set_label(genres_subtitle);
-                }
+                anime_subtitle->set_label(utils::show_preview::normalize_subtitle(genres_subtitle));
+                if (genres_subtitle.length() > 40) { anime_subtitle->set_tooltip_text(genres_subtitle); }
             }
             else if (themes.has_value())
             {
@@ -78,15 +58,8 @@ namespace kurozora
                 std::string themes_subtitle = ss.str();
                 themes_subtitle.pop_back(); // Remove last ` `
                 themes_subtitle.pop_back(); // Remove last `,`
-                if (themes_subtitle.length() > 40)
-                {
-                    anime_subtitle->set_label(themes_subtitle.substr(0, 37).append("..."));
-                    anime_subtitle->set_tooltip_text(themes_subtitle);
-                }
-                else
-                {
-                    anime_subtitle->set_label(themes_subtitle);
-                }
+                anime_subtitle->set_label(utils::show_preview::normalize_subtitle(themes_subtitle));
+                if (themes_subtitle.length() > 40) { anime_subtitle->set_tooltip_text(themes_subtitle); }
             }
             else
             {
