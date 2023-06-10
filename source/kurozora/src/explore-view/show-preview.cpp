@@ -2,6 +2,7 @@
 #include "../../include/backend/anime.h"
 #include <cpr/cpr.h>
 #include <exception>
+#include <sstream>
 
 namespace kurozora
 {
@@ -47,6 +48,46 @@ namespace kurozora
                     anime_subtitle->set_label(tagline.value());
                 }
             }
+            else if (genres.has_value())
+            {
+                std::stringstream ss;
+                for (auto& genre : genres.value())
+                {
+                    ss << genre << ", ";
+                }
+                std::string genres_subtitle = ss.str();
+                genres_subtitle.pop_back(); // Remove last ` `
+                genres_subtitle.pop_back(); // Remove last `,`
+                if (genres_subtitle.length() > 40)
+                {
+                    anime_subtitle->set_label(genres_subtitle.substr(0, 37).append("..."));
+                    anime_subtitle->set_tooltip_text(genres_subtitle);
+                }
+                else
+                {
+                    anime_subtitle->set_label(genres_subtitle);
+                }
+            }
+            else if (themes.has_value())
+            {
+                std::stringstream ss;
+                for (auto& genre : themes.value())
+                {
+                    ss << genre << ", ";
+                }
+                std::string themes_subtitle = ss.str();
+                themes_subtitle.pop_back(); // Remove last ` `
+                themes_subtitle.pop_back(); // Remove last `,`
+                if (themes_subtitle.length() > 40)
+                {
+                    anime_subtitle->set_label(themes_subtitle.substr(0, 37).append("..."));
+                    anime_subtitle->set_tooltip_text(themes_subtitle);
+                }
+                else
+                {
+                    anime_subtitle->set_label(themes_subtitle);
+                }
+            }
             else
             {
                 anime_subtitle->hide();
@@ -59,6 +100,8 @@ namespace kurozora
             backend::Anime anime = backend::Anime(this->anime_id);
         if (anime.title.has_value()) { title = anime.title.value(); } else { title = "No title!"; }
         if (anime.tagline.has_value()) { tagline = anime.tagline.value(); }
+        if (anime.genres.has_value()) { genres = anime.genres.value(); }
+        if (anime.themes.has_value()) { themes = anime.themes.value(); }
             if (anime.banner_url.has_value())
             {
                 // A picture URL has been specified, retrieve banner and replace placeholder immage

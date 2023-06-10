@@ -32,6 +32,24 @@ namespace kurozora::backend
             {
                 tagline = json_object["data"][0]["attributes"]["tagline"];
             }
+            if (json_object["data"][0]["attributes"]["genres"].is_array())
+            {
+                std::vector<std::string> genres_strings;
+                for (auto& data : json_object["data"][0]["attributes"]["genres"])
+                {
+                    genres_strings.push_back(data);
+                }
+                genres = genres_strings;
+            }
+            if (json_object["data"][0]["attributes"]["themes"].is_array())
+            {
+                std::vector<std::string> themes_strings;
+                for (auto& data : json_object["data"][0]["attributes"]["themes"])
+                {
+                    themes_strings.push_back(data);
+                }
+                themes = themes_strings;
+            }
         }
         catch (std::exception& e)
         {

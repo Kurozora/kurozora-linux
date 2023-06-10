@@ -4,6 +4,7 @@
 #include <memory>
 #include <string>
 #include <optional>
+#include <vector>
 
 namespace kurozora
 {
@@ -25,6 +26,8 @@ namespace kurozora
         std::shared_ptr<Glib::Dispatcher> download_completed;
         std::string title = "";
         std::optional<std::string> tagline = std::nullopt;
+        std::optional<std::vector<std::string>> genres = std::nullopt;
+        std::optional<std::vector<std::string>> themes = std::nullopt;
         std::string banner_url;
     };
 }
