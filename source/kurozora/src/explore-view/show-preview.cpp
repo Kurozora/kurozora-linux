@@ -26,8 +26,31 @@ namespace kurozora
             {
                 preview_picture->set_paintable(downloaded_texture.value());
             }
-            anime_title->set_label(title);
-            anime_subtitle->set_label(tagline);
+            if (title.length() > 27)
+            {
+                anime_title->set_label(title.substr(0, 24).append("..."));
+                anime_title->set_tooltip_text(title);
+            }
+            else
+            {
+                anime_title->set_label(title);
+            }
+            if (tagline.has_value())
+            {
+                if (tagline.value().length() > 40)
+                {
+                    anime_subtitle->set_label(tagline.value().substr(0, 37).append("..."));
+                    anime_subtitle->set_tooltip_text(tagline.value());
+                }
+                else
+                {
+                    anime_subtitle->set_label(tagline.value());
+                }
+            }
+            else
+            {
+                anime_subtitle->hide();
+            }
             loading_overlay->hide();
         });
 
@@ -35,7 +58,7 @@ namespace kurozora
         std::thread download_image([this]() {
             backend::Anime anime = backend::Anime(this->anime_id);
         if (anime.title.has_value()) { title = anime.title.value(); } else { title = "No title!"; }
-        if (anime.tagline.has_value()) { tagline = anime.tagline.value(); } else { tagline = "No tagline!"; }
+        if (anime.tagline.has_value()) { tagline = anime.tagline.value(); }
             if (anime.banner_url.has_value())
             {
                 // A picture URL has been specified, retrieve banner and replace placeholder immage
@@ -50,7 +73,5 @@ namespace kurozora
         });
         download_image.detach();
 
-        anime_title->set_label(title);
-        anime_subtitle->set_label(tagline);
     }
 }
