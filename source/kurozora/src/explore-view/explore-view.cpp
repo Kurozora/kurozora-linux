@@ -36,7 +36,7 @@ namespace kurozora
             }
             for (std::shared_ptr<ShowPreview> show_preview : featured_shows_previews)
             {
-                featured_container->insert_child_at_start(*show_preview);
+                featured_container->append(*show_preview);
             }
         });
 
