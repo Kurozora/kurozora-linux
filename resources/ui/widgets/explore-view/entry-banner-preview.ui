@@ -1,0 +1,58 @@
+<object class="GtkBox">
+    <property name="orientation">horizontal</property>
+    <property name="spacing">10</property>
+    <child>
+        <!--Poster Preview-->
+        <object class="GtkPicture">
+            <property name="css-classes">entry-banner-preview-picture</property>
+            <property name="content-fit">GTK_CONTENT_FIT_CONTAIN</property>
+            <property name="file">resource://kurozora/ui/placeholders/show_poster.jpg</property>
+        </object>
+    </child>
+    <child>
+        <!--Extra Infos-->
+        <object class="GtkBox">
+            <property name="orientation">vertical</property>
+            <property name="spacing">5</property>
+            <child>
+                <!--Title-->
+                <object class="GtkLabel">
+                    <property name="css-classes">entry-banner-preview-title</property>
+                    <property name="label">The Misfit of the Demon King Academy II</property>
+                    <property name="halign">start</property>
+                    <property name="ellipsize">PANGO_ELLIPSIZE_END</property>
+                    <property name="lines">2</property>
+                    <property name="max-width-chars">22</property>
+                    <property name="wrap">true</property>
+                    <property name="wrap-mode">PANGO_WRAP_WORD_CHAR</property>
+                </object>
+            </child>
+            <child>
+                <!--Tagline-->
+                <object class="GtkLabel">
+                    <property name="css-classes">entry-banner-preview-subtitle</property>
+                    <property name="label">Super, awesome, genres, long, list</property>
+                    <property name="halign">start</property>
+                    <property name="ellipsize">PANGO_ELLIPSIZE_END</property>
+                    <property name="lines">2</property>
+                    <property name="max-width-chars">22</property>
+                    <property name="wrap">true</property>
+                    <property name="wrap-mode">PANGO_WRAP_WORD_CHAR</property>
+                </object>
+            </child>
+            <child>
+                <!--Rating-->
+            </child>
+            <child>
+                <!--Control Button-->
+                <object class="GtkButton">
+                    <property name="label">Add</property>
+                    <property name="vexpand">true</property>
+                    <property name="valign">end</property>
+                    <property name="hexpand">false</property>
+                    <property name="halign">start</property>
+                </object>
+            </child>
+        </object>
+    </child>
+</object>

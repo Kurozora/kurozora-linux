@@ -66,6 +66,21 @@ separator.thick-separator {
     color: black;
 }
 
+.entry-banner-preview-picture {
+    border-radius: 10px;
+    min-width: 99pt;
+    min-height: 176pt;
+}
+
+.entry-banner-preview-title {
+    font-size: 13pt;
+}
+
+.entry-banner-preview-subtitle {
+    font-size: 10pt;
+    color: rgb(170,170,170);
+}
+
 @keyframes featured-show-preview-loading-animation {
     0% {
         background-image: linear-gradient(0.45turn, rgba(255,255,255,0.5), rgba(0,0,0,0) 70%);

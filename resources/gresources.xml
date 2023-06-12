@@ -9,5 +9,6 @@
         <file compressed="true">ui/style/overrides.css</file>
         <!--Media-->
         <file compressed="false">ui/placeholders/show_banner.jpg</file>
+        <file compressed="false">ui/placeholders/show_poster.jpg</file>
     </gresource>
 </gresources>
