@@ -56,35 +56,35 @@
                         <object class="GtkImage" id="rating-star-1">
                             <property name="css-classes">entry-poster-preview-rating-icon-color</property>
                             <property name="halign">start</property>
-                            <property name="resource">/kurozora/ui/icons/rating_star_full.svg</property>
+                            <property name="icon-name">rating_star_full</property>
                         </object>
                     </child>
                     <child>
                         <object class="GtkImage" id="rating-star-2">
                             <property name="css-classes">entry-poster-preview-rating-icon-color</property>
                             <property name="halign">start</property>
-                            <property name="resource">/kurozora/ui/icons/rating_star_full.svg</property>
+                            <property name="icon-name">rating_star_full</property>
                         </object>
                     </child>
                     <child>
                         <object class="GtkImage" id="rating-star-3">
                             <property name="css-classes">entry-poster-preview-rating-icon-color</property>
                             <property name="halign">start</property>
-                            <property name="resource">/kurozora/ui/icons/rating_star_full.svg</property>
+                            <property name="icon-name">rating_star_full</property>
                         </object>
                     </child>
                     <child>
                         <object class="GtkImage" id="rating-star-4">
                             <property name="css-classes">entry-poster-preview-rating-icon-color</property>
                             <property name="halign">start</property>
-                            <property name="resource">/kurozora/ui/icons/rating_star_half.svg</property>
+                            <property name="icon-name">rating_star_half</property>
                         </object>
                     </child>
                     <child>
                         <object class="GtkImage" id="rating-star-5">
                             <property name="css-classes">entry-poster-preview-rating-icon-color</property>
                             <property name="halign">start</property>
-                            <property name="resource">/kurozora/ui/icons/rating_star_empty.svg</property>
+                            <property name="icon-name">rating_star_empty</property>
                         </object>
                     </child>
                 </object>
