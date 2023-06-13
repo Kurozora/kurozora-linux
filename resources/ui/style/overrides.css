@@ -66,28 +66,28 @@ separator.thick-separator {
     color: black;
 }
 
-.entry-banner-preview-picture {
+.entry-poster-preview-picture {
     border-radius: 10px;
     min-width: 99pt;
     min-height: 176pt;
 }
 
-.entry-banner-preview-title {
+.entry-poster-preview-title {
     font-size: 13pt;
 }
 
-.entry-banner-preview-subtitle {
+.entry-poster-preview-subtitle {
     font-size: 10pt;
     color: rgb(170,170,170);
 }
 
-.entry-banner-preview-rating-label-color {
+.entry-poster-preview-rating-label-color {
     /*TODO: Fix this color*/
     color: darkorange;
     font-size: 12pt;
 }
 
-.entry-banner-preview-rating-icon-color {
+.entry-poster-preview-rating-icon-color {
     /*
         Color taken by a copied answer + some playing around
         there is probably a better filter for this.
