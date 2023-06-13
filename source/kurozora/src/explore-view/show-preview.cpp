@@ -1,6 +1,5 @@
 #include "../../include/explore-view/show-preview.h"
 #include "../../include/backend/anime.h"
-#include "../../include/utils/widgets/show-preview.h"
 #include <cpr/cpr.h>
 #include <exception>
 #include <sstream>
@@ -28,11 +27,12 @@ namespace kurozora
             {
                 preview_picture->set_paintable(downloaded_texture.value());
             }
-            anime_title->set_label(utils::show_preview::normalize_title(title));
+            // TODO: Tooltips need further refinement
+            anime_title->set_label(title);
             if (title.length() > 27) { anime_title->set_tooltip_text(title); }
             if (tagline.has_value())
             {
-                anime_subtitle->set_label(utils::show_preview::normalize_subtitle(tagline.value()));
+                anime_subtitle->set_label(tagline.value());
                 if (tagline.value().length() > 40) { anime_subtitle->set_tooltip_text(tagline.value()); }
             }
             else if (genres.has_value())
@@ -45,7 +45,7 @@ namespace kurozora
                 std::string genres_subtitle = ss.str();
                 genres_subtitle.pop_back(); // Remove last ` `
                 genres_subtitle.pop_back(); // Remove last `,`
-                anime_subtitle->set_label(utils::show_preview::normalize_subtitle(genres_subtitle));
+                anime_subtitle->set_label(genres_subtitle);
                 if (genres_subtitle.length() > 40) { anime_subtitle->set_tooltip_text(genres_subtitle); }
             }
             else if (themes.has_value())
@@ -58,7 +58,7 @@ namespace kurozora
                 std::string themes_subtitle = ss.str();
                 themes_subtitle.pop_back(); // Remove last ` `
                 themes_subtitle.pop_back(); // Remove last `,`
-                anime_subtitle->set_label(utils::show_preview::normalize_subtitle(themes_subtitle));
+                anime_subtitle->set_label(themes_subtitle);
                 if (themes_subtitle.length() > 40) { anime_subtitle->set_tooltip_text(themes_subtitle); }
             }
             else
