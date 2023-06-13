@@ -18,7 +18,6 @@ namespace kurozora
         // Load custom icons
         GtkIconTheme* icon_theme_ref = gtk_icon_theme_get_for_display(display->gobj());
         gtk_icon_theme_add_resource_path(icon_theme_ref, "/kurozora/ui/icons/");
-        gtk_icon_theme_add_search_path(icon_theme_ref, "/kurozora/ui/icons/");
 
         this->set_child(*this->main_box);
         this->show();
