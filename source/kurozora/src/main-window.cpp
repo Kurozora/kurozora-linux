@@ -15,6 +15,10 @@ namespace kurozora
         auto display = this->main_box->get_style_context()->get_display();
         this->get_style_context()->add_provider_for_display(display, this->css_provider, GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
 
+        // Very Ugly Way to do this(?)
+        // This is a sample property just for testing, but GtkSettings can be set like this
+        //g_object_set(gtk_settings_get_for_display(display->gobj()), "gtk-font-name", "Ubuntu 24", NULL);
+
         this->set_child(*this->main_box);
         this->show();
 
