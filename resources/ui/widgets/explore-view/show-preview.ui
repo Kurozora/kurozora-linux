@@ -24,6 +24,10 @@
                                                 <property name="css-classes">featured-show-overlay-box-label-title</property>
                                                 <property name="halign">start</property>
                                                 <property name="label">Oshi No Ko</property>
+                                                <property name="ellipsize">PANGO_ELLIPSIZE_END</property>
+                                                <property name="lines">2</property>
+                                                <property name="wrap">true</property>
+                                                <property name="wrap-mode">PANGO_WRAP_WORD_CHAR</property>
                                             </object>
                                         </child>
                                         <child>
@@ -31,6 +35,10 @@
                                                 <property name="css-classes">featured-show-overlay-box-label-subtitle</property>
                                                 <property name="halign">start</property>
                                                 <property name="label">The bestest anime ever!</property>
+                                                <property name="ellipsize">PANGO_ELLIPSIZE_END</property>
+                                                <property name="lines">2</property>
+                                                <property name="wrap">true</property>
+                                                <property name="wrap-mode">PANGO_WRAP_WORD_CHAR</property>
                                             </object>
                                         </child>
                                     </object>
