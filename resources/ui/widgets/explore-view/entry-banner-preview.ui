@@ -42,6 +42,52 @@
             </child>
             <child>
                 <!--Rating-->
+                <object class="GtkBox">
+                    <property name="orientation">horizontal</property>
+                    <property name="spacing">5px</property>
+                    <child>
+                        <object class="GtkLabel">
+                            <property name="css-classes">entry-banner-preview-rating-label-color</property>
+                            <property name="label">4.3</property>
+                        </object>
+                    </child>
+                    <child>
+                        <!--The "resource" here is a placeholder, it will be set in-code-->
+                        <object class="GtkImage" id="rating-star-1">
+                            <property name="css-classes">entry-banner-preview-rating-icon-color</property>
+                            <property name="halign">start</property>
+                            <property name="resource">/kurozora/ui/icons/rating_star_full.svg</property>
+                        </object>
+                    </child>
+                    <child>
+                        <object class="GtkImage" id="rating-star-2">
+                            <property name="css-classes">entry-banner-preview-rating-icon-color</property>
+                            <property name="halign">start</property>
+                            <property name="resource">/kurozora/ui/icons/rating_star_full.svg</property>
+                        </object>
+                    </child>
+                    <child>
+                        <object class="GtkImage" id="rating-star-3">
+                            <property name="css-classes">entry-banner-preview-rating-icon-color</property>
+                            <property name="halign">start</property>
+                            <property name="resource">/kurozora/ui/icons/rating_star_full.svg</property>
+                        </object>
+                    </child>
+                    <child>
+                        <object class="GtkImage" id="rating-star-4">
+                            <property name="css-classes">entry-banner-preview-rating-icon-color</property>
+                            <property name="halign">start</property>
+                            <property name="resource">/kurozora/ui/icons/rating_star_half.svg</property>
+                        </object>
+                    </child>
+                    <child>
+                        <object class="GtkImage" id="rating-star-5">
+                            <property name="css-classes">entry-banner-preview-rating-icon-color</property>
+                            <property name="halign">start</property>
+                            <property name="resource">/kurozora/ui/icons/rating_star_empty.svg</property>
+                        </object>
+                    </child>
+                </object>
             </child>
             <child>
                 <!--Control Button-->

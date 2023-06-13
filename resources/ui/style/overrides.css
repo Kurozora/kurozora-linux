@@ -81,6 +81,21 @@ separator.thick-separator {
     color: rgb(170,170,170);
 }
 
+.entry-banner-preview-rating-label-color {
+    /*TODO: Fix this color*/
+    color: darkorange;
+    font-size: 12pt;
+}
+
+.entry-banner-preview-rating-icon-color {
+    /*
+        Color taken by a copied answer + some playing around
+        there is probably a better filter for this.
+    */
+    filter: invert(0.5) sepia(1) saturate(10) hue-rotate(1deg);
+    /*-gtk-icon-size: 11pt;*/
+}
+
 @keyframes featured-show-preview-loading-animation {
     0% {
         background-image: linear-gradient(0.45turn, rgba(255,255,255,0.5), rgba(0,0,0,0) 70%);
