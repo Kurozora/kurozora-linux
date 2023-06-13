@@ -41,8 +41,8 @@ separator.thick-separator {
 
 /* Explore */
 .featured-show-preview {
-    min-height: 20em;
-    min-width: 36em; /*TODO: This ia a workaround to avoid shrinkage, fix it!*/
+    min-width: 448pt;
+    min-height: 252pt;
     border-radius: 10px;
 }
 
