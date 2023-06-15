@@ -52,7 +52,7 @@ namespace kurozora
         this_season_previews.reserve(10);
         for (int i = 0; i < 10; ++i)
         {
-            this_season_previews.push_back(std::make_shared<EntryPosterPreview>(EntryPosterPreview(1)));
+            this_season_previews.push_back(std::shared_ptr<EntryPosterPreview>(new EntryPosterPreview(19869)));
         }
         for (std::shared_ptr<EntryPosterPreview> entry_preview : this_season_previews)
         {
