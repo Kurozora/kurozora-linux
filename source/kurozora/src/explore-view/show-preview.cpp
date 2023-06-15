@@ -71,10 +71,10 @@ namespace kurozora
         this->anime_id = anime_id;
         std::thread download_image([this]() {
             backend::Anime anime = backend::Anime(this->anime_id);
-        if (anime.title.has_value()) { title = anime.title.value(); } else { title = "No title!"; }
-        if (anime.tagline.has_value()) { tagline = anime.tagline.value(); }
-        if (anime.genres.has_value()) { genres = anime.genres.value(); }
-        if (anime.themes.has_value()) { themes = anime.themes.value(); }
+            if (anime.title.has_value()) { title = anime.title.value(); } else { title = "No title!"; }
+            if (anime.tagline.has_value()) { tagline = anime.tagline.value(); }
+            if (anime.genres.has_value()) { genres = anime.genres.value(); }
+            if (anime.themes.has_value()) { themes = anime.themes.value(); }
             if (anime.banner_url.has_value())
             {
                 // A picture URL has been specified, retrieve banner and replace placeholder immage
