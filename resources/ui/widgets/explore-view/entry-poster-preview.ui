@@ -20,7 +20,7 @@
                     <!--Title-->
                     <object class="GtkLabel" id="anime-title">
                         <property name="css-classes">entry-poster-preview-title</property>
-                        <property name="label">The Misfit of the Demon King Academy II</property>
+                        <property name="label">placeholder</property>
                         <property name="halign">start</property>
                         <property name="ellipsize">PANGO_ELLIPSIZE_END</property>
                         <property name="lines">2</property>
@@ -33,7 +33,7 @@
                     <!--Tagline-->
                     <object class="GtkLabel" id="anime-subtitle">
                         <property name="css-classes">entry-poster-preview-subtitle</property>
-                        <property name="label">Super, awesome, genres, long, list</property>
+                        <property name="label">placeholder</property>
                         <property name="halign">start</property>
                         <property name="ellipsize">PANGO_ELLIPSIZE_END</property>
                         <property name="lines">2</property>
