@@ -3,6 +3,7 @@
 #include <gtkmm.h>
 #include <memory>
 #include <vector>
+#include "../../include/backend/anime.h"
 
 namespace kurozora
 {
@@ -12,7 +13,7 @@ namespace kurozora
         EntryPosterPreview(int anime_id);
     private:
         int anime_id;
-        float anime_rating;
+        std::shared_ptr<backend::Anime> anime;
         std::shared_ptr<Gtk::Builder> builder;
         std::shared_ptr<Gtk::Box> container_box;
         std::shared_ptr<Gtk::Label> anime_title;
@@ -20,5 +21,6 @@ namespace kurozora
         std::shared_ptr<Gtk::Label> rating_label;
         std::vector<std::shared_ptr<Gtk::Image>> rating_stars;
         std::shared_ptr<Gtk::Button> control_button;
+        std::shared_ptr<Glib::Dispatcher> download_completed;
     };
 }
