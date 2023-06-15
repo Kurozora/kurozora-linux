@@ -47,6 +47,18 @@ namespace kurozora
         });
         download_explore.detach();
 
+        // Initialize This Season
+        this_season_container = std::shared_ptr<Gtk::Box>(builder->get_widget<Gtk::Box>("explore-season"));
+        this_season_previews.reserve(10);
+        for (int i = 0; i < 10; ++i)
+        {
+            this_season_previews.push_back(std::make_shared<EntryPosterPreview>(EntryPosterPreview(1)));
+        }
+        for (std::shared_ptr<EntryPosterPreview> entry_preview : this_season_previews)
+        {
+            this_season_container->append(*entry_preview);
+        }
+
         //Initialize the Kurozora & Privacy label
         this->privacy_label = std::shared_ptr<PrivacyLabel>(new PrivacyLabel(parent_window, this->builder, "explore-kurozora-privacy-label"));
 

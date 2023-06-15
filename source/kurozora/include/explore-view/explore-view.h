@@ -4,6 +4,7 @@
 #include <cpr/cpr.h>
 #include "privacy_label.h"
 #include "show-preview.h"
+#include "entry-poster-preview.h"
 #include "../backend/explore.h"
 
 namespace kurozora
@@ -25,6 +26,9 @@ namespace kurozora
         std::shared_ptr<Glib::Dispatcher> featured_callback;
         std::shared_ptr<Gtk::Box> featured_container;
         std::vector<std::shared_ptr<ShowPreview>> featured_shows_previews = std::vector<std::shared_ptr<ShowPreview>>();
+        // This Season Poster Previews
+        std::shared_ptr<Gtk::Box> this_season_container;
+        std::vector<std::shared_ptr<EntryPosterPreview>> this_season_previews = std::vector<std::shared_ptr<EntryPosterPreview>>();
         // Quick Links Privacy Label
         std::shared_ptr<PrivacyLabel> privacy_label;
     };
