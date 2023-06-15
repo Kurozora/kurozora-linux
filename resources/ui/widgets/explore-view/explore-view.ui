@@ -58,6 +58,8 @@
                                 <child>
                                     <object class="GtkBox" id="explore-season">
                                         <property name="orientation">horizontal</property>
+                                        <property name="spacing">50</property>
+                                        <property name="homogeneous">true</property>
                                     </object>
                                 </child>
                             </object>
