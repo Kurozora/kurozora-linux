@@ -10,5 +10,6 @@ namespace kurozora::backend
         Explore();
     public:
         std::vector<int> featured_anime_ids;
+        std::vector<int> this_season_anime_ids;
     };
 }

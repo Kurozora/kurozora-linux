@@ -26,10 +26,12 @@ namespace kurozora
         quick_link_3_gesture->signal_released().connect([this](const int&, const double&, const double&) {QuickLinkOpen("https://kurozora.app/welcome"); });
         quick_link_3->add_controller(quick_link_3_gesture);
 
-        // Initialize Featured
+        // Initialize Widgets
         featured_container = std::shared_ptr<Gtk::Box>(this->builder->get_widget<Gtk::Box>("explore-featured"));
+        this_season_container = std::shared_ptr<Gtk::Box>(builder->get_widget<Gtk::Box>("explore-season"));
         featured_callback = std::make_shared<Glib::Dispatcher>();
         featured_callback->connect([this]() {
+            // Initialize Featured
             for (int anime_id : explore->featured_anime_ids)
             {
                 featured_shows_previews.push_back(std::shared_ptr<ShowPreview>(new ShowPreview(anime_id)));
@@ -37,6 +39,15 @@ namespace kurozora
             for (std::shared_ptr<ShowPreview> show_preview : featured_shows_previews)
             {
                 featured_container->append(*show_preview);
+            }
+            // Initialize {This Season}
+            for (int anime_id : explore->this_season_anime_ids)
+            {
+                this_season_previews.push_back(std::shared_ptr<EntryPosterPreview>(new EntryPosterPreview(anime_id)));
+            }
+            for (std::shared_ptr<EntryPosterPreview> show_preview : this_season_previews)
+            {
+                this_season_container->append(*show_preview);
             }
         });
 
@@ -46,18 +57,6 @@ namespace kurozora
             featured_callback->emit();
         });
         download_explore.detach();
-
-        // Initialize This Season
-        this_season_container = std::shared_ptr<Gtk::Box>(builder->get_widget<Gtk::Box>("explore-season"));
-        this_season_previews.reserve(10);
-        for (int i = 0; i < 10; ++i)
-        {
-            this_season_previews.push_back(std::shared_ptr<EntryPosterPreview>(new EntryPosterPreview(19869)));
-        }
-        for (std::shared_ptr<EntryPosterPreview> entry_preview : this_season_previews)
-        {
-            this_season_container->append(*entry_preview);
-        }
 
         //Initialize the Kurozora & Privacy label
         this->privacy_label = std::shared_ptr<PrivacyLabel>(new PrivacyLabel(parent_window, this->builder, "explore-kurozora-privacy-label"));
