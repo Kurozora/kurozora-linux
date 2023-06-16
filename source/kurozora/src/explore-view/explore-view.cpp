@@ -29,6 +29,7 @@ namespace kurozora
         // Initialize Widgets
         featured_container = std::shared_ptr<Gtk::Box>(this->builder->get_widget<Gtk::Box>("explore-featured"));
         this_season_container = std::shared_ptr<Gtk::Box>(builder->get_widget<Gtk::Box>("explore-season"));
+        this_season_header = std::shared_ptr<Gtk::Label>(builder->get_widget<Gtk::Label>("this-season"));
         featured_callback = std::make_shared<Glib::Dispatcher>();
         featured_callback->connect([this]() {
             // Initialize Featured
@@ -42,6 +43,7 @@ namespace kurozora
                 featured_container->append(*show_preview);
             }
             // Initialize {This Season}
+            this_season_header->set_text(explore->this_season_label);
             this_season_previews.reserve(explore->this_season_anime_ids.size());
             for (int anime_id : explore->this_season_anime_ids)
             {

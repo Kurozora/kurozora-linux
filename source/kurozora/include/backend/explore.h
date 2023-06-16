@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <string>
 
 namespace kurozora::backend
 {
@@ -12,6 +13,6 @@ namespace kurozora::backend
         // TODO: Throw away all of this and just forward the json::value object
         std::vector<int> featured_anime_ids;
         std::vector<int> this_season_anime_ids;
-        std::string this_season_label = "";
+        std::string this_season_label;
     };
 }

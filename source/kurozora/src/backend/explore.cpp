@@ -27,6 +27,7 @@ namespace kurozora::backend
                 }
                 if (category["attributes"]["type"] == "anime-season")
                 {
+                    this_season_label = category["attributes"]["title"];
                     // This Season
                     for (auto& data : category["relationships"]["shows"]["data"])
                     {
