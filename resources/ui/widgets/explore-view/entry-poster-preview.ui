@@ -1,104 +1,117 @@
 <interface>
     <object class="GtkBox" id="container-box">
-        <property name="orientation">horizontal</property>
-        <property name="spacing">10</property>
-        <property name="homogeneous">true</property>
         <child>
-            <!--Poster Preview-->
-            <object class="GtkPicture" id="poster-preview">
-                <property name="css-classes">entry-poster-preview-picture</property>
-                <property name="content-fit">GTK_CONTENT_FIT_COVER</property>
-                <property name="file">resource://kurozora/ui/placeholders/show_poster.jpg</property>
-            </object>
-        </child>
-        <child>
-            <!--Extra Infos-->
-            <object class="GtkBox">
-                <property name="orientation">vertical</property>
-                <property name="spacing">5</property>
-                <child>
-                    <!--Title-->
-                    <object class="GtkLabel" id="anime-title">
-                        <property name="css-classes">entry-poster-preview-title</property>
-                        <property name="label">placeholder</property>
-                        <property name="halign">start</property>
-                        <property name="ellipsize">PANGO_ELLIPSIZE_END</property>
-                        <property name="lines">2</property>
-                        <property name="max-width-chars">22</property>
-                        <property name="wrap">true</property>
-                        <property name="wrap-mode">PANGO_WRAP_WORD_CHAR</property>
+            <object class="GtkOverlay">
+                <child type="overlay">
+                    <object class="GtkBox" id="loading-overlay">
+                        <property name="css-classes">featured-show-preview-loading</property>
                     </object>
                 </child>
                 <child>
-                    <!--Tagline-->
-                    <object class="GtkLabel" id="anime-subtitle">
-                        <property name="css-classes">entry-poster-preview-subtitle</property>
-                        <property name="label">placeholder</property>
-                        <property name="halign">start</property>
-                        <property name="ellipsize">PANGO_ELLIPSIZE_END</property>
-                        <property name="lines">2</property>
-                        <property name="max-width-chars">22</property>
-                        <property name="wrap">true</property>
-                        <property name="wrap-mode">PANGO_WRAP_WORD_CHAR</property>
-                    </object>
-                </child>
-                <child>
-                    <!--Rating-->
                     <object class="GtkBox">
                         <property name="orientation">horizontal</property>
-                        <property name="spacing">5px</property>
+                        <property name="spacing">10</property>
+                        <property name="homogeneous">true</property>
                         <child>
-                            <object class="GtkLabel" id="rating-label">
-                                <property name="css-classes">entry-poster-preview-rating-label-color</property>
-                                <property name="label">0</property>
+                            <!--Poster Preview-->
+                            <object class="GtkPicture" id="poster-preview">
+                                <property name="css-classes">entry-poster-preview-picture</property>
+                                <property name="content-fit">GTK_CONTENT_FIT_COVER</property>
+                                <property name="file">resource://kurozora/ui/placeholders/show_poster.jpg</property>
                             </object>
                         </child>
                         <child>
-                            <!--The "resource" here is a placeholder, it will be set in-code-->
-                            <object class="GtkImage" id="rating-star-1">
-                                <property name="css-classes">entry-poster-preview-rating-icon-color</property>
-                                <property name="halign">start</property>
-                                <property name="icon-name">rating_star_empty</property>
+                            <!--Extra Infos-->
+                            <object class="GtkBox">
+                                <property name="orientation">vertical</property>
+                                <property name="spacing">5</property>
+                                <child>
+                                    <!--Title-->
+                                    <object class="GtkLabel" id="anime-title">
+                                        <property name="css-classes">entry-poster-preview-title</property>
+                                        <property name="label">placeholder</property>
+                                        <property name="halign">start</property>
+                                        <property name="ellipsize">PANGO_ELLIPSIZE_END</property>
+                                        <property name="lines">2</property>
+                                        <property name="max-width-chars">22</property>
+                                        <property name="wrap">true</property>
+                                        <property name="wrap-mode">PANGO_WRAP_WORD_CHAR</property>
+                                    </object>
+                                </child>
+                                <child>
+                                    <!--Tagline-->
+                                    <object class="GtkLabel" id="anime-subtitle">
+                                        <property name="css-classes">entry-poster-preview-subtitle</property>
+                                        <property name="label">placeholder</property>
+                                        <property name="halign">start</property>
+                                        <property name="ellipsize">PANGO_ELLIPSIZE_END</property>
+                                        <property name="lines">2</property>
+                                        <property name="max-width-chars">22</property>
+                                        <property name="wrap">true</property>
+                                        <property name="wrap-mode">PANGO_WRAP_WORD_CHAR</property>
+                                    </object>
+                                </child>
+                                <child>
+                                    <!--Rating-->
+                                    <object class="GtkBox">
+                                        <property name="orientation">horizontal</property>
+                                        <property name="spacing">5px</property>
+                                        <child>
+                                            <object class="GtkLabel" id="rating-label">
+                                                <property name="css-classes">entry-poster-preview-rating-label-color</property>
+                                                <property name="label">0</property>
+                                            </object>
+                                        </child>
+                                        <child>
+                                            <!--The "resource" here is a placeholder, it will be set in-code-->
+                                            <object class="GtkImage" id="rating-star-1">
+                                                <property name="css-classes">entry-poster-preview-rating-icon-color</property>
+                                                <property name="halign">start</property>
+                                                <property name="icon-name">rating_star_empty</property>
+                                            </object>
+                                        </child>
+                                        <child>
+                                            <object class="GtkImage" id="rating-star-2">
+                                                <property name="css-classes">entry-poster-preview-rating-icon-color</property>
+                                                <property name="halign">start</property>
+                                                <property name="icon-name">rating_star_empty</property>
+                                            </object>
+                                        </child>
+                                        <child>
+                                            <object class="GtkImage" id="rating-star-3">
+                                                <property name="css-classes">entry-poster-preview-rating-icon-color</property>
+                                                <property name="halign">start</property>
+                                                <property name="icon-name">rating_star_empty</property>
+                                            </object>
+                                        </child>
+                                        <child>
+                                            <object class="GtkImage" id="rating-star-4">
+                                                <property name="css-classes">entry-poster-preview-rating-icon-color</property>
+                                                <property name="halign">start</property>
+                                                <property name="icon-name">rating_star_empty</property>
+                                            </object>
+                                        </child>
+                                        <child>
+                                            <object class="GtkImage" id="rating-star-5">
+                                                <property name="css-classes">entry-poster-preview-rating-icon-color</property>
+                                                <property name="halign">start</property>
+                                                <property name="icon-name">rating_star_empty</property>
+                                            </object>
+                                        </child>
+                                    </object>
+                                </child>
+                                <child>
+                                    <!--Control Button-->
+                                    <object class="GtkButton" id="control-button">
+                                        <property name="label">Add</property>
+                                        <property name="vexpand">true</property>
+                                        <property name="valign">end</property>
+                                        <property name="hexpand">false</property>
+                                        <property name="halign">start</property>
+                                    </object>
+                                </child>
                             </object>
                         </child>
-                        <child>
-                            <object class="GtkImage" id="rating-star-2">
-                                <property name="css-classes">entry-poster-preview-rating-icon-color</property>
-                                <property name="halign">start</property>
-                                <property name="icon-name">rating_star_empty</property>
-                            </object>
-                        </child>
-                        <child>
-                            <object class="GtkImage" id="rating-star-3">
-                                <property name="css-classes">entry-poster-preview-rating-icon-color</property>
-                                <property name="halign">start</property>
-                                <property name="icon-name">rating_star_empty</property>
-                            </object>
-                        </child>
-                        <child>
-                            <object class="GtkImage" id="rating-star-4">
-                                <property name="css-classes">entry-poster-preview-rating-icon-color</property>
-                                <property name="halign">start</property>
-                                <property name="icon-name">rating_star_empty</property>
-                            </object>
-                        </child>
-                        <child>
-                            <object class="GtkImage" id="rating-star-5">
-                                <property name="css-classes">entry-poster-preview-rating-icon-color</property>
-                                <property name="halign">start</property>
-                                <property name="icon-name">rating_star_empty</property>
-                            </object>
-                        </child>
-                    </object>
-                </child>
-                <child>
-                    <!--Control Button-->
-                    <object class="GtkButton" id="control-button">
-                        <property name="label">Add</property>
-                        <property name="vexpand">true</property>
-                        <property name="valign">end</property>
-                        <property name="hexpand">false</property>
-                        <property name="halign">start</property>
                     </object>
                 </child>
             </object>
