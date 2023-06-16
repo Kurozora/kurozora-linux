@@ -54,6 +54,11 @@ namespace kurozora::backend
             {
                 rating_average = json_object["data"][0]["attributes"]["stats"]["ratingAverage"];
             }
+            if (json_object["data"][0]["attributes"]["poster"]["url"].is_string())
+            {
+                std::cout << json_object["data"][0]["attributes"]["poster"]["url"] << std::endl;
+                poster_url = json_object["data"][0]["attributes"]["poster"]["url"];
+            }
         }
         catch (std::exception& e)
         {

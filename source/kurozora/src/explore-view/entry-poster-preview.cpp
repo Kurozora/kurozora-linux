@@ -2,6 +2,7 @@
 #include "../../include/backend/anime.h"
 #include <thread>
 #include <string>
+#include <cpr/cpr.h>
 
 namespace kurozora
 {
@@ -11,6 +12,7 @@ namespace kurozora
         container_box = std::shared_ptr<Gtk::Box>(builder->get_widget<Gtk::Box>("container-box"));
         this->insert_child_at_start(*container_box);
 
+        preview_picture = std::shared_ptr<Gtk::Picture>(builder->get_widget<Gtk::Picture>("poster-preview"));
         anime_title = std::shared_ptr<Gtk::Label>(builder->get_widget<Gtk::Label>("anime-title"));
         anime_subtitle = std::shared_ptr<Gtk::Label>(builder->get_widget<Gtk::Label>("anime-subtitle"));
         rating_label = std::shared_ptr<Gtk::Label>(builder->get_widget<Gtk::Label>("rating-label"));
@@ -84,11 +86,24 @@ namespace kurozora
                     }
                 }
             }
+            if (downloaded_texture.has_value())
+            {
+                preview_picture->set_paintable(downloaded_texture.value());
+            }
         });
 
         this->anime_id = anime_id;
         std::thread download_anime([this]() {
             anime = std::make_shared<backend::Anime>(backend::Anime(this->anime_id));
+            if (anime->poster_url.has_value())
+            {
+                cpr::Response response = cpr::Get(
+                    cpr::Url(anime->poster_url.value())
+                );
+                if (response.status_code != 200) { throw std::runtime_error("Error: Couldn't retrieve poster picture"); }
+                downloaded_buffer = std::shared_ptr<Glib::Bytes>(Glib::Bytes::create(&response.text[0], response.text.length()));
+                downloaded_texture = std::shared_ptr<Gdk::Texture>(Gdk::Texture::create_from_bytes(downloaded_buffer));
+            }
             download_completed->emit();
         });
         download_anime.detach();

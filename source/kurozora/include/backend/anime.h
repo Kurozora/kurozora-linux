@@ -18,5 +18,6 @@ namespace kurozora::backend
         std::optional<std::vector<std::string>> genres = std::nullopt;
         std::optional<std::vector<std::string>> themes = std::nullopt;
         std::optional<float> rating_average = std::nullopt;
+        std::optional<std::string> poster_url = std::nullopt;
     };
 }
