@@ -108,6 +108,7 @@
                                         <property name="valign">end</property>
                                         <property name="hexpand">false</property>
                                         <property name="halign">start</property>
+                                        <property name="sensitive">false</property>
                                     </object>
                                 </child>
                             </object>
