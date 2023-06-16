@@ -276,12 +276,14 @@
                                             <object class="GtkButton" id="explore-redeem-button">
                                                 <property name="css-classes">large-button</property>
                                                 <property name="label">Redeem</property>
+                                                <property name="sensitive">false</property>
                                             </object>
                                         </child>
                                         <child>
                                             <object class="GtkButton" id="explore-view-subscription-button">
                                                 <property name="css-classes">large-button</property>
                                                 <property name="label">View Subscription</property>
+                                                <property name="sensitive">false</property>
                                             </object>
                                         </child>
                                     </object>
