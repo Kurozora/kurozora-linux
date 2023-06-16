@@ -56,7 +56,6 @@ namespace kurozora::backend
             }
             if (json_object["data"][0]["attributes"]["poster"]["url"].is_string())
             {
-                std::cout << json_object["data"][0]["attributes"]["poster"]["url"] << std::endl;
                 poster_url = json_object["data"][0]["attributes"]["poster"]["url"];
             }
         }
