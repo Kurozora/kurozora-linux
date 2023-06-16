@@ -19,7 +19,7 @@ namespace kurozora::backend
             {
                 if (category["attributes"]["type"] == "most-popular-shows")
                 {
-                    // Featured!
+                    // Featured
                     for (auto& data : category["relationships"]["shows"]["data"])
                     {
                         featured_anime_ids.push_back(data["id"]);
@@ -27,7 +27,7 @@ namespace kurozora::backend
                 }
                 if (category["attributes"]["type"] == "anime-season")
                 {
-                    // Featured!
+                    // This Season
                     for (auto& data : category["relationships"]["shows"]["data"])
                     {
                         this_season_anime_ids.push_back(data["id"]);
