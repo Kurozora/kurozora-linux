@@ -32,6 +32,7 @@ namespace kurozora
         featured_callback = std::make_shared<Glib::Dispatcher>();
         featured_callback->connect([this]() {
             // Initialize Featured
+            featured_shows_previews.reserve(explore->featured_anime_ids.size());
             for (int anime_id : explore->featured_anime_ids)
             {
                 featured_shows_previews.push_back(std::shared_ptr<ShowPreview>(new ShowPreview(anime_id)));
@@ -41,6 +42,7 @@ namespace kurozora
                 featured_container->append(*show_preview);
             }
             // Initialize {This Season}
+            this_season_previews.reserve(explore->this_season_anime_ids.size());
             for (int anime_id : explore->this_season_anime_ids)
             {
                 this_season_previews.push_back(std::shared_ptr<EntryPosterPreview>(new EntryPosterPreview(anime_id)));
