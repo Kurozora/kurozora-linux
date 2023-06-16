@@ -5,9 +5,9 @@
         <property name="homogeneous">true</property>
         <child>
             <!--Poster Preview-->
-            <object class="GtkPicture">
+            <object class="GtkPicture" id="poster-preview">
                 <property name="css-classes">entry-poster-preview-picture</property>
-                <property name="content-fit">GTK_CONTENT_FIT_CONTAIN</property>
+                <property name="content-fit">GTK_CONTENT_FIT_COVER</property>
                 <property name="file">resource://kurozora/ui/placeholders/show_poster.jpg</property>
             </object>
         </child>
