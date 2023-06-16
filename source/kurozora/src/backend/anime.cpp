@@ -50,6 +50,14 @@ namespace kurozora::backend
                 }
                 themes = themes_strings;
             }
+            if (json_object["data"][0]["attributes"]["stats"]["ratingAverage"].is_number_float())
+            {
+                rating_average = json_object["data"][0]["attributes"]["stats"]["ratingAverage"];
+            }
+            if (json_object["data"][0]["attributes"]["poster"]["url"].is_string())
+            {
+                poster_url = json_object["data"][0]["attributes"]["poster"]["url"];
+            }
         }
         catch (std::exception& e)
         {

@@ -19,10 +19,19 @@ namespace kurozora::backend
             {
                 if (category["attributes"]["type"] == "most-popular-shows")
                 {
-                    // Featured!
+                    // Featured
                     for (auto& data : category["relationships"]["shows"]["data"])
                     {
                         featured_anime_ids.push_back(data["id"]);
+                    }
+                }
+                if (category["attributes"]["type"] == "anime-season")
+                {
+                    this_season_label = category["attributes"]["title"];
+                    // This Season
+                    for (auto& data : category["relationships"]["shows"]["data"])
+                    {
+                        this_season_anime_ids.push_back(data["id"]);
                     }
                 }
             }

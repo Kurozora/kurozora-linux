@@ -19,6 +19,10 @@ namespace kurozora
         // This is a sample property just for testing, but GtkSettings can be set like this
         //g_object_set(gtk_settings_get_for_display(display->gobj()), "gtk-font-name", "Ubuntu 24", NULL);
 
+        // Load custom icons
+        GtkIconTheme* icon_theme_ref = gtk_icon_theme_get_for_display(display->gobj());
+        gtk_icon_theme_add_resource_path(icon_theme_ref, "/kurozora/ui/icons/");
+
         this->set_child(*this->main_box);
         this->show();
 

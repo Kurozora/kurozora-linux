@@ -46,7 +46,7 @@
                         </child>
                         <!--{Season}{Year}-->
                         <child>
-                            <object class="GtkLabel">
+                            <object class="GtkLabel" id="this-season">
                                 <property name="css-classes">section-header</property>
                                 <property name="halign">start</property>
                                 <property name="label">This Season</property> <!--This label is controlled by the APIs-->
@@ -58,6 +58,8 @@
                                 <child>
                                     <object class="GtkBox" id="explore-season">
                                         <property name="orientation">horizontal</property>
+                                        <property name="spacing">50</property>
+                                        <property name="homogeneous">true</property>
                                     </object>
                                 </child>
                             </object>
