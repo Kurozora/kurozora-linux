@@ -1,2 +1,2 @@
-*.xml linguist-detectable=true
+*.xml linguist-detectable=false
 *.xml linguist-language=xml
