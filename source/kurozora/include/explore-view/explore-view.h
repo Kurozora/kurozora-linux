@@ -31,6 +31,9 @@ namespace kurozora
         std::shared_ptr<Gtk::Label> this_season_header;
         std::shared_ptr<Gtk::Box> this_season_container;
         std::vector<std::shared_ptr<EntryPosterPreview>> this_season_previews = std::vector<std::shared_ptr<EntryPosterPreview>>();
+        // What Are We Watching
+        std::unique_ptr<Gtk::Box> what_are_we_watching_container;
+        std::vector<std::unique_ptr<EntryPosterPreview>> what_are_we_watching_previews = std::vector<std::unique_ptr<EntryPosterPreview>>();
         // Quick Links Privacy Label
         std::shared_ptr<PrivacyLabel> privacy_label;
     };

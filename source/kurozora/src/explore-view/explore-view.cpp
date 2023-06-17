@@ -31,6 +31,7 @@ namespace kurozora
         featured_container = std::shared_ptr<Gtk::Box>(this->builder->get_widget<Gtk::Box>("explore-featured"));
         this_season_container = std::shared_ptr<Gtk::Box>(builder->get_widget<Gtk::Box>("explore-season"));
         this_season_header = std::shared_ptr<Gtk::Label>(builder->get_widget<Gtk::Label>("this-season"));
+        what_are_we_watching_container = std::unique_ptr<Gtk::Box>(builder->get_widget<Gtk::Box>("explore-what-are-we-watching"));
         featured_callback = std::make_shared<Glib::Dispatcher>();
         featured_callback->connect([this]() {
             // Initialize Featured
@@ -42,6 +43,10 @@ namespace kurozora
             for (std::shared_ptr<EntryPosterPreview> show_preview : this_season_previews)
             {
                 this_season_container->append(*show_preview);
+            }
+            for (std::unique_ptr<EntryPosterPreview>& show_preview : what_are_we_watching_previews)
+            {
+                what_are_we_watching_container->append(*show_preview);
             }
         });
 
@@ -68,6 +73,14 @@ namespace kurozora
                     {
                         //this_season_anime_ids.push_back(data["id"]);
                         this_season_previews.push_back(std::make_shared<EntryPosterPreview>(data["id"]));
+                    }
+                }
+                if (category["attributes"]["slug"] == "what-we-are-watching")
+                {
+                    // What Are We Watching
+                    for (auto& data : category["relationships"]["shows"]["data"])
+                    {
+                        what_are_we_watching_previews.push_back(std::make_unique<EntryPosterPreview>(data["id"]));
                     }
                 }
             }

@@ -175,6 +175,8 @@
                                 <child>
                                     <object class="GtkBox" id="explore-what-are-we-watching">
                                         <property name="orientation">horizontal</property>
+                                        <property name="spacing">50</property>
+                                        <property name="homogeneous">true</property>
                                     </object>
                                 </child>
                             </object>
