@@ -12,29 +12,7 @@ namespace kurozora::backend
             cpr::Response response = cpr::Get(
                 cpr::Url("https://api.kurozora.app/v1/explore")
             );
-            nlohmann::json json_object = nlohmann::json::parse(response.text);
-            featured_anime_ids.reserve(10);
-            // Iterated all the response sections
-            for (auto& category : json_object["data"])
-            {
-                if (category["attributes"]["type"] == "most-popular-shows")
-                {
-                    // Featured
-                    for (auto& data : category["relationships"]["shows"]["data"])
-                    {
-                        featured_anime_ids.push_back(data["id"]);
-                    }
-                }
-                if (category["attributes"]["type"] == "anime-season")
-                {
-                    this_season_label = category["attributes"]["title"];
-                    // This Season
-                    for (auto& data : category["relationships"]["shows"]["data"])
-                    {
-                        this_season_anime_ids.push_back(data["id"]);
-                    }
-                }
-            }
+            json_object = std::make_shared<nlohmann::json>(nlohmann::json::parse(response.text));
         }
         catch (std::exception& e)
         {

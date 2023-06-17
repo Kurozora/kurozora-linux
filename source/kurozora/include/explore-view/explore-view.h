@@ -27,6 +27,7 @@ namespace kurozora
         std::shared_ptr<Gtk::Box> featured_container;
         std::vector<std::shared_ptr<ShowPreview>> featured_shows_previews = std::vector<std::shared_ptr<ShowPreview>>();
         // This Season Poster Previews
+        std::string this_season_string;
         std::shared_ptr<Gtk::Label> this_season_header;
         std::shared_ptr<Gtk::Box> this_season_container;
         std::vector<std::shared_ptr<EntryPosterPreview>> this_season_previews = std::vector<std::shared_ptr<EntryPosterPreview>>();

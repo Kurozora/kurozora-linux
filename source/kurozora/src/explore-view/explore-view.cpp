@@ -1,5 +1,6 @@
 #include "../../include/explore-view/explore-view.h"
 #include <thread>
+#include <nlohmann/json.hpp>
 
 namespace kurozora
 {
@@ -33,22 +34,11 @@ namespace kurozora
         featured_callback = std::make_shared<Glib::Dispatcher>();
         featured_callback->connect([this]() {
             // Initialize Featured
-            featured_shows_previews.reserve(explore->featured_anime_ids.size());
-            for (int anime_id : explore->featured_anime_ids)
-            {
-                featured_shows_previews.push_back(std::shared_ptr<ShowPreview>(new ShowPreview(anime_id)));
-            }
             for (std::shared_ptr<ShowPreview> show_preview : featured_shows_previews)
             {
                 featured_container->append(*show_preview);
             }
-            // Initialize {This Season}
-            this_season_header->set_text(explore->this_season_label);
-            this_season_previews.reserve(explore->this_season_anime_ids.size());
-            for (int anime_id : explore->this_season_anime_ids)
-            {
-                this_season_previews.push_back(std::shared_ptr<EntryPosterPreview>(new EntryPosterPreview(anime_id)));
-            }
+            this_season_header->set_text(this_season_string);
             for (std::shared_ptr<EntryPosterPreview> show_preview : this_season_previews)
             {
                 this_season_container->append(*show_preview);
@@ -58,6 +48,29 @@ namespace kurozora
         featured_shows_previews.reserve(10);
         std::thread download_explore([this]() {
             explore = std::make_shared<backend::Explore>();
+            nlohmann::json& json_object = *(explore->json_object);
+            for (auto& category : json_object["data"])
+            {
+                if (category["attributes"]["type"] == "most-popular-shows")
+                {
+                    // Featured
+                    for (auto& data : category["relationships"]["shows"]["data"])
+                    {
+                        //featured_anime_ids.push_back(data["id"]);
+                        featured_shows_previews.push_back(std::shared_ptr<ShowPreview>(new ShowPreview(data["id"])));
+                    }
+                }
+                if (category["attributes"]["type"] == "anime-season")
+                {
+                    this_season_string = std::string(category["attributes"]["title"]);
+                    // This Season
+                    for (auto& data : category["relationships"]["shows"]["data"])
+                    {
+                        //this_season_anime_ids.push_back(data["id"]);
+                        this_season_previews.push_back(std::shared_ptr<EntryPosterPreview>(new EntryPosterPreview(data["id"])));
+                    }
+                }
+            }
             featured_callback->emit();
         });
         download_explore.detach();
