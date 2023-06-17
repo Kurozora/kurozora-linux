@@ -71,15 +71,30 @@ namespace kurozora
         this->anime_id = anime_id;
         std::thread download_image([this]() {
             backend::Anime anime = backend::Anime(this->anime_id);
-            if (anime.title.has_value()) { title = anime.title.value(); } else { title = "No title!"; }
-            if (anime.tagline.has_value()) { tagline = anime.tagline.value(); }
-            if (anime.genres.has_value()) { genres = anime.genres.value(); }
-            if (anime.themes.has_value()) { themes = anime.themes.value(); }
-            if (anime.banner_url.has_value())
+            nlohmann::json& json_object = *anime.json_object;
+            if (json_object["title"].is_string()) { title = json_object["title"]; } else { title = "No title!"; }
+            if (json_object["tagline"].is_string()) { tagline = json_object["tagline"]; }
+            if (json_object["genres"].is_array()) {
+                std::vector<std::string> genres_strings;
+                for (auto& genre : json_object["genres"])
+                {
+                    genres_strings.push_back(genre);
+                }
+                genres = genres_strings;
+            }
+            if (json_object["theme"].is_array()) {
+                std::vector<std::string> themes_strings;
+                for (auto& theme : json_object["themes"])
+                {
+                    themes_strings.push_back(theme);
+                }
+                themes = themes_strings;
+            }
+            if (json_object["banner"]["url"].is_string())
             {
                 // A picture URL has been specified, retrieve banner and replace placeholder immage
                 cpr::Response response = cpr::Get(
-                    cpr::Url(anime.banner_url.value()) // Temporary for testing
+                    cpr::Url(json_object["banner"]["url"])
                 );
                 if (response.status_code != 200) { throw std::runtime_error("Error: Couldn't retrieve banner image"); }
                 downloaded_buffer = std::shared_ptr<Glib::Bytes>(Glib::Bytes::create(&response.text[0], response.text.length()));

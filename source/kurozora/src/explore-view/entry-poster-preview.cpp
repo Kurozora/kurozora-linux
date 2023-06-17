@@ -26,23 +26,26 @@ namespace kurozora
 
         download_completed = std::shared_ptr<Glib::Dispatcher>(new Glib::Dispatcher());
         download_completed->connect([this]() {
-            if (anime->title.has_value())
+            nlohmann::json& json_object = *(anime->json_object);
+            if (json_object["title"].is_string())
             {
-                anime_title->set_label(anime->title.value());
-                if (anime->title.value().length() > 27)
+                std::string title = json_object["title"];
+                anime_title->set_label(title);
+                if (title.length() > 27)
                 {
-                    anime_title->set_tooltip_text(anime->title.value());
+                    anime_title->set_tooltip_text(title);
                 }
             }
-            if (anime->tagline.has_value())
+            if (json_object["title"].is_string())
             {
-                anime_subtitle->set_label(anime->tagline.value());
-                if (anime->tagline.value().length() > 40) { anime_subtitle->set_tooltip_text(anime->tagline.value()); }
+                std::string tagline = json_object["title"];
+                anime_subtitle->set_label(tagline);
+                if (tagline.length() > 40) { anime_subtitle->set_tooltip_text(tagline); }
             }
-            else if (anime->genres.has_value())
+            else if (json_object["genres"].is_array())
             {
                 std::stringstream ss;
-                for (auto& genre : anime->genres.value())
+                for (auto& genre : json_object["genres"])
                 {
                     ss << genre << ", ";
                 }
@@ -52,10 +55,10 @@ namespace kurozora
                 anime_subtitle->set_label(genres_subtitle);
                 if (genres_subtitle.length() > 40) { anime_subtitle->set_tooltip_text(genres_subtitle); }
             }
-            else if (anime->themes.has_value())
+            else if (json_object["theme"].is_array())
             {
                 std::stringstream ss;
-                for (auto& genre : anime->themes.value())
+                for (auto& genre : json_object["theme"])
                 {
                     ss << genre << ", ";
                 }
@@ -69,19 +72,20 @@ namespace kurozora
             {
                 anime_subtitle->hide();
             }
-            if (anime->rating_average.has_value())
+            if (json_object["stats"]["ratingAverage"].is_number_float())
             {
-                std::string formatted_rating = std::to_string(anime->rating_average.value()).substr(0, 3);
+                float rating_average = json_object["stats"]["ratingAverage"];
+                std::string formatted_rating = std::to_string(rating_average).substr(0, 3);
                 std::replace(formatted_rating.begin(), formatted_rating.end(), ',', '.');
                 rating_label->set_label(formatted_rating);
                 for (auto it = rating_stars.begin(); it != rating_stars.end();  ++it)
                 {
-                    if (anime->rating_average.value() - (it - rating_stars.begin()) > 0.0 &&
-                        anime->rating_average.value() - (it - rating_stars.begin()) < 1.0)
+                    if (rating_average - (it - rating_stars.begin()) > 0.0 &&
+                        rating_average - (it - rating_stars.begin()) < 1.0)
                     {
                         (*it)->set_from_icon_name("rating_star_half");
                     }
-                    else if (it - rating_stars.begin() < anime->rating_average.value())
+                    else if (it - rating_stars.begin() < rating_average)
                     {
                         (*it)->set_from_icon_name("rating_star_full");
                     }
@@ -97,10 +101,11 @@ namespace kurozora
         this->anime_id = anime_id;
         std::thread download_anime([this]() {
             anime = std::make_shared<backend::Anime>(backend::Anime(this->anime_id));
-            if (anime->poster_url.has_value())
+            nlohmann::json& json_object = *(anime->json_object);
+            if (json_object["poster"]["url"].is_string())
             {
                 cpr::Response response = cpr::Get(
-                    cpr::Url(anime->poster_url.value())
+                    cpr::Url(json_object["poster"]["url"])
                 );
                 if (response.status_code != 200) { throw std::runtime_error("Error: Couldn't retrieve poster picture"); }
                 downloaded_buffer = std::shared_ptr<Glib::Bytes>(Glib::Bytes::create(&response.text[0], response.text.length()));
