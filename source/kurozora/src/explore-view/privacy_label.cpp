@@ -8,7 +8,7 @@
 namespace kurozora
 {
 
-    PrivacyLabel::PrivacyLabel(std::shared_ptr<Gtk::Window> parent, std::shared_ptr<Gtk::Builder> builder, const std::string&& label_id)
+    PrivacyLabel::PrivacyLabel(Gtk::Window* parent, std::shared_ptr<Gtk::Builder> builder, const std::string&& label_id)
     {
         label = std::shared_ptr<Gtk::Label>(builder->get_widget<Gtk::Label>(label_id));
 

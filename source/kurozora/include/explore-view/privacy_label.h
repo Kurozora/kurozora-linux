@@ -7,7 +7,7 @@ namespace kurozora
     class PrivacyLabel
     {
     public:
-        PrivacyLabel(std::shared_ptr<Gtk::Window> parent, std::shared_ptr<Gtk::Builder> builder, const std::string&& label_id);
+        PrivacyLabel(Gtk::Window* parent, std::shared_ptr<Gtk::Builder> builder, const std::string&& label_id);
     public:
         std::shared_ptr<Gtk::Label> label;
         std::shared_ptr<Gtk::GestureClick> gesture_click;

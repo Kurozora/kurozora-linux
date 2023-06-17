@@ -12,10 +12,10 @@ namespace kurozora
     class ExploreView : public Gtk::Box
     {
     public:
-        ExploreView(std::shared_ptr<Gtk::Window> parent_window);
+        ExploreView(Gtk::Window* parent_window);
         void QuickLinkOpen(const std::string&& url);
     public:
-        std::shared_ptr<Gtk::Window> parent_window;
+        Gtk::Window* parent_window;
 
         std::shared_ptr<Gtk::Box> explore_main_box;
         std::shared_ptr<Gtk::Builder> builder;

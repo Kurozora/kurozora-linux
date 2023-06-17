@@ -17,6 +17,6 @@ namespace kurozora
         std::shared_ptr<Gtk::CssProvider> css_provider;
         std::shared_ptr<Gtk::Box> main_box;
 
-        ExploreView* explore_view;
+        std::unique_ptr<ExploreView> explore_view;
     };
 }

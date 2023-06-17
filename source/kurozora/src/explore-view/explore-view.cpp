@@ -4,7 +4,7 @@
 
 namespace kurozora
 {
-    ExploreView::ExploreView(std::shared_ptr<Gtk::Window> parent_window)
+    ExploreView::ExploreView(Gtk::Window* parent_window)
     {
         this->parent_window = parent_window;
 
