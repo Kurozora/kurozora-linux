@@ -20,7 +20,7 @@ namespace kurozora
         preview_picture = std::shared_ptr<Gtk::Picture>(builder->get_widget<Gtk::Picture>("preview-picture"));
 
 
-        download_completed = std::shared_ptr<Glib::Dispatcher>(new Glib::Dispatcher());
+        download_completed = std::make_shared<Glib::Dispatcher>();
         download_completed->connect([this]() {
             // TODO: Not sure if this means that the placeholder stays in memory, and if so a single gresource copy or many
             if (downloaded_texture.has_value())

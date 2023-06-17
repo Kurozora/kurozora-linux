@@ -57,7 +57,7 @@ namespace kurozora
                     for (auto& data : category["relationships"]["shows"]["data"])
                     {
                         //featured_anime_ids.push_back(data["id"]);
-                        featured_shows_previews.push_back(std::shared_ptr<ShowPreview>(new ShowPreview(data["id"])));
+                        featured_shows_previews.push_back(std::make_shared<ShowPreview>(data["id"]));
                     }
                 }
                 if (category["attributes"]["type"] == "anime-season")
@@ -67,7 +67,7 @@ namespace kurozora
                     for (auto& data : category["relationships"]["shows"]["data"])
                     {
                         //this_season_anime_ids.push_back(data["id"]);
-                        this_season_previews.push_back(std::shared_ptr<EntryPosterPreview>(new EntryPosterPreview(data["id"])));
+                        this_season_previews.push_back(std::make_shared<EntryPosterPreview>(data["id"]));
                     }
                 }
             }
@@ -76,7 +76,7 @@ namespace kurozora
         download_explore.detach();
 
         //Initialize the Kurozora & Privacy label
-        this->privacy_label = std::shared_ptr<PrivacyLabel>(new PrivacyLabel(parent_window, this->builder, "explore-kurozora-privacy-label"));
+        this->privacy_label = std::make_shared<PrivacyLabel>(parent_window, this->builder, "explore-kurozora-privacy-label");
 
         this->insert_child_at_start(*this->explore_main_box);
         this->show();

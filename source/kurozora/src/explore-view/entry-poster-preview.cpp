@@ -24,7 +24,7 @@ namespace kurozora
         }
         control_button = std::shared_ptr<Gtk::Button>(builder->get_widget<Gtk::Button>("control-button"));
 
-        download_completed = std::shared_ptr<Glib::Dispatcher>(new Glib::Dispatcher());
+        download_completed = std::make_shared<Glib::Dispatcher>();
         download_completed->connect([this]() {
             nlohmann::json& json_object = *(anime->json_object);
             if (json_object["title"].is_string())

@@ -18,7 +18,7 @@ namespace kurozora
         popup_window->set_transient_for(*parent);
         popup_window->set_hide_on_close(true);
 
-        popup_callback = std::shared_ptr<Glib::Dispatcher>(new Glib::Dispatcher());
+        popup_callback = std::make_shared<Glib::Dispatcher>();
         popup_callback->connect([this]() {
             this->popup_text->get_buffer()->set_text(this->policy_text);
         });
