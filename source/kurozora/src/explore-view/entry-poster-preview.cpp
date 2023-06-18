@@ -36,9 +36,9 @@ namespace kurozora
                     anime_title->set_tooltip_text(title);
                 }
             }
-            if (json_object["title"].is_string())
+            if (json_object["tagline"].is_string())
             {
-                std::string tagline = json_object["title"];
+                std::string tagline = json_object["tagline"];
                 anime_subtitle->set_label(tagline);
                 if (tagline.length() > 40) { anime_subtitle->set_tooltip_text(tagline); }
             }
@@ -47,7 +47,7 @@ namespace kurozora
                 std::stringstream ss;
                 for (auto& genre : json_object["genres"])
                 {
-                    ss << genre << ", ";
+                    ss << std::string(genre) << ", ";
                 }
                 std::string genres_subtitle = ss.str();
                 genres_subtitle.pop_back(); // Remove last ` `
@@ -58,9 +58,9 @@ namespace kurozora
             else if (json_object["theme"].is_array())
             {
                 std::stringstream ss;
-                for (auto& genre : json_object["theme"])
+                for (auto& theme : json_object["theme"])
                 {
-                    ss << genre << ", ";
+                    ss << std::string(theme) << ", ";
                 }
                 std::string themes_subtitle = ss.str();
                 themes_subtitle.pop_back(); // Remove last ` `
