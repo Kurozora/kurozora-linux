@@ -29,7 +29,7 @@
                         <property name="margin-end">10</property>
                         <!--Featured-->
                         <child>
-                            <object class="GtkScrolledWindow">
+                            <object class="GtkScrolledWindow" id="scrolled-window-1">
                                 <property name="vscrollbar-policy">never</property>
                                 <child>
                                     <object class="GtkBox" id="explore-featured">
