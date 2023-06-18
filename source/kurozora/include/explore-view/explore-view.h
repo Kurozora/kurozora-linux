@@ -20,6 +20,8 @@ namespace kurozora
         std::shared_ptr<Gtk::Box> explore_main_box;
         std::shared_ptr<Gtk::Builder> builder;
 
+        // Scroll Workaround
+        std::shared_ptr<Gtk::EventControllerScroll> eventControllerScroll;
         // Explore Object
         std::shared_ptr<backend::Explore> explore;
         // Featured Shows Previews

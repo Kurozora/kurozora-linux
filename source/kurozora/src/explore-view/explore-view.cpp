@@ -1,6 +1,9 @@
 #include "../../include/explore-view/explore-view.h"
 #include <thread>
 #include <nlohmann/json.hpp>
+#include "../../include/utils/gtk/nested-scroll-workaround.h"
+#include <iostream> // TMP FOR TESTING
+#include <stdint.h>
 
 namespace kurozora
 {
@@ -26,6 +29,9 @@ namespace kurozora
         auto quick_link_3_gesture = Gtk::GestureClick::create();
         quick_link_3_gesture->signal_released().connect([this](const int&, const double&, const double&) {QuickLinkOpen("https://kurozora.app/welcome"); });
         quick_link_3->add_controller(quick_link_3_gesture);
+
+        // Scroll Workaround
+        utils::gtk::fix_nested_scroll(builder.get());
 
         // Initialize Widgets
         featured_container = std::shared_ptr<Gtk::Box>(this->builder->get_widget<Gtk::Box>("explore-featured"));

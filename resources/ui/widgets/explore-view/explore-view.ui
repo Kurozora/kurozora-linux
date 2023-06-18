@@ -29,7 +29,7 @@
                         <property name="margin-end">10</property>
                         <!--Featured-->
                         <child>
-                            <object class="GtkScrolledWindow">
+                            <object class="GtkScrolledWindow" id="scrolled-window-workaround-0">
                                 <property name="vscrollbar-policy">never</property>
                                 <child>
                                     <object class="GtkBox" id="explore-featured">
@@ -53,7 +53,7 @@
                             </object>
                         </child>
                         <child>
-                            <object class="GtkScrolledWindow">
+                            <object class="GtkScrolledWindow" id="scrolled-window-workaround-1">
                                 <property name="vscrollbar-policy">never</property>
                                 <child>
                                     <object class="GtkBox" id="explore-season">
@@ -78,7 +78,7 @@
                             </object>
                         </child>
                         <child>
-                            <object class="GtkScrolledWindow">
+                            <object class="GtkScrolledWindow" id="scrolled-window-workaround-2">
                                 <property name="vscrollbar-policy">never</property>
                                 <child>
                                     <object class="GtkBox" id="explore-new-game-additions">
@@ -101,7 +101,7 @@
                             </object>
                         </child>
                         <child>
-                            <object class="GtkScrolledWindow">
+                            <object class="GtkScrolledWindow" id="scrolled-window-workaround-3">
                                 <property name="vscrollbar-policy">never</property>
                                 <child>
                                     <object class="GtkBox" id="explore-upcoming-shows">
@@ -124,7 +124,7 @@
                             </object>
                         </child>
                         <child>
-                            <object class="GtkScrolledWindow">
+                            <object class="GtkScrolledWindow" id="scrolled-window-workaround-4">
                                 <property name="vscrollbar-policy">never</property>
                                 <child>
                                     <object class="GtkBox" id="explore-top-genres">
@@ -147,7 +147,7 @@
                             </object>
                         </child>
                         <child>
-                            <object class="GtkScrolledWindow">
+                            <object class="GtkScrolledWindow" id="scrolled-window-workaround-5">
                                 <property name="vscrollbar-policy">never</property>
                                 <child>
                                     <object class="GtkBox" id="explore-long-time-favorites">
@@ -170,7 +170,7 @@
                             </object>
                         </child>
                         <child>
-                            <object class="GtkScrolledWindow">
+                            <object class="GtkScrolledWindow" id="scrolled-window-workaround-6">
                                 <property name="vscrollbar-policy">never</property>
                                 <child>
                                     <object class="GtkBox" id="explore-what-are-we-watching">
@@ -195,7 +195,7 @@
                             </object>
                         </child>
                         <child>
-                            <object class="GtkScrolledWindow">
+                            <object class="GtkScrolledWindow" id="scrolled-window-workaround-7">
                                 <property name="vscrollbar-policy">never</property>
                                 <child>
                                     <object class="GtkBox" id="explore-hot-tracks">
