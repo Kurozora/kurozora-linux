@@ -1,6 +1,7 @@
 #include "../../include/explore-view/explore-view.h"
 #include <thread>
 #include <nlohmann/json.hpp>
+#include "../../include/utils/gtk/nested-scroll-workaround.h"
 #include <iostream> // TMP FOR TESTING
 #include <stdint.h>
 
@@ -29,31 +30,8 @@ namespace kurozora
         quick_link_3_gesture->signal_released().connect([this](const int&, const double&, const double&) {QuickLinkOpen("https://kurozora.app/welcome"); });
         quick_link_3->add_controller(quick_link_3_gesture);
 
-        // Scroll Workaround (horrifying workaround ahead)
-        Gtk::ScrolledWindow* scrolledWindow = builder->get_widget<Gtk::ScrolledWindow>("scrolled-window-1");
-        std::cout << "SCROLLED WINDOW ADDRESS: " << std::hex << scrolledWindow->gobj() << std::endl;
-        int childrens_count = scrolledWindow->observe_controllers()->get_n_items();
-        for (int i = 0; i < childrens_count; ++i)
-        {
-            std::cout << "ITEM POINTER: " << std::hex << scrolledWindow->observe_controllers()->get_object(i)->gobj() << std::endl;
-            if (GTK_IS_EVENT_CONTROLLER_SCROLL(scrolledWindow->observe_controllers()->get_object(i)->gobj()))
-            {
-                std::cout << "FOUND EVENT CONTROLLER SCROLL! ADDRESS: " << std::hex << scrolledWindow->observe_controllers()->get_object(i)->gobj() << std::endl;
-                GtkEventControllerScroll* event_controller_scroll = (GtkEventControllerScroll*)scrolledWindow->observe_controllers()->get_object(i)->gobj();
-                gtk_event_controller_scroll_set_flags(event_controller_scroll, GtkEventControllerScrollFlags::GTK_EVENT_CONTROLLER_SCROLL_HORIZONTAL);
-            }
-            //scrolledWindow->observe_controllers()->get_object(i)->gobj();
-        }
-        //Gtk::Widget* widget = scrolledWindow->get_first_child();
-        //while ((widget = widget->get_next_sibling()) != NULL)
-        //{
-        //    std::cout << "CURRENT POINTER VALUE: " << std::hex << widget->gobj() << std::endl;
-        //    if (GTK_IS_EVENT_CONTROLLER_SCROLL(widget->gobj()))
-        //    {
-        //        std::cout << "CONTROLLER FOUND!" << std::endl;
-        //        ((Gtk::EventControllerScroll*)widget)->set_flags(Gtk::EventControllerScroll::Flags::HORIZONTAL | Gtk::EventControllerScroll::Flags::KINETIC);
-        //    }
-        //}
+        // Scroll Workaround
+        utils::gtk::fix_nested_scroll(builder.get());
 
         // Initialize Widgets
         featured_container = std::shared_ptr<Gtk::Box>(this->builder->get_widget<Gtk::Box>("explore-featured"));
