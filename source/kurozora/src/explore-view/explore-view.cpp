@@ -2,8 +2,6 @@
 #include <thread>
 #include <nlohmann/json.hpp>
 #include "../../include/utils/gtk/nested-scroll-workaround.h"
-#include <iostream> // TMP FOR TESTING
-#include <stdint.h>
 
 namespace kurozora
 {
