@@ -1,7 +1,7 @@
 <interface>
     <object class="GtkBox" id="explore_main_box">
         <property name="orientation">vertical</property>
-        <property name="spacing">25</property>
+        <property name="spacing">10</property>
         <property name="margin-top">10</property>
         <property name="margin-bottom">10</property>
         <property name="margin-start">10</property>
@@ -25,22 +25,15 @@
                         <property name="hexpand">true</property>
                         <property name="spacing">25</property>
                         <property name="margin-top">10</property>
-                        <property name="margin-bottom">10</property>
                         <property name="margin-start">10</property>
                         <property name="margin-end">10</property>
                         <!--Featured-->
                         <child>
-                            <object class="GtkLabel">
-                                <property name="css-classes">section-header</property>
-                                <property name="halign">start</property>
-                                <property name="label">Featured</property>
-                            </object>
-                        </child>
-                        <child>
-                            <object class="GtkScrolledWindow">
+                            <object class="GtkScrolledWindow" id="scrolled-window-workaround-0">
                                 <property name="vscrollbar-policy">never</property>
                                 <child>
                                     <object class="GtkBox" id="explore-featured">
+                                        <property name="spacing">25</property>
                                         <property name="orientation">horizontal</property>
                                     </object>
                                 </child>
@@ -53,18 +46,20 @@
                         </child>
                         <!--{Season}{Year}-->
                         <child>
-                            <object class="GtkLabel">
+                            <object class="GtkLabel" id="this-season">
                                 <property name="css-classes">section-header</property>
                                 <property name="halign">start</property>
                                 <property name="label">This Season</property> <!--This label is controlled by the APIs-->
                             </object>
                         </child>
                         <child>
-                            <object class="GtkScrolledWindow">
+                            <object class="GtkScrolledWindow" id="scrolled-window-workaround-1">
                                 <property name="vscrollbar-policy">never</property>
                                 <child>
                                     <object class="GtkBox" id="explore-season">
                                         <property name="orientation">horizontal</property>
+                                        <property name="spacing">50</property>
+                                        <property name="homogeneous">true</property>
                                     </object>
                                 </child>
                             </object>
@@ -83,7 +78,7 @@
                             </object>
                         </child>
                         <child>
-                            <object class="GtkScrolledWindow">
+                            <object class="GtkScrolledWindow" id="scrolled-window-workaround-2">
                                 <property name="vscrollbar-policy">never</property>
                                 <child>
                                     <object class="GtkBox" id="explore-new-game-additions">
@@ -106,7 +101,7 @@
                             </object>
                         </child>
                         <child>
-                            <object class="GtkScrolledWindow">
+                            <object class="GtkScrolledWindow" id="scrolled-window-workaround-3">
                                 <property name="vscrollbar-policy">never</property>
                                 <child>
                                     <object class="GtkBox" id="explore-upcoming-shows">
@@ -129,7 +124,7 @@
                             </object>
                         </child>
                         <child>
-                            <object class="GtkScrolledWindow">
+                            <object class="GtkScrolledWindow" id="scrolled-window-workaround-4">
                                 <property name="vscrollbar-policy">never</property>
                                 <child>
                                     <object class="GtkBox" id="explore-top-genres">
@@ -152,7 +147,7 @@
                             </object>
                         </child>
                         <child>
-                            <object class="GtkScrolledWindow">
+                            <object class="GtkScrolledWindow" id="scrolled-window-workaround-5">
                                 <property name="vscrollbar-policy">never</property>
                                 <child>
                                     <object class="GtkBox" id="explore-long-time-favorites">
@@ -175,11 +170,13 @@
                             </object>
                         </child>
                         <child>
-                            <object class="GtkScrolledWindow">
+                            <object class="GtkScrolledWindow" id="scrolled-window-workaround-6">
                                 <property name="vscrollbar-policy">never</property>
                                 <child>
                                     <object class="GtkBox" id="explore-what-are-we-watching">
                                         <property name="orientation">horizontal</property>
+                                        <property name="spacing">50</property>
+                                        <property name="homogeneous">true</property>
                                     </object>
                                 </child>
                             </object>
@@ -198,7 +195,7 @@
                             </object>
                         </child>
                         <child>
-                            <object class="GtkScrolledWindow">
+                            <object class="GtkScrolledWindow" id="scrolled-window-workaround-7">
                                 <property name="vscrollbar-policy">never</property>
                                 <child>
                                     <object class="GtkBox" id="explore-hot-tracks">
@@ -221,8 +218,99 @@
                             </object>
                         </child>
                         <child>
-                            <object class="GtkLabel">
-                                <property name="label">Quick Links placeholder</property>
+                            <object class="GtkBox">
+                                <property name="spacing">20</property>
+                                <property name="orientation">vertical</property>
+                                <child>
+                                    <!--FlowBox with links-->
+                                    <object class="GtkFlowBox">
+                                        <property name="halign">start</property>
+                                        <property name="orientation">horizontal</property>
+                                        <property name="homogeneous">true</property>
+                                        <property name="row-spacing">15</property>
+                                        <property name="column-spacing">15</property>
+                                        <property name="selection-mode">none</property>
+                                        <child>
+                                            <object class="GtkFlowBoxChild" id="explore-quick-link-1">
+                                                <property name="css-classes">quick-link</property>
+                                                <property name="margin-bottom">15</property>
+                                                <child>
+                                                    <object class="GtkLabel">
+                                                        <property name="halign">start</property>
+                                                        <property name="label">About In-App Purchases</property>
+                                                    </object>
+                                                </child>
+                                            </object>
+                                        </child>
+                                        <child>
+                                            <object class="GtkFlowBoxChild" id="explore-quick-link-2">
+                                                <property name="css-classes">quick-link</property>
+                                                <property name="margin-bottom">15</property>
+                                                <child>
+                                                    <object class="GtkLabel">
+                                                        <property name="halign">start</property>
+                                                        <property name="label">About Personalisation</property>
+                                                    </object>
+                                                </child>
+                                            </object>
+                                        </child>
+                                        <child>
+                                            <object class="GtkFlowBoxChild" id="explore-quick-link-3">
+                                                <property name="css-classes">quick-link</property>
+                                                <property name="margin-bottom">15</property>
+                                                <child>
+                                                    <object class="GtkLabel">
+                                                        <property name="halign">start</property>
+                                                        <property name="label">Welcome to Kurozora</property>
+                                                    </object>
+                                                </child>
+                                            </object>
+                                        </child>
+                                    </object>
+                                </child>
+                                <child>
+                                    <!--Horizontal box with buttons-->
+                                    <object class="GtkBox">
+                                        <property name="orientation">horizontal</property>
+                                        <property name="hexpand">true</property>
+                                        <property name="halign">center</property>
+                                        <property name="spacing">25</property>
+                                        <property name="homogeneous">true</property>
+                                        <child>
+                                            <object class="GtkButton" id="explore-redeem-button">
+                                                <property name="css-classes">large-button</property>
+                                                <property name="label">Redeem</property>
+                                                <property name="sensitive">false</property>
+                                            </object>
+                                        </child>
+                                        <child>
+                                            <object class="GtkButton" id="explore-view-subscription-button">
+                                                <property name="css-classes">large-button</property>
+                                                <property name="label">View Subscription</property>
+                                                <property name="sensitive">false</property>
+                                            </object>
+                                        </child>
+                                    </object>
+                                </child>
+                                <child>
+                                    <object class="GtkBox">
+                                        <property name="orientation">vertical</property>
+                                        <property name="spacing">5px</property>
+                                        <child>
+                                            <object class="GtkSeparator">
+                                                <property name="css-classes">thick-separator</property>
+                                                <property name="orientation">horizontal</property>
+                                            </object>
+                                        </child>
+                                        <child>
+                                            <!--Kurozora & Privacy-->
+                                            <object class="GtkLabel" id="explore-kurozora-privacy-label">
+                                                <property name="halign">start</property>
+                                                <property name="label">Kurozora &#38; Privacy ></property>
+                                            </object>
+                                        </child>
+                                    </object>
+                                </child>
                             </object>
                         </child>
                     </object>

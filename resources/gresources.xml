@@ -1,7 +1,19 @@
 <gresources>
     <gresource prefix="/kurozora">
+        <!--Widgets-->
         <file compressed="true">ui/widgets/main-window.ui</file>
-        <file compressed="true">ui/widgets/explore-view.ui</file>
+        <file compressed="true">ui/widgets/explore-view/explore-view.ui</file>
+        <file compressed="true">ui/widgets/explore-view/privacy-label-popup.ui</file>
+        <file compressed="true">ui/widgets/explore-view/show-preview.ui</file>
+        <file compressed="true">ui/widgets/explore-view/entry-poster-preview.ui</file>
+        <!--CSS-->
         <file compressed="true">ui/style/overrides.css</file>
+        <!--Media-->
+        <file compressed="false">ui/placeholders/show_banner.jpg</file>
+        <file compressed="false">ui/placeholders/show_poster.jpg</file>
+        <!--Icons-->
+        <file compressed="true">ui/icons/scalable/actions/rating_star_empty.svg</file>
+        <file compressed="true">ui/icons/scalable/actions/rating_star_half.svg</file>
+        <file compressed="true">ui/icons/scalable/actions/rating_star_full.svg</file>
     </gresource>
 </gresources>

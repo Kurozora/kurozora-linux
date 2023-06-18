@@ -1,0 +1,38 @@
+<interface>
+    <object class="GtkTextBuffer" id="explore-privacy-label-popup-text-buffer">
+        <property name="text"></property>
+    </object>
+    <object class="GtkWindow" id="explore-privacy-label-popup-window">
+        <property name="modal">true</property> <!--Parent is set via code-->
+        <property name="resizable">false</property>
+        <property name="title">Kurozora &#38; Privacy</property>
+        <child>
+            <object class="GtkBox">
+                <property name="orientation">vertical</property>
+                <child>
+                    <object class="GtkLabel">
+                        <property name="css-classes">privacy-label-popup-title</property>
+                        <property name="justify">center</property>
+                        <property name="label">Kurozora &#38; Privacy</property>
+                    </object>
+                </child>
+                <child>
+                    <object class="GtkScrolledWindow">
+                        <property name="width-request">600em</property>
+                        <property name="height-request">800em</property>
+                        <child>
+                            <object class="GtkTextView" id="explore-privacy-label-popup-text-view">
+                                <property name="css-classes">privacy-label-popup-text</property>
+                                <property name="cursor-visible">false</property>
+                                <property name="editable">false</property>
+                                <property name="can-target">false</property>
+                                <property name="wrap-mode">word</property>
+                                <property name="buffer">explore-privacy-label-popup-text-buffer</property>
+                            </object>
+                        </child>
+                    </object>
+                </child>
+            </object>
+        </child>
+    </object>
+</interface>

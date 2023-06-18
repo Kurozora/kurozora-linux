@@ -1,6 +1,8 @@
 <interface>
     <object class="GtkBox" id="main-window">
         <property name="orientation">horizontal</property>
+        <property name="width-request">1000</property>
+        <property name="height-request">432</property>
         <child>
             <object class="GtkBox">
                 <property name="orientation">vertical</property>
