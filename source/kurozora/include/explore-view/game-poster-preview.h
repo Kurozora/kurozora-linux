@@ -16,8 +16,8 @@ namespace kurozora
         std::shared_ptr<backend::Game> game;
         std::shared_ptr<Gtk::Builder> builder;
         std::shared_ptr<Gtk::Box> container_box;
-        std::shared_ptr<Gtk::Label> anime_title;
-        std::shared_ptr<Gtk::Label> anime_subtitle;
+        std::shared_ptr<Gtk::Label> game_title;
+        std::shared_ptr<Gtk::Label> game_subtitle;
         std::shared_ptr<Gtk::Button> control_button;
         std::shared_ptr<Glib::Dispatcher> download_completed;
         std::shared_ptr<Glib::Bytes> downloaded_buffer;

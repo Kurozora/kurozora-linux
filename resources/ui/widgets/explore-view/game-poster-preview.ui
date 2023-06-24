@@ -27,7 +27,7 @@
                                 <property name="spacing">5</property>
                                 <child>
                                     <!--Title-->
-                                    <object class="GtkLabel" id="anime-title">
+                                    <object class="GtkLabel" id="game-title">
                                         <property name="css-classes">entry-poster-preview-title</property>
                                         <property name="label">placeholder</property>
                                         <property name="halign">start</property>
@@ -40,7 +40,7 @@
                                 </child>
                                 <child>
                                     <!--Tagline-->
-                                    <object class="GtkLabel" id="anime-subtitle">
+                                    <object class="GtkLabel" id="game-subtitle">
                                         <property name="css-classes">entry-poster-preview-subtitle</property>
                                         <property name="label">placeholder</property>
                                         <property name="halign">start</property>

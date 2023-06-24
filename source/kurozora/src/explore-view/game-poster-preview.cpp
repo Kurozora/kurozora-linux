@@ -14,8 +14,8 @@ namespace kurozora
 
         loading_overlay = std::shared_ptr<Gtk::Box>(builder->get_widget<Gtk::Box>("loading-overlay"));
         preview_picture = std::shared_ptr<Gtk::Picture>(builder->get_widget<Gtk::Picture>("poster-preview"));
-        anime_title = std::shared_ptr<Gtk::Label>(builder->get_widget<Gtk::Label>("anime-title"));
-        anime_subtitle = std::shared_ptr<Gtk::Label>(builder->get_widget<Gtk::Label>("anime-subtitle"));
+        game_title = std::shared_ptr<Gtk::Label>(builder->get_widget<Gtk::Label>("game-title"));
+        game_subtitle = std::shared_ptr<Gtk::Label>(builder->get_widget<Gtk::Label>("game-subtitle"));
         control_button = std::shared_ptr<Gtk::Button>(builder->get_widget<Gtk::Button>("control-button"));
 
         download_completed = std::make_shared<Glib::Dispatcher>();
@@ -24,17 +24,17 @@ namespace kurozora
             if (json_object["title"].is_string())
             {
                 std::string title = json_object["title"];
-                anime_title->set_label(title);
+                game_title->set_label(title);
                 if (title.length() > 27)
                 {
-                    anime_title->set_tooltip_text(title);
+                    game_title->set_tooltip_text(title);
                 }
             }
             if (json_object["tagline"].is_string())
             {
                 std::string tagline = json_object["tagline"];
-                anime_subtitle->set_label(tagline);
-                if (tagline.length() > 40) { anime_subtitle->set_tooltip_text(tagline); }
+                game_subtitle->set_label(tagline);
+                if (tagline.length() > 40) { game_subtitle->set_tooltip_text(tagline); }
             }
             else if (json_object["genres"].is_array() && json_object["genres"].size() > 0)
             {
@@ -46,8 +46,8 @@ namespace kurozora
                 std::string genres_subtitle = ss.str();
                 genres_subtitle.pop_back(); // Remove last ` `
                 genres_subtitle.pop_back(); // Remove last `,`
-                anime_subtitle->set_label(genres_subtitle);
-                if (genres_subtitle.length() > 40) { anime_subtitle->set_tooltip_text(genres_subtitle); }
+                game_subtitle->set_label(genres_subtitle);
+                if (genres_subtitle.length() > 40) { game_subtitle->set_tooltip_text(genres_subtitle); }
             }
             else if (json_object["theme"].is_array() && json_object["theme"].size() > 0)
             {
@@ -59,12 +59,12 @@ namespace kurozora
                 std::string themes_subtitle = ss.str();
                 themes_subtitle.pop_back(); // Remove last ` `
                 themes_subtitle.pop_back(); // Remove last `,`
-                anime_subtitle->set_label(themes_subtitle);
-                if (themes_subtitle.length() > 40) { anime_subtitle->set_tooltip_text(themes_subtitle); }
+                game_subtitle->set_label(themes_subtitle);
+                if (themes_subtitle.length() > 40) { game_subtitle->set_tooltip_text(themes_subtitle); }
             }
             else
             {
-                anime_subtitle->hide();
+                game_subtitle->hide();
             }
             if (downloaded_texture.has_value())
             {
@@ -74,7 +74,7 @@ namespace kurozora
         });
 
         this->game_id = game_id;
-        std::thread download_anime([this]() {
+        std::thread download_game([this]() {
             game = std::make_shared<backend::Game>(backend::Game(this->game_id));
             nlohmann::json& json_object = *(game->json_object);
             if (json_object["poster"]["url"].is_string())
@@ -88,7 +88,7 @@ namespace kurozora
             }
             download_completed->emit();
         });
-        download_anime.detach();
+        download_game.detach();
 
     }
 }
