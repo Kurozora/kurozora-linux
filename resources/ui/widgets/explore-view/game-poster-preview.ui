@@ -4,7 +4,7 @@
             <object class="GtkOverlay">
                 <child type="overlay">
                     <object class="GtkBox" id="loading-overlay">
-                        <!--<property name="css-classes">featured-show-preview-loading</property>-->
+                        <property name="css-classes">featured-show-preview-loading</property>
                     </object>
                 </child>
                 <child>
