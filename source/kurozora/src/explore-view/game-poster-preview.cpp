@@ -49,7 +49,7 @@ namespace kurozora
                 anime_subtitle->set_label(genres_subtitle);
                 if (genres_subtitle.length() > 40) { anime_subtitle->set_tooltip_text(genres_subtitle); }
             }
-            else if (json_object["theme"].is_array())
+            else if (json_object["theme"].is_array() && json_object["theme"].size() > 0)
             {
                 std::stringstream ss;
                 for (auto& theme : json_object["theme"])
