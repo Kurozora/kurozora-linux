@@ -30,7 +30,7 @@ namespace kurozora
                     game_title->set_tooltip_text(title);
                 }
             }
-            if (json_object["tagline"].is_string())
+            if (json_object["tagline"].is_string() && std::string(json_object["tagline"]).size() > 0)
             {
                 std::string tagline = json_object["tagline"];
                 game_subtitle->set_label(tagline);
