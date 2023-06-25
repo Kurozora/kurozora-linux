@@ -5,6 +5,7 @@
 #include "privacy_label.h"
 #include "show-preview.h"
 #include "entry-poster-preview.h"
+#include "game-poster-preview.h"
 #include "../backend/explore.h"
 
 namespace kurozora
@@ -33,6 +34,9 @@ namespace kurozora
         std::shared_ptr<Gtk::Label> this_season_header;
         std::shared_ptr<Gtk::Box> this_season_container;
         std::vector<std::shared_ptr<EntryPosterPreview>> this_season_previews = std::vector<std::shared_ptr<EntryPosterPreview>>();
+        // New Games Additions
+        std::unique_ptr<Gtk::Box> new_games_additions_container;
+        std::vector<std::unique_ptr<GamePosterPreview>> new_game_additions_previews = std::vector<std::unique_ptr<GamePosterPreview>>();
         // What Are We Watching
         std::unique_ptr<Gtk::Box> what_are_we_watching_container;
         std::vector<std::unique_ptr<EntryPosterPreview>> what_are_we_watching_previews = std::vector<std::unique_ptr<EntryPosterPreview>>();
