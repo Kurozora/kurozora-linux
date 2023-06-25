@@ -1,5 +1,4 @@
 #include "../../../include/utils/api/tagline.h"
-
 namespace kurozora::utils::api
 {
     std::optional<std::string> compose_tagline(const nlohmann::json& json_object)
@@ -9,7 +8,7 @@ namespace kurozora::utils::api
             if (std::string(json_object["tagline"]).size() > 0)
             {
                 std::string tagline = json_object["tagline"];
-                return std::move(tagline);
+                return tagline;
             }
         }
         else if (json_object["genres"].is_array())
@@ -24,7 +23,7 @@ namespace kurozora::utils::api
                 std::string genres_subtitle = ss.str();
                 genres_subtitle.pop_back(); // Remove last ` `
                 genres_subtitle.pop_back(); // Remove last `,`
-                return std::move(genres_subtitle);
+                return genres_subtitle;
             }
         }
         else if (json_object["themes"].is_array())
@@ -39,11 +38,9 @@ namespace kurozora::utils::api
                 std::string themes_subtitle = ss.str();
                 themes_subtitle.pop_back(); // Remove last ` `
                 themes_subtitle.pop_back(); // Remove last `,`
-                return std::move(themes_subtitle);
+                return themes_subtitle;
             }
         }
-
-        //return std::move(ss.str());
         return std::nullopt;
     }
 }
