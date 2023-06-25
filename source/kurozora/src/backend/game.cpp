@@ -6,7 +6,7 @@
 
 namespace kurozora::backend
 {
-    Game::Game(std::string game_id)
+    Game::Game(const std::string& game_id)
     {
         try
         {

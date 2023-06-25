@@ -10,7 +10,7 @@ namespace kurozora
     class GamePosterPreview : public Gtk::Box
     {
     public:
-        GamePosterPreview(std::string game_id);
+        GamePosterPreview(const std::string& game_id);
     private:
         std::string game_id;
         std::shared_ptr<backend::Game> game;

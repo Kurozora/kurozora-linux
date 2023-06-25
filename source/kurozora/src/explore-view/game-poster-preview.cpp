@@ -7,7 +7,7 @@
 
 namespace kurozora
 {
-    GamePosterPreview::GamePosterPreview(std::string game_id)
+    GamePosterPreview::GamePosterPreview(const std::string& game_id)
     {
         builder = std::shared_ptr<Gtk::Builder>(Gtk::Builder::create_from_resource("/kurozora/ui/widgets/explore-view/game-poster-preview.ui"));
         container_box = std::shared_ptr<Gtk::Box>(builder->get_widget<Gtk::Box>("container-box"));

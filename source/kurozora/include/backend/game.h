@@ -11,7 +11,7 @@ namespace kurozora::backend
     class Game
     {
     public:
-        Game(std::string game_id);
+        Game(const std::string& game_id);
     // This should not be public and writable, it's temporary
     public:
         std::shared_ptr<nlohmann::json> json_object;
