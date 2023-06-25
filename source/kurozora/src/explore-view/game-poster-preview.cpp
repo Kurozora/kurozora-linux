@@ -1,5 +1,6 @@
 #include "../../include/explore-view/game-poster-preview.h"
 #include "../../include/backend/game.h"
+#include "../../include/utils/api/tagline.h"
 #include <thread>
 #include <string>
 #include <cpr/cpr.h>
@@ -30,37 +31,14 @@ namespace kurozora
                     game_title->set_tooltip_text(title);
                 }
             }
-            if (json_object["tagline"].is_string() && std::string(json_object["tagline"]).size() > 0)
+            std::optional<std::string> tagline = utils::api::compose_tagline(json_object);
+            if (tagline.has_value())
             {
-                std::string tagline = json_object["tagline"];
-                game_subtitle->set_label(tagline);
-                if (tagline.length() > 40) { game_subtitle->set_tooltip_text(tagline); }
-            }
-            else if (json_object["genres"].is_array() && json_object["genres"].size() > 0)
-            {
-                std::stringstream ss;
-                for (auto& genre : json_object["genres"])
+                game_subtitle->set_label(tagline.value());
+                if (tagline.value().length() > 40)
                 {
-                    ss << std::string(genre) << ", ";
+                    game_subtitle->set_tooltip_text(tagline.value());
                 }
-                std::string genres_subtitle = ss.str();
-                genres_subtitle.pop_back(); // Remove last ` `
-                genres_subtitle.pop_back(); // Remove last `,`
-                game_subtitle->set_label(genres_subtitle);
-                if (genres_subtitle.length() > 40) { game_subtitle->set_tooltip_text(genres_subtitle); }
-            }
-            else if (json_object["theme"].is_array() && json_object["theme"].size() > 0)
-            {
-                std::stringstream ss;
-                for (auto& theme : json_object["theme"])
-                {
-                    ss << std::string(theme) << ", ";
-                }
-                std::string themes_subtitle = ss.str();
-                themes_subtitle.pop_back(); // Remove last ` `
-                themes_subtitle.pop_back(); // Remove last `,`
-                game_subtitle->set_label(themes_subtitle);
-                if (themes_subtitle.length() > 40) { game_subtitle->set_tooltip_text(themes_subtitle); }
             }
             else
             {
