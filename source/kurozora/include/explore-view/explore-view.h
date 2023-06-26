@@ -18,21 +18,21 @@ namespace kurozora
     public:
         Gtk::Window* parent_window;
 
-        std::shared_ptr<Gtk::Box> explore_main_box;
+        std::unique_ptr<Gtk::Box> explore_main_box;
         std::shared_ptr<Gtk::Builder> builder;
 
         // Scroll Workaround
         std::shared_ptr<Gtk::EventControllerScroll> eventControllerScroll;
         // Explore Object
-        std::shared_ptr<backend::Explore> explore;
+        std::unique_ptr<backend::Explore> explore;
         // Featured Shows Previews
-        std::shared_ptr<Glib::Dispatcher> featured_callback;
-        std::shared_ptr<Gtk::Box> featured_container;
+        std::unique_ptr<Glib::Dispatcher> featured_callback;
+        std::unique_ptr<Gtk::Box> featured_container;
         std::vector<std::shared_ptr<ShowPreview>> featured_shows_previews = std::vector<std::shared_ptr<ShowPreview>>();
         // This Season Poster Previews
         std::string this_season_string;
-        std::shared_ptr<Gtk::Label> this_season_header;
-        std::shared_ptr<Gtk::Box> this_season_container;
+        std::unique_ptr<Gtk::Label> this_season_header;
+        std::unique_ptr<Gtk::Box> this_season_container;
         std::vector<std::shared_ptr<EntryPosterPreview>> this_season_previews = std::vector<std::shared_ptr<EntryPosterPreview>>();
         // New Games Additions
         std::unique_ptr<Gtk::Box> new_games_additions_container;
@@ -41,6 +41,6 @@ namespace kurozora
         std::unique_ptr<Gtk::Box> what_are_we_watching_container;
         std::vector<std::unique_ptr<EntryPosterPreview>> what_are_we_watching_previews = std::vector<std::unique_ptr<EntryPosterPreview>>();
         // Quick Links Privacy Label
-        std::shared_ptr<PrivacyLabel> privacy_label;
+        std::unique_ptr<PrivacyLabel> privacy_label;
     };
 }

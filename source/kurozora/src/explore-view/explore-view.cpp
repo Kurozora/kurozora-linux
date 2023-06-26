@@ -10,7 +10,7 @@ namespace kurozora
         this->parent_window = parent_window;
 
         this->builder = Gtk::Builder::create_from_resource("/kurozora/ui/widgets/explore-view/explore-view.ui");
-        this->explore_main_box = std::shared_ptr<Gtk::Box>(this->builder->get_widget<Gtk::Box>("explore_main_box"));
+        this->explore_main_box = std::unique_ptr<Gtk::Box>(this->builder->get_widget<Gtk::Box>("explore_main_box"));
 
         // Initialize the Quick Links buttons
         auto quick_link_1 = std::shared_ptr<Gtk::FlowBoxChild>(this->builder->get_widget<Gtk::FlowBoxChild>("explore-quick-link-1"));
@@ -32,12 +32,12 @@ namespace kurozora
         utils::gtk::fix_nested_scroll(builder.get());
 
         // Initialize Widgets
-        featured_container = std::shared_ptr<Gtk::Box>(this->builder->get_widget<Gtk::Box>("explore-featured"));
-        this_season_container = std::shared_ptr<Gtk::Box>(builder->get_widget<Gtk::Box>("explore-season"));
-        this_season_header = std::shared_ptr<Gtk::Label>(builder->get_widget<Gtk::Label>("this-season"));
+        featured_container = std::unique_ptr<Gtk::Box>(this->builder->get_widget<Gtk::Box>("explore-featured"));
+        this_season_container = std::unique_ptr<Gtk::Box>(builder->get_widget<Gtk::Box>("explore-season"));
+        this_season_header = std::unique_ptr<Gtk::Label>(builder->get_widget<Gtk::Label>("this-season"));
         new_games_additions_container = std::unique_ptr<Gtk::Box>(builder->get_widget<Gtk::Box>("explore-new-game-additions"));
         what_are_we_watching_container = std::unique_ptr<Gtk::Box>(builder->get_widget<Gtk::Box>("explore-what-are-we-watching"));
-        featured_callback = std::make_shared<Glib::Dispatcher>();
+        featured_callback = std::make_unique<Glib::Dispatcher>();
         featured_callback->connect([this]() {
             // Initialize Featured
             for (std::shared_ptr<ShowPreview> show_preview : featured_shows_previews)
@@ -61,7 +61,7 @@ namespace kurozora
 
         featured_shows_previews.reserve(10);
         std::thread download_explore([this]() {
-            explore = std::make_shared<backend::Explore>();
+            explore = std::make_unique<backend::Explore>();
             nlohmann::json& json_object = *(explore->json_object);
             for (auto& category : json_object["data"])
             {
@@ -106,7 +106,7 @@ namespace kurozora
         download_explore.detach();
 
         //Initialize the Kurozora & Privacy label
-        this->privacy_label = std::make_shared<PrivacyLabel>(parent_window, this->builder, "explore-kurozora-privacy-label");
+        this->privacy_label = std::make_unique<PrivacyLabel>(parent_window, this->builder, "explore-kurozora-privacy-label");
 
         this->insert_child_at_start(*this->explore_main_box);
         this->show();
