@@ -10,22 +10,22 @@ namespace kurozora
     EntryPosterPreview::EntryPosterPreview(int anime_id)
     {
         builder = std::shared_ptr<Gtk::Builder>(Gtk::Builder::create_from_resource("/kurozora/ui/widgets/explore-view/entry-poster-preview.ui"));
-        container_box = std::shared_ptr<Gtk::Box>(builder->get_widget<Gtk::Box>("container-box"));
+        container_box = std::unique_ptr<Gtk::Box>(builder->get_widget<Gtk::Box>("container-box"));
         this->insert_child_at_start(*container_box);
 
-        loading_overlay = std::shared_ptr<Gtk::Box>(builder->get_widget<Gtk::Box>("loading-overlay"));
-        preview_picture = std::shared_ptr<Gtk::Picture>(builder->get_widget<Gtk::Picture>("poster-preview"));
-        anime_title = std::shared_ptr<Gtk::Label>(builder->get_widget<Gtk::Label>("anime-title"));
-        anime_subtitle = std::shared_ptr<Gtk::Label>(builder->get_widget<Gtk::Label>("anime-subtitle"));
-        rating_label = std::shared_ptr<Gtk::Label>(builder->get_widget<Gtk::Label>("rating-label"));
+        loading_overlay = std::unique_ptr<Gtk::Box>(builder->get_widget<Gtk::Box>("loading-overlay"));
+        preview_picture = std::unique_ptr<Gtk::Picture>(builder->get_widget<Gtk::Picture>("poster-preview"));
+        anime_title = std::unique_ptr<Gtk::Label>(builder->get_widget<Gtk::Label>("anime-title"));
+        anime_subtitle = std::unique_ptr<Gtk::Label>(builder->get_widget<Gtk::Label>("anime-subtitle"));
+        rating_label = std::unique_ptr<Gtk::Label>(builder->get_widget<Gtk::Label>("rating-label"));
         rating_stars.reserve(5);
         for (int i = 0; i < 5; ++i)
         {
-            rating_stars.push_back(std::shared_ptr<Gtk::Image>(builder->get_widget<Gtk::Image>("rating-star-" + std::to_string(i+1))));
+            rating_stars.push_back(std::unique_ptr<Gtk::Image>(builder->get_widget<Gtk::Image>("rating-star-" + std::to_string(i+1))));
         }
-        control_button = std::shared_ptr<Gtk::Button>(builder->get_widget<Gtk::Button>("control-button"));
+        control_button = std::unique_ptr<Gtk::Button>(builder->get_widget<Gtk::Button>("control-button"));
 
-        download_completed = std::make_shared<Glib::Dispatcher>();
+        download_completed = std::make_unique<Glib::Dispatcher>();
         download_completed->connect([this]() {
             nlohmann::json& json_object = *(anime->json_object);
             if (json_object["title"].is_string())
@@ -78,7 +78,7 @@ namespace kurozora
 
         this->anime_id = anime_id;
         std::thread download_anime([this]() {
-            anime = std::make_shared<backend::Anime>(backend::Anime(this->anime_id));
+            anime = std::make_unique<backend::Anime>(backend::Anime(this->anime_id));
             nlohmann::json& json_object = *(anime->json_object);
             if (json_object["poster"]["url"].is_string())
             {
