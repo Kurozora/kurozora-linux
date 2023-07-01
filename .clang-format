@@ -1,0 +1,8 @@
+# Format Style Options - Created with Clang Power Tools
+---
+BasedOnStyle: Google
+AlignConsecutiveAssignments: true
+ColumnLimit: 130
+SpacesInConditionalStatement: true
+SpacesInParentheses: true
+...
