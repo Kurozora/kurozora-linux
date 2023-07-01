@@ -1,0 +1,70 @@
+<interface>
+    <object class="GtkBox" id="show-preview-entry">
+        <child>
+            <object class="GtkOverlay">
+                <child type="overlay">
+                    <object class="GtkBox" id="loading-overlay">
+                        <!--<property name="css-classes">featured-show-preview-loading</property>-->
+                    </object>
+                </child>
+                <child>
+                    <object class="GtkOverlay">
+                        <child type="overlay">
+                            <object class="GtkBox">
+                                <property name="css-classes">large-show-poster-overlay-box</property>
+                                <property name="valign">fill</property>
+                                <property name="halign">fill</property>
+                                <property name="hexpand">true</property>
+                                <property name="vexpand">true</property>
+                                <property name="orientation">vertical</property>
+                                <child>
+                                    <object class="GtkLabel" id="anime-title">
+                                        <property name="css-classes">large-show-poster-title</property>
+                                        <property name="halign">center</property>
+                                        <property name="valign">center</property>
+                                        <property name="vexpand">true</property>
+                                        <property name="ellipsize">PANGO_ELLIPSIZE_END</property>
+                                        <property name="lines">2</property>
+                                        <property name="wrap">true</property>
+                                        <property name="wrap-mode">PANGO_WRAP_WORD_CHAR</property>
+                                        <property name="label">Oshi No Ko</property>
+                                    </object>
+                                </child>
+                                <child>
+                                    <object class="GtkButton" id="control-button">
+                                        <property name="halign">center</property>
+                                        <property name="valign">end</property>
+                                        <property name="label">Remind Me</property>
+                                        <!--Will depend from the status on the user list-->
+                                        <property name="sensitive">false</property>
+                                        <!--Temporary until the feature is integrated-->
+                                    </object>
+                                </child>
+                                <child>
+                                    <object class="GtkLabel" id="anime-subtitle">
+                                        <property name="css-classes">large-show-poster-subtitle</property>
+                                        <property name="halign">center</property>
+                                        <property name="valign">end</property>
+                                        <property name="ellipsize">PANGO_ELLIPSIZE_END</property>
+                                        <property name="lines">2</property>
+                                        <property name="wrap">true</property>
+                                        <property name="wrap-mode">PANGO_WRAP_WORD_CHAR</property>
+                                        <property name="label">Expected 26 May 2023</property>
+                                    </object>
+                                </child>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="GtkPicture" id="preview-picture">
+                                <property name="css-classes">featured-show-upcoming</property>
+                                <property name="content-fit">GTK_CONTENT_FIT_COVER</property>
+                                <!--Placeholder, overwritten via code-->
+                                <property name="file">resource://kurozora/ui/placeholders/show_poster.jpg</property>
+                            </object>
+                        </child>
+                    </object>
+                </child>
+            </object>
+        </child>
+    </object>
+</interface>
