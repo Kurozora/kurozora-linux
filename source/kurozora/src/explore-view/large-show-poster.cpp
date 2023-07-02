@@ -1,6 +1,7 @@
 #include "../../include/explore-view/large-show-poster.h"
 #include "../../include/backend/anime.h"
 #include "../../include/utils/api/tagline.h"
+#include "../../include/utils/time/parse_time.h"
 #include <cpr/cpr.h>
 #include <exception>
 #include <sstream>
@@ -33,14 +34,11 @@ namespace kurozora
                     anime_title->set_tooltip_text(title);
                 }
             }
-            std::optional<std::string> tagline = utils::api::compose_tagline(json_object);
-            if (tagline.has_value())
+            if (json_object["startedAt"].is_number_integer())
             {
-                expected_date->set_label(tagline.value());
-                if (tagline.value().length() > 40)
-                {
-                    expected_date->set_tooltip_text(tagline.value());
-                }
+                std::time_t unix_timestamp = (std::time_t)json_object["startedAt"].get<std::int64_t>();
+                //std::time_t unix_timestamp = 1688256000;
+                expected_date->set_label(utils::time::parse_time(&unix_timestamp));
             }
             else
             {
