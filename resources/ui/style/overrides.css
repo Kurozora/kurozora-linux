@@ -40,6 +40,34 @@ separator.thick-separator {
 }
 
 /* Explore */
+.large-show-poster-title {
+    font-size: 28pt;
+    font-weight: bold;
+    color: white;
+}
+
+.large-show-poster-subtitle {
+    font-size: 11pt;
+    margin-top: 5pt;
+    font-weight: bold;
+    color: rgb(180,180,180);
+}
+
+.large-show-poster-overlay-box {
+    padding-bottom: 1.2em;
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-top: 6em;
+    background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.8));
+    border-radius: 10px;
+}
+
+.featured-show-upcoming {
+    min-height: 448pt;
+    min-width: 252pt;
+    border-radius: 10px;
+}
+
 .featured-show-preview {
     min-width: 448pt;
     min-height: 252pt;

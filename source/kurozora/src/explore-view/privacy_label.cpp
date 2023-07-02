@@ -10,11 +10,11 @@ namespace kurozora
 
     PrivacyLabel::PrivacyLabel(Gtk::Window* parent, std::shared_ptr<Gtk::Builder> builder, const std::string&& label_id)
     {
-        label = std::shared_ptr<Gtk::Label>(builder->get_widget<Gtk::Label>(label_id));
+        label = std::unique_ptr<Gtk::Label>(builder->get_widget<Gtk::Label>(label_id));
 
         popup_builder = Gtk::Builder::create_from_resource("/kurozora/ui/widgets/explore-view/privacy-label-popup.ui");
-        popup_text = std::shared_ptr<Gtk::TextView>(this->popup_builder->get_widget<Gtk::TextView>("explore-privacy-label-popup-text-view"));
-        popup_window = std::shared_ptr<Gtk::Window>(popup_builder->get_widget<Gtk::Window>("explore-privacy-label-popup-window"));
+        popup_text = std::unique_ptr<Gtk::TextView>(this->popup_builder->get_widget<Gtk::TextView>("explore-privacy-label-popup-text-view"));
+        popup_window = std::unique_ptr<Gtk::Window>(popup_builder->get_widget<Gtk::Window>("explore-privacy-label-popup-window"));
         popup_window->set_transient_for(*parent);
         popup_window->set_hide_on_close(true);
 

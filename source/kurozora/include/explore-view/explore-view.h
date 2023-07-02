@@ -6,6 +6,7 @@
 #include "show-preview.h"
 #include "entry-poster-preview.h"
 #include "game-poster-preview.h"
+#include "large-show-poster.h"
 #include "../backend/explore.h"
 
 namespace kurozora
@@ -18,29 +19,32 @@ namespace kurozora
     public:
         Gtk::Window* parent_window;
 
-        std::shared_ptr<Gtk::Box> explore_main_box;
+        std::unique_ptr<Gtk::Box> explore_main_box;
         std::shared_ptr<Gtk::Builder> builder;
 
         // Scroll Workaround
         std::shared_ptr<Gtk::EventControllerScroll> eventControllerScroll;
         // Explore Object
-        std::shared_ptr<backend::Explore> explore;
+        std::unique_ptr<backend::Explore> explore;
         // Featured Shows Previews
-        std::shared_ptr<Glib::Dispatcher> featured_callback;
-        std::shared_ptr<Gtk::Box> featured_container;
+        std::unique_ptr<Glib::Dispatcher> featured_callback;
+        std::unique_ptr<Gtk::Box> featured_container;
         std::vector<std::shared_ptr<ShowPreview>> featured_shows_previews = std::vector<std::shared_ptr<ShowPreview>>();
         // This Season Poster Previews
         std::string this_season_string;
-        std::shared_ptr<Gtk::Label> this_season_header;
-        std::shared_ptr<Gtk::Box> this_season_container;
+        std::unique_ptr<Gtk::Label> this_season_header;
+        std::unique_ptr<Gtk::Box> this_season_container;
         std::vector<std::shared_ptr<EntryPosterPreview>> this_season_previews = std::vector<std::shared_ptr<EntryPosterPreview>>();
         // New Games Additions
         std::unique_ptr<Gtk::Box> new_games_additions_container;
         std::vector<std::unique_ptr<GamePosterPreview>> new_game_additions_previews = std::vector<std::unique_ptr<GamePosterPreview>>();
+        // Upcoming Shows
+        std::unique_ptr<Gtk::Box> upcoming_shows_container;
+        std::vector<std::unique_ptr<LargeShowPoster>> upcoming_shows = std::vector<std::unique_ptr<LargeShowPoster>>();
         // What Are We Watching
         std::unique_ptr<Gtk::Box> what_are_we_watching_container;
         std::vector<std::unique_ptr<EntryPosterPreview>> what_are_we_watching_previews = std::vector<std::unique_ptr<EntryPosterPreview>>();
         // Quick Links Privacy Label
-        std::shared_ptr<PrivacyLabel> privacy_label;
+        std::unique_ptr<PrivacyLabel> privacy_label;
     };
 }

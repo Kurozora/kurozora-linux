@@ -10,14 +10,14 @@ namespace kurozora
     GamePosterPreview::GamePosterPreview(const std::string& game_id)
     {
         builder = std::shared_ptr<Gtk::Builder>(Gtk::Builder::create_from_resource("/kurozora/ui/widgets/explore-view/game-poster-preview.ui"));
-        container_box = std::shared_ptr<Gtk::Box>(builder->get_widget<Gtk::Box>("container-box"));
+        container_box = std::unique_ptr<Gtk::Box>(builder->get_widget<Gtk::Box>("container-box"));
         this->insert_child_at_start(*container_box);
 
-        loading_overlay = std::shared_ptr<Gtk::Box>(builder->get_widget<Gtk::Box>("loading-overlay"));
-        preview_picture = std::shared_ptr<Gtk::Picture>(builder->get_widget<Gtk::Picture>("poster-preview"));
-        game_title = std::shared_ptr<Gtk::Label>(builder->get_widget<Gtk::Label>("game-title"));
-        game_subtitle = std::shared_ptr<Gtk::Label>(builder->get_widget<Gtk::Label>("game-subtitle"));
-        control_button = std::shared_ptr<Gtk::Button>(builder->get_widget<Gtk::Button>("control-button"));
+        loading_overlay = std::unique_ptr<Gtk::Box>(builder->get_widget<Gtk::Box>("loading-overlay"));
+        preview_picture = std::unique_ptr<Gtk::Picture>(builder->get_widget<Gtk::Picture>("poster-preview"));
+        game_title = std::unique_ptr<Gtk::Label>(builder->get_widget<Gtk::Label>("game-title"));
+        game_subtitle = std::unique_ptr<Gtk::Label>(builder->get_widget<Gtk::Label>("game-subtitle"));
+        control_button = std::unique_ptr<Gtk::Button>(builder->get_widget<Gtk::Button>("control-button"));
 
         download_completed = std::make_shared<Glib::Dispatcher>();
         download_completed->connect([this]() {
@@ -53,7 +53,7 @@ namespace kurozora
 
         this->game_id = game_id;
         std::thread download_game([this]() {
-            game = std::make_shared<backend::Game>(backend::Game(this->game_id));
+            game = std::make_unique<backend::Game>(backend::Game(this->game_id));
             nlohmann::json& json_object = *(game->json_object);
             if (json_object["poster"]["url"].is_string())
             {

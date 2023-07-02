@@ -10,14 +10,14 @@ namespace kurozora
     ShowPreview::ShowPreview(int anime_id)
     {
         builder = std::shared_ptr<Gtk::Builder>(Gtk::Builder::create_from_resource("/kurozora/ui/widgets/explore-view/show-preview.ui"));
-        box = std::shared_ptr<Gtk::Box>(builder->get_widget<Gtk::Box>("show-preview-entry"));
+        box = std::unique_ptr<Gtk::Box>(builder->get_widget<Gtk::Box>("show-preview-entry"));
         this->insert_child_at_start(*box);
 
-        loading_overlay = std::shared_ptr<Gtk::Box>(builder->get_widget<Gtk::Box>("loading-overlay"));
-        anime_title = std::shared_ptr<Gtk::Label>(builder->get_widget<Gtk::Label>("anime-title"));
-        anime_subtitle = std::shared_ptr<Gtk::Label>(builder->get_widget<Gtk::Label>("anime-subtitle"));
-        control_button = std::shared_ptr<Gtk::Button>(builder->get_widget<Gtk::Button>("control-button"));
-        preview_picture = std::shared_ptr<Gtk::Picture>(builder->get_widget<Gtk::Picture>("preview-picture"));
+        loading_overlay = std::unique_ptr<Gtk::Box>(builder->get_widget<Gtk::Box>("loading-overlay"));
+        anime_title = std::unique_ptr<Gtk::Label>(builder->get_widget<Gtk::Label>("anime-title"));
+        anime_subtitle = std::unique_ptr<Gtk::Label>(builder->get_widget<Gtk::Label>("anime-subtitle"));
+        control_button = std::unique_ptr<Gtk::Button>(builder->get_widget<Gtk::Button>("control-button"));
+        preview_picture = std::unique_ptr<Gtk::Picture>(builder->get_widget<Gtk::Picture>("preview-picture"));
 
 
         download_completed = std::make_shared<Glib::Dispatcher>();

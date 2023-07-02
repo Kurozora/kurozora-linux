@@ -59,7 +59,7 @@
                                         <child>
                                             <object class="GtkLabel" id="rating-label">
                                                 <property name="css-classes">entry-poster-preview-rating-label-color</property>
-                                                <property name="label">0</property>
+                                                <property name="label"></property>
                                             </object>
                                         </child>
                                         <child>
@@ -68,6 +68,7 @@
                                                 <property name="css-classes">entry-poster-preview-rating-icon-color</property>
                                                 <property name="halign">start</property>
                                                 <property name="icon-name">rating_star_empty</property>
+                                                <property name="visible">false</property>
                                             </object>
                                         </child>
                                         <child>
@@ -75,6 +76,7 @@
                                                 <property name="css-classes">entry-poster-preview-rating-icon-color</property>
                                                 <property name="halign">start</property>
                                                 <property name="icon-name">rating_star_empty</property>
+                                                <property name="visible">false</property>
                                             </object>
                                         </child>
                                         <child>
@@ -82,6 +84,7 @@
                                                 <property name="css-classes">entry-poster-preview-rating-icon-color</property>
                                                 <property name="halign">start</property>
                                                 <property name="icon-name">rating_star_empty</property>
+                                                <property name="visible">false</property>
                                             </object>
                                         </child>
                                         <child>
@@ -89,6 +92,7 @@
                                                 <property name="css-classes">entry-poster-preview-rating-icon-color</property>
                                                 <property name="halign">start</property>
                                                 <property name="icon-name">rating_star_empty</property>
+                                                <property name="visible">false</property>
                                             </object>
                                         </child>
                                         <child>
@@ -96,6 +100,7 @@
                                                 <property name="css-classes">entry-poster-preview-rating-icon-color</property>
                                                 <property name="halign">start</property>
                                                 <property name="icon-name">rating_star_empty</property>
+                                                <property name="visible">false</property>
                                             </object>
                                         </child>
                                     </object>

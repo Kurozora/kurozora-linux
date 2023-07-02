@@ -3,7 +3,6 @@
         <property name="orientation">vertical</property>
         <property name="spacing">10</property>
         <property name="margin-top">10</property>
-        <property name="margin-bottom">10</property>
         <property name="margin-start">10</property>
         <child>
             <object class="GtkLabel">
@@ -106,6 +105,8 @@
                                 <child>
                                     <object class="GtkBox" id="explore-upcoming-shows">
                                         <property name="orientation">horizontal</property>
+                                        <property name="spacing">50</property>
+                                        <property name="homogeneous">true</property>
                                     </object>
                                 </child>
                             </object>
@@ -307,6 +308,7 @@
                                             <object class="GtkLabel" id="explore-kurozora-privacy-label">
                                                 <property name="halign">start</property>
                                                 <property name="label">Kurozora &#38; Privacy ></property>
+                                                <property name="margin-bottom">10</property>
                                             </object>
                                         </child>
                                     </object>
