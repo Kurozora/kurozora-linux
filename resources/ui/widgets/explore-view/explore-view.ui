@@ -106,6 +106,8 @@
                                 <child>
                                     <object class="GtkBox" id="explore-upcoming-shows">
                                         <property name="orientation">horizontal</property>
+                                        <property name="spacing">50</property>
+                                        <property name="homogeneous">true</property>
                                     </object>
                                 </child>
                             </object>
