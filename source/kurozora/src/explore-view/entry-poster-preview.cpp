@@ -50,22 +50,26 @@ namespace kurozora
             {
                 anime_subtitle->hide();
             }
-            if (json_object["stats"]["ratingAverage"].is_number_float())
+            if (json_object["stats"]["ratingAverage"].is_number_float() && json_object["stats"]["ratingCount"].is_number_integer())
             {
-                float rating_average = json_object["stats"]["ratingAverage"];
-                std::string formatted_rating = std::to_string(rating_average).substr(0, 3);
-                std::replace(formatted_rating.begin(), formatted_rating.end(), ',', '.');
-                rating_label->set_label(formatted_rating);
-                for (auto it = rating_stars.begin(); it != rating_stars.end();  ++it)
+                if (json_object["stats"]["ratingCount"].get<std::int64_t>() > 0)
                 {
-                    if (rating_average - (it - rating_stars.begin()) > 0.0 &&
-                        rating_average - (it - rating_stars.begin()) < 1.0)
+                    float rating_average = json_object["stats"]["ratingAverage"];
+                    std::string formatted_rating = std::to_string(rating_average).substr(0, 3);
+                    std::replace(formatted_rating.begin(), formatted_rating.end(), ',', '.');
+                    rating_label->set_label(formatted_rating);
+                    for (auto it = rating_stars.begin(); it != rating_stars.end(); ++it)
                     {
-                        (*it)->set_from_icon_name("rating_star_half");
-                    }
-                    else if (it - rating_stars.begin() < rating_average)
-                    {
-                        (*it)->set_from_icon_name("rating_star_full");
+                        (*it)->set_visible(true);
+                        if (rating_average - (it - rating_stars.begin()) > 0.0 &&
+                            rating_average - (it - rating_stars.begin()) < 1.0)
+                        {
+                            (*it)->set_from_icon_name("rating_star_half");
+                        }
+                        else if (it - rating_stars.begin() < rating_average)
+                        {
+                            (*it)->set_from_icon_name("rating_star_full");
+                        }
                     }
                 }
             }
