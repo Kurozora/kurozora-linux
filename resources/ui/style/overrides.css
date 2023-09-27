@@ -187,3 +187,24 @@ separator.thick-separator {
 }
 
 /* End Custom CSS classes */
+
+/* From here on stuff uses new experimental conventions (before it's... a mess) */
+/* This will be split into multiple files */
+
+/* Widgets START*/
+
+    /* Genre Horizontal Card START*/
+.genre-horizontal-card-sizer {
+    min-width: 336pt;
+    min-height: 200pt;
+    border-radius: 10px;
+}
+
+.genre-horizontal-card-icon {
+    min-width: 50pt;
+    min-height: 50pt;
+    padding: 25pt;
+}
+    /*Genre Horizontal Card*/
+
+/* Widgets END */
