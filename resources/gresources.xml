@@ -8,6 +8,7 @@
         <file compressed="true">ui/widgets/explore-view/entry-poster-preview.ui</file>
         <file compressed="true">ui/widgets/explore-view/game-poster-preview.ui</file>
         <file compressed="true">ui/widgets/explore-view/large-show-poster.ui</file>
+        <file compressed="true">ui/widgets/explore-view/genre-horizontal-card.ui</file>
         <!--CSS-->
         <file compressed="true">ui/style/overrides.css</file>
         <!--Media-->

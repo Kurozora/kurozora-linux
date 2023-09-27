@@ -7,6 +7,7 @@
 #include "entry-poster-preview.h"
 #include "game-poster-preview.h"
 #include "large-show-poster.h"
+#include "genre-horizontal-banner.h"
 #include "../backend/explore.h"
 
 namespace kurozora
@@ -41,6 +42,9 @@ namespace kurozora
         // Upcoming Shows
         std::unique_ptr<Gtk::Box> upcoming_shows_container;
         std::vector<std::unique_ptr<LargeShowPoster>> upcoming_shows = std::vector<std::unique_ptr<LargeShowPoster>>();
+        // Top Genres
+        std::unique_ptr<Gtk::Box> top_genres_container;
+        std::vector<std::unique_ptr<GenreHorizontalCard>> top_genres_previews = std::vector<std::unique_ptr<GenreHorizontalCard>>();
         // What Are We Watching
         std::unique_ptr<Gtk::Box> what_are_we_watching_container;
         std::vector<std::unique_ptr<EntryPosterPreview>> what_are_we_watching_previews = std::vector<std::unique_ptr<EntryPosterPreview>>();

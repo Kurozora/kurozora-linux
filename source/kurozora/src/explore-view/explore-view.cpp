@@ -37,6 +37,7 @@ namespace kurozora
         this_season_header = std::unique_ptr<Gtk::Label>(builder->get_widget<Gtk::Label>("this-season"));
         new_games_additions_container = std::unique_ptr<Gtk::Box>(builder->get_widget<Gtk::Box>("explore-new-game-additions"));
         upcoming_shows_container = std::unique_ptr<Gtk::Box>(builder->get_widget<Gtk::Box>("explore-upcoming-shows"));
+        top_genres_container = std::unique_ptr<Gtk::Box>(builder->get_widget<Gtk::Box>("explore-top-genres"));
         what_are_we_watching_container = std::unique_ptr<Gtk::Box>(builder->get_widget<Gtk::Box>("explore-what-are-we-watching"));
         featured_callback = std::make_unique<Glib::Dispatcher>();
         featured_callback->connect([this]() {
@@ -57,6 +58,10 @@ namespace kurozora
             for (std::unique_ptr<LargeShowPoster>& show_preview : upcoming_shows)
             {
                 upcoming_shows_container->append(*show_preview);
+            }
+            for (std::unique_ptr<GenreHorizontalCard>& genre_preview : top_genres_previews)
+            {
+                top_genres_container->append(*genre_preview);
             }
             for (std::unique_ptr<EntryPosterPreview>& show_preview : what_are_we_watching_previews)
             {
@@ -99,10 +104,18 @@ namespace kurozora
                 }
                 if (category["attributes"]["slug"] == "upcoming-shows")
                 {
-                    // New Games Additions
+                    // Upcoming Shows
                     for (auto& data : category["relationships"]["shows"]["data"])
                     {
                         upcoming_shows.push_back(std::make_unique<LargeShowPoster>(data["id"]));
+                    }
+                }
+                if (category["attributes"]["slug"] == "top-genres")
+                {
+                    // Top Genres
+                    for (auto& data : category["relationships"]["genres"]["data"])
+                    {
+                        top_genres_previews.push_back(std::make_unique<GenreHorizontalCard>(data["uuid"]));
                     }
                 }
                 if (category["attributes"]["slug"] == "what-we-are-watching")
