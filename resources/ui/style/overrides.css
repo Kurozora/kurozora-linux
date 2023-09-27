@@ -94,6 +94,12 @@ separator.thick-separator {
     color: black;
 }
 
+.featured-genre-vertical-card {
+    min-width: 336pt;
+    min-height: 252pt;
+    border-radius: 10px;
+}
+
 .entry-poster-preview-picture {
     border-radius: 10px;
     min-width: 120pt;
