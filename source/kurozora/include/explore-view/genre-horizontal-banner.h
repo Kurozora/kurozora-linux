@@ -4,10 +4,11 @@
 #include <memory>
 #include <vector>
 #include "../../include/backend/genre.h"
+#include "../../src/framework/widget.h"
 
 namespace kurozora
 {
-    class GenreHorizontalCard : public Gtk::Box
+    class GenreHorizontalCard : public kz::fw::WidgetLoader
     {
     public:
         GenreHorizontalCard(const std::string& genre_id);

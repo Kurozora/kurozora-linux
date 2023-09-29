@@ -12,7 +12,8 @@ namespace kurozora
 {
     GenreHorizontalCard::GenreHorizontalCard(const std::string& genre_id)
     {
-        builder = std::shared_ptr<Gtk::Builder>(Gtk::Builder::create_from_resource("/kurozora/ui/widgets/explore-view/genre-horizontal-card.ui"));
+        addCssFile("/kurozora/ui/widgets/genre-horizontal-banner/style.css");
+        builder = std::shared_ptr<Gtk::Builder>(Gtk::Builder::create_from_resource("/kurozora/ui/widgets/genre-horizontal-banner/definition.ui"));
         container_box = std::unique_ptr<Gtk::Box>(builder->get_widget<Gtk::Box>("container-box"));
         this->insert_child_at_start(*container_box);
 
@@ -43,13 +44,7 @@ namespace kurozora
                 gradient_css_template = std::regex_replace(gradient_css_template, std::regex("BG_COLOR_1"), bg_color_1);
                 gradient_css_template = std::regex_replace(gradient_css_template, std::regex("BG_COLOR_2"), bg_color_2);
 
-                auto templated_css_provider = Gtk::CssProvider::create();
-                templated_css_provider->load_from_data(gradient_css_template);
-                auto display = this->get_style_context();
-                display->add_provider(templated_css_provider, GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
-                std::string class_name = "genre-horizontal-card-runtime-background-gradient";
-                display->add_class(class_name);
-                gradient_background->add_css_class(class_name);
+                addCssClass(gradient_css_template, "genre-horizontal-card-runtime-background-gradient");
             }
             if (json_object[0]["attributes"]["name"].is_string())
             {

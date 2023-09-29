@@ -19,5 +19,9 @@
         <file compressed="true">ui/icons/scalable/actions/rating_star_empty.svg</file>
         <file compressed="true">ui/icons/scalable/actions/rating_star_half.svg</file>
         <file compressed="true">ui/icons/scalable/actions/rating_star_full.svg</file>
+        <!--New Experimental System below-->
+        <!--Genre Horizontal Banner Widget-->
+        <file compressed="true">ui/widgets/genre-horizontal-banner/style.css</file>
+        <file compressed="true">ui/widgets/genre-horizontal-banner/definition.ui</file>
     </gresource>
 </gresources>
