@@ -28,5 +28,8 @@
         <!--Privacy Label-->
         <file compressed="true">ui/widgets/privacy-label/popup-style.css</file>
         <file compressed="true">ui/widgets/privacy-label/popup-definition.ui</file>
+        <!--Large Show Poster Widget-->
+        <file compressed="true">ui/widgets/large-show-poster/style.css</file>
+        <file compressed="true">ui/widgets/large-show-poster/definition.ui</file>
     </gresource>
 </gresources>

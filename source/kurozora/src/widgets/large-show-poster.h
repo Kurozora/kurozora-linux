@@ -6,10 +6,11 @@
 #include <optional>
 #include <vector>
 #include "../../include/backend/anime.h"
+#include "../../src/framework/widget.h"
 
 namespace kurozora
 {
-    class LargeShowPoster : public Gtk::Box
+    class LargeShowPoster : public kz::fw::WidgetLoader
     {
     public:
         LargeShowPoster(int anime_id);

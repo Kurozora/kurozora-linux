@@ -1,4 +1,4 @@
-#include "../../include/explore-view/large-show-poster.h"
+#include "large-show-poster.h"
 #include "../../include/backend/anime.h"
 #include "../../include/utils/api/tagline.h"
 #include "../../include/utils/time/parse_time.h"
@@ -11,7 +11,8 @@ namespace kurozora
     // TODO: This should take an anime ID and fetch the existing method starting from that, using an helper method
     LargeShowPoster::LargeShowPoster(int anime_id)
     {
-        builder = std::shared_ptr<Gtk::Builder>(Gtk::Builder::create_from_resource("/kurozora/ui/widgets/explore-view/large-show-poster.ui"));
+        addCssFile("/kurozora/ui/widgets/large-show-poster/style.css");
+        builder = std::shared_ptr<Gtk::Builder>(Gtk::Builder::create_from_resource("/kurozora/ui/widgets/large-show-poster/definition.ui"));
         box = std::unique_ptr<Gtk::Box>(builder->get_widget<Gtk::Box>("show-preview-entry"));
         this->insert_child_at_start(*box);
 
