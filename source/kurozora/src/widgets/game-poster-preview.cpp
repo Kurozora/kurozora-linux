@@ -1,4 +1,4 @@
-#include "../../include/explore-view/game-poster-preview.h"
+#include "game-poster-preview.h"
 #include "../../include/backend/game.h"
 #include "../../include/utils/api/tagline.h"
 #include <thread>
@@ -9,7 +9,8 @@ namespace kurozora
 {
     GamePosterPreview::GamePosterPreview(const std::string& game_id)
     {
-        builder = std::shared_ptr<Gtk::Builder>(Gtk::Builder::create_from_resource("/kurozora/ui/widgets/explore-view/game-poster-preview.ui"));
+        addCssFile("/kurozora/ui/widgets/game-poster-preview/style.css");
+        builder = std::shared_ptr<Gtk::Builder>(Gtk::Builder::create_from_resource("/kurozora/ui/widgets/game-poster-preview/definition.ui"));
         container_box = std::unique_ptr<Gtk::Box>(builder->get_widget<Gtk::Box>("container-box"));
         this->insert_child_at_start(*container_box);
 

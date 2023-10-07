@@ -31,5 +31,8 @@
         <!--Large Show Poster Widget-->
         <file compressed="true">ui/widgets/large-show-poster/style.css</file>
         <file compressed="true">ui/widgets/large-show-poster/definition.ui</file>
+        <!--Game Poster Preview Widget-->
+        <file compressed="true">ui/widgets/game-poster-preview/style.css</file>
+        <file compressed="true">ui/widgets/game-poster-preview/definition.ui</file>
     </gresource>
 </gresources>

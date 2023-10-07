@@ -4,10 +4,11 @@
 #include <memory>
 #include <vector>
 #include "../../include/backend/game.h"
+#include "../../src/framework/widget.h"
 
 namespace kurozora
 {
-    class GamePosterPreview : public Gtk::Box
+    class GamePosterPreview : public kz::fw::WidgetLoader
     {
     public:
         GamePosterPreview(const std::string& game_id);

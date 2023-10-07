@@ -15,7 +15,7 @@
                         <child>
                             <!--Poster Preview-->
                             <object class="GtkPicture" id="poster-preview">
-                                <property name="css-classes">game-poster-preview-picture</property>
+                                <property name="css-classes">preview-picture</property>
                                 <property name="content-fit">GTK_CONTENT_FIT_COVER</property>
                                 <property name="file">resource://kurozora/ui/placeholders/game_poster.jpg</property>
                             </object>
