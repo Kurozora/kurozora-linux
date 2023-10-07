@@ -21,7 +21,7 @@
                                         <property name="orientation">vertical</property>
                                         <child>
                                             <object class="GtkLabel" id="anime-title">
-                                                <property name="css-classes">overlay-box-label-title </property>
+                                                <property name="css-classes">overlay-box-label-title</property>
                                                 <property name="halign">start</property>
                                                 <property name="label">Oshi No Ko</property>
                                                 <property name="ellipsize">PANGO_ELLIPSIZE_END</property>
