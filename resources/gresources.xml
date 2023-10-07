@@ -22,5 +22,8 @@
         <!--Genre Horizontal Banner Widget-->
         <file compressed="true">ui/widgets/genre-horizontal-banner/style.css</file>
         <file compressed="true">ui/widgets/genre-horizontal-banner/definition.ui</file>
+        <!--Show Preview Widget-->
+        <file compressed="true">ui/widgets/show-preview/style.css</file>
+        <file compressed="true">ui/widgets/show-preview/definition.ui</file>
     </gresource>
 </gresources>

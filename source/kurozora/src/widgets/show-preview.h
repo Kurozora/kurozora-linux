@@ -1,5 +1,7 @@
 #pragma once
 
+#include "../../src/framework/widget.h"
+
 #include <gtkmm.h>
 #include <memory>
 #include <string>
@@ -8,7 +10,7 @@
 
 namespace kurozora
 {
-    class ShowPreview :  public Gtk::Box
+    class ShowPreview : public kz::fw::WidgetLoader
     {
     public:
         ShowPreview(int anime_id);

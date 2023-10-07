@@ -9,7 +9,8 @@ namespace kurozora
     // TODO: This should take an anime ID and fetch the existing method starting from that, using an helper method
     ShowPreview::ShowPreview(int anime_id)
     {
-        builder = std::shared_ptr<Gtk::Builder>(Gtk::Builder::create_from_resource("/kurozora/ui/widgets/explore-view/show-preview.ui"));
+        addCssFile("/kurozora/ui/widgets/show-preview/style.css");
+        builder = std::shared_ptr<Gtk::Builder>(Gtk::Builder::create_from_resource("/kurozora/ui/widgets/show-preview/definition.ui"));
         box = std::unique_ptr<Gtk::Box>(builder->get_widget<Gtk::Box>("show-preview-entry"));
         this->insert_child_at_start(*box);
 

@@ -11,7 +11,7 @@
                     <object class="GtkOverlay">
                         <child type="overlay">
                             <object class="GtkBox">
-                                <property name="css-classes">featured-show-overlay-box</property>
+                                <property name="css-classes">overlay-box</property>
                                 <property name="valign">end</property>
                                 <property name="halign">fill</property>
                                 <property name="hexpand">true</property>
@@ -21,7 +21,7 @@
                                         <property name="orientation">vertical</property>
                                         <child>
                                             <object class="GtkLabel" id="anime-title">
-                                                <property name="css-classes">featured-show-overlay-box-label-title</property>
+                                                <property name="css-classes">overlay-box-label-title </property>
                                                 <property name="halign">start</property>
                                                 <property name="label">Oshi No Ko</property>
                                                 <property name="ellipsize">PANGO_ELLIPSIZE_END</property>
@@ -32,7 +32,7 @@
                                         </child>
                                         <child>
                                             <object class="GtkLabel" id="anime-subtitle">
-                                                <property name="css-classes">featured-show-overlay-box-label-subtitle</property>
+                                                <property name="css-classes">label-subtitle</property>
                                                 <property name="halign">start</property>
                                                 <property name="label">The bestest anime ever!</property>
                                                 <property name="ellipsize">PANGO_ELLIPSIZE_END</property>
