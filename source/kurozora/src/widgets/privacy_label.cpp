@@ -1,4 +1,4 @@
-#include "../../include/explore-view/privacy_label.h"
+#include "privacy_label.h"
 #include <thread>
 #include <cpr/cpr.h>
 #include <nlohmann/json.hpp>
@@ -12,7 +12,8 @@ namespace kurozora
     {
         label = std::unique_ptr<Gtk::Label>(builder->get_widget<Gtk::Label>(label_id));
 
-        popup_builder = Gtk::Builder::create_from_resource("/kurozora/ui/widgets/explore-view/privacy-label-popup.ui");
+        addCssFile("/kurozora/ui/widgets/privacy-label/popup-style.css");
+        popup_builder = Gtk::Builder::create_from_resource("/kurozora/ui/widgets/privacy-label/popup-definition.ui");
         popup_text = std::unique_ptr<Gtk::TextView>(this->popup_builder->get_widget<Gtk::TextView>("explore-privacy-label-popup-text-view"));
         popup_window = std::unique_ptr<Gtk::Window>(popup_builder->get_widget<Gtk::Window>("explore-privacy-label-popup-window"));
         popup_window->set_transient_for(*parent);

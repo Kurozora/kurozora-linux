@@ -11,7 +11,7 @@
                 <property name="orientation">vertical</property>
                 <child>
                     <object class="GtkLabel">
-                        <property name="css-classes">privacy-label-popup-title</property>
+                        <property name="css-classes">popup-title</property>
                         <property name="justify">center</property>
                         <property name="label">Kurozora &#38; Privacy</property>
                     </object>
@@ -22,7 +22,7 @@
                         <property name="height-request">800em</property>
                         <child>
                             <object class="GtkTextView" id="explore-privacy-label-popup-text-view">
-                                <property name="css-classes">privacy-label-popup-text</property>
+                                <property name="css-classes">popup-text</property>
                                 <property name="cursor-visible">false</property>
                                 <property name="editable">false</property>
                                 <property name="can-target">false</property>

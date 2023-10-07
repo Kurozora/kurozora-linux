@@ -2,7 +2,7 @@
 
 #include <gtkmm.h>
 #include <cpr/cpr.h>
-#include "privacy_label.h"
+#include "../../src/widgets/privacy_label.h"
 #include "../../src/widgets/show-preview.h"
 #include "entry-poster-preview.h"
 #include "game-poster-preview.h"
