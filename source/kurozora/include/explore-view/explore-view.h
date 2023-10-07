@@ -4,7 +4,7 @@
 #include <cpr/cpr.h>
 #include "../../src/widgets/privacy_label.h"
 #include "../../src/widgets/show-preview.h"
-#include "entry-poster-preview.h"
+#include "../../src/widgets/entry-poster-preview.h"
 #include "../../src/widgets/game-poster-preview.h"
 #include "../../src/widgets/large-show-poster.h"
 #include "../../src/widgets/genre-horizontal-card.h"

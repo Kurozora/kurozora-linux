@@ -4,10 +4,11 @@
 #include <memory>
 #include <vector>
 #include "../../include/backend/anime.h"
+#include "../../src/framework/widget.h"
 
 namespace kurozora
 {
-    class EntryPosterPreview : public Gtk::Box
+    class EntryPosterPreview : public kz::fw::WidgetLoader
     {
     public:
         EntryPosterPreview(int anime_id);

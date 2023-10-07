@@ -1,0 +1,29 @@
+.picture {
+    border-radius: 10px;
+    min-width: 120pt;
+    min-height: 176pt;
+}
+
+.title {
+    font-size: 13pt;
+}
+
+.subtitle {
+    font-size: 10pt;
+    color: rgb(170,170,170);
+}
+
+.rating-label-color {
+    /*TODO: Fix this color*/
+    color: darkorange;
+    font-size: 12pt;
+}
+
+.rating-icon-color {
+    /*
+        Color taken by a copied answer + some playing around
+        there is probably a better filter for this.
+    */
+    filter: invert(0.5) sepia(1) saturate(10) hue-rotate(1deg);
+    /*-gtk-icon-size: 11pt;*/
+}

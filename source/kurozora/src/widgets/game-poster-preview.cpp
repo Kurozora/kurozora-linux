@@ -9,6 +9,7 @@ namespace kurozora
 {
     GamePosterPreview::GamePosterPreview(const std::string& game_id)
     {
+        addCssFile("/kurozora/ui/widgets/entry-poster-preview/style.css");
         addCssFile("/kurozora/ui/widgets/game-poster-preview/style.css");
         builder = std::shared_ptr<Gtk::Builder>(Gtk::Builder::create_from_resource("/kurozora/ui/widgets/game-poster-preview/definition.ui"));
         container_box = std::unique_ptr<Gtk::Box>(builder->get_widget<Gtk::Box>("container-box"));

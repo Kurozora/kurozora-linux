@@ -15,7 +15,7 @@
                         <child>
                             <!--Poster Preview-->
                             <object class="GtkPicture" id="poster-preview">
-                                <property name="css-classes">entry-poster-preview-picture</property>
+                                <property name="css-classes">picture</property>
                                 <property name="content-fit">GTK_CONTENT_FIT_COVER</property>
                                 <property name="file">resource://kurozora/ui/placeholders/show_poster.jpg</property>
                             </object>
@@ -28,7 +28,7 @@
                                 <child>
                                     <!--Title-->
                                     <object class="GtkLabel" id="anime-title">
-                                        <property name="css-classes">entry-poster-preview-title</property>
+                                        <property name="css-classes">title</property>
                                         <property name="label">placeholder</property>
                                         <property name="halign">start</property>
                                         <property name="ellipsize">PANGO_ELLIPSIZE_END</property>
@@ -41,7 +41,7 @@
                                 <child>
                                     <!--Tagline-->
                                     <object class="GtkLabel" id="anime-subtitle">
-                                        <property name="css-classes">entry-poster-preview-subtitle</property>
+                                        <property name="css-classes">subtitle</property>
                                         <property name="label">placeholder</property>
                                         <property name="halign">start</property>
                                         <property name="ellipsize">PANGO_ELLIPSIZE_END</property>
@@ -58,14 +58,14 @@
                                         <property name="spacing">5px</property>
                                         <child>
                                             <object class="GtkLabel" id="rating-label">
-                                                <property name="css-classes">entry-poster-preview-rating-label-color</property>
+                                                <property name="css-classes">rating-label-color</property>
                                                 <property name="label"></property>
                                             </object>
                                         </child>
                                         <child>
                                             <!--The "resource" here is a placeholder, it will be set in-code-->
                                             <object class="GtkImage" id="rating-star-1">
-                                                <property name="css-classes">entry-poster-preview-rating-icon-color</property>
+                                                <property name="css-classes">rating-icon-color</property>
                                                 <property name="halign">start</property>
                                                 <property name="icon-name">rating_star_empty</property>
                                                 <property name="visible">false</property>
@@ -73,7 +73,7 @@
                                         </child>
                                         <child>
                                             <object class="GtkImage" id="rating-star-2">
-                                                <property name="css-classes">entry-poster-preview-rating-icon-color</property>
+                                                <property name="css-classes">rating-icon-color</property>
                                                 <property name="halign">start</property>
                                                 <property name="icon-name">rating_star_empty</property>
                                                 <property name="visible">false</property>
@@ -81,7 +81,7 @@
                                         </child>
                                         <child>
                                             <object class="GtkImage" id="rating-star-3">
-                                                <property name="css-classes">entry-poster-preview-rating-icon-color</property>
+                                                <property name="css-classes">rating-icon-color</property>
                                                 <property name="halign">start</property>
                                                 <property name="icon-name">rating_star_empty</property>
                                                 <property name="visible">false</property>
@@ -89,7 +89,7 @@
                                         </child>
                                         <child>
                                             <object class="GtkImage" id="rating-star-4">
-                                                <property name="css-classes">entry-poster-preview-rating-icon-color</property>
+                                                <property name="css-classes">rating-icon-color</property>
                                                 <property name="halign">start</property>
                                                 <property name="icon-name">rating_star_empty</property>
                                                 <property name="visible">false</property>
@@ -97,7 +97,7 @@
                                         </child>
                                         <child>
                                             <object class="GtkImage" id="rating-star-5">
-                                                <property name="css-classes">entry-poster-preview-rating-icon-color</property>
+                                                <property name="css-classes">rating-icon-color</property>
                                                 <property name="halign">start</property>
                                                 <property name="icon-name">rating_star_empty</property>
                                                 <property name="visible">false</property>
