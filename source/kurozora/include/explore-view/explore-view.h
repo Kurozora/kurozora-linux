@@ -7,7 +7,7 @@
 #include "entry-poster-preview.h"
 #include "game-poster-preview.h"
 #include "large-show-poster.h"
-#include "genre-horizontal-banner.h"
+#include "../../src/widgets/genre-horizontal-card.h"
 #include "../backend/explore.h"
 
 namespace kurozora

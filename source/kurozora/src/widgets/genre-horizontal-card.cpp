@@ -1,4 +1,4 @@
-#include "../../include/explore-view/genre-horizontal-banner.h"
+#include "genre-horizontal-card.h"
 #include "../../include/backend/genre.h"
 #include "../../include/utils/api/tagline.h"
 #include "../../include/main-window.h"
