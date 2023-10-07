@@ -1,4 +1,4 @@
-#include "../../include/explore-view/show-preview.h"
+#include "show-preview.h"
 #include "../../include/backend/anime.h"
 #include <cpr/cpr.h>
 #include <exception>
