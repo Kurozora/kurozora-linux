@@ -1,6 +1,6 @@
 <interface>
     <object class="GtkBox" id="container-box">
-        <property name="css-classes">genre-horizontal-card-sizer</property>
+        <property name="css-classes">card-sizer</property>
         <child>
             <object class="GtkOverlay">
                 <child type="overlay">
@@ -12,7 +12,7 @@
                     <object class="GtkOverlay">
                         <child type="overlay">
                             <object class="GtkPicture" id="preview-picture">
-                                <property name="css-classes">genre-horizontal-card-icon</property>
+                                <property name="css-classes">card-icon</property>
                                 <property name="content-fit">GTK_CONTENT_FIT_CONTAIN</property>
                                 <property name="vexpand">true</property>
                                 <property name="hexpand">true</property>
@@ -30,7 +30,7 @@
                                 <property name="orientation">vertical</property>
                                 <child>
                                     <object class="GtkLabel" id="genre-name">
-                                        <property name="css-classes">large-show-poster-subtitle</property>
+                                        <property name="css-classes">genre-name</property>
                                         <property name="halign">center</property>
                                         <property name="valign">end</property>
                                         <property name="vexpand">true</property>
