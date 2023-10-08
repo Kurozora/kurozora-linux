@@ -40,28 +40,6 @@ separator.thick-separator {
 }
 
 /* Explore */
-.large-show-poster-title {
-    font-size: 28pt;
-    font-weight: bold;
-    color: white;
-}
-
-.large-show-poster-subtitle {
-    font-size: 11pt;
-    margin-top: 5pt;
-    font-weight: bold;
-    color: rgb(180,180,180);
-}
-
-.large-show-poster-overlay-box {
-    padding-bottom: 1.2em;
-    padding-left: 2em;
-    padding-right: 2em;
-    padding-top: 6em;
-    background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.8));
-    border-radius: 10px;
-}
-
 .featured-show-upcoming {
     min-height: 336pt;
     min-width: 252pt;
@@ -74,69 +52,13 @@ separator.thick-separator {
     border-radius: 10px;
 }
 
-.featured-show-overlay-box {
-    padding-bottom: 1.2em;
-    padding-left: 2em;
-    padding-right: 2em;
-    padding-top: 6em;
-    background-image: linear-gradient(rgba(0,0,0,0), rgba(200,200,200,0.8));
-    border-radius: 10px;
-}
-
-.featured-show-overlay-box-label-title {
-    font-size: 18pt;
-    font-weight: bold;
-    color: black;
-}
-
-.featured-show-overlay-box-label-subtitle {
-    font-size: 15pt;
-    color: black;
-}
-
 .featured-genre-vertical-card {
     min-width: 336pt;
     min-height: 252pt;
     border-radius: 10px;
 }
 
-.entry-poster-preview-picture {
-    border-radius: 10px;
-    min-width: 120pt;
-    min-height: 176pt;
-}
-
-.entry-poster-preview-title {
-    font-size: 13pt;
-}
-
-.entry-poster-preview-subtitle {
-    font-size: 10pt;
-    color: rgb(170,170,170);
-}
-
-.entry-poster-preview-rating-label-color {
-    /*TODO: Fix this color*/
-    color: darkorange;
-    font-size: 12pt;
-}
-
-.entry-poster-preview-rating-icon-color {
-    /*
-        Color taken by a copied answer + some playing around
-        there is probably a better filter for this.
-    */
-    filter: invert(0.5) sepia(1) saturate(10) hue-rotate(1deg);
-    /*-gtk-icon-size: 11pt;*/
-}
-
-.game-poster-preview-picture {
-    border-radius: 10px;
-    min-width: 120pt;
-    min-height: 120pt;
-}
-
-@keyframes featured-show-preview-loading-animation {
+@keyframes common-loading-overlay-animation {
     0% {
         background-image: linear-gradient(0.45turn, rgba(255,255,255,0.5), rgba(0,0,0,0) 70%);
     }
@@ -150,9 +72,9 @@ separator.thick-separator {
     }
 }
 
-.featured-show-preview-loading {
+.common-loading-overlay {
     background-color: rgb(120,120,120);
-    animation-name: featured-show-preview-loading-animation;
+    animation-name: common-loading-overlay-animation;
     animation-duration: 3s;
     animation-iteration-count: infinite;
     border-radius: 10px;
@@ -175,36 +97,3 @@ separator.thick-separator {
 .quick-link:active {
     background-color: rgba(255,255,255,0.5);
 }
-
-.privacy-label-popup-title {
-    font-size: 28pt;
-    font-weight: bold;
-    padding: 1em;
-}
-
-.privacy-label-popup-text {
-    background-color: rgba(0,0,0,0);
-}
-
-/* End Custom CSS classes */
-
-/* From here on stuff uses new experimental conventions (before it's... a mess) */
-/* This will be split into multiple files */
-
-/* Widgets START*/
-
-    /* Genre Horizontal Card START*/
-.genre-horizontal-card-sizer {
-    min-width: 336pt;
-    min-height: 200pt;
-    border-radius: 10px;
-}
-
-.genre-horizontal-card-icon {
-    min-width: 50pt;
-    min-height: 50pt;
-    padding: 25pt;
-}
-    /*Genre Horizontal Card*/
-
-/* Widgets END */

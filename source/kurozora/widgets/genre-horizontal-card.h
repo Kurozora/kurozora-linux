@@ -1,0 +1,30 @@
+#pragma once
+
+#include <gtkmm.h>
+#include <memory>
+#include <vector>
+#include "../backend/genre.h"
+#include "../framework/widget.h"
+
+namespace kurozora
+{
+    class GenreHorizontalCard : public kz::fw::WidgetHelper
+    {
+    public:
+        GenreHorizontalCard(const std::string& genre_id);
+    private:
+        std::string genre_id;
+        std::unique_ptr<backend::Genre> genre;
+        std::shared_ptr<Gtk::Builder> builder;
+        std::unique_ptr<Gtk::Box> container_box;
+        std::unique_ptr<Gtk::Label> genre_title;
+        std::unique_ptr<Gtk::Label> genre_subtitle;
+        std::unique_ptr<Gtk::Button> control_button;
+        std::shared_ptr<Glib::Dispatcher> download_completed;
+        std::shared_ptr<Glib::Bytes> downloaded_buffer;
+        std::optional<std::shared_ptr<Gdk::Texture>> downloaded_texture;
+        std::unique_ptr<Gtk::Picture> preview_picture;
+        std::unique_ptr<Gtk::Box> gradient_background;
+        std::unique_ptr<Gtk::Box> loading_overlay;
+    };
+}

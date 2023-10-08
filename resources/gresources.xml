@@ -8,7 +8,6 @@
         <file compressed="true">ui/widgets/explore-view/entry-poster-preview.ui</file>
         <file compressed="true">ui/widgets/explore-view/game-poster-preview.ui</file>
         <file compressed="true">ui/widgets/explore-view/large-show-poster.ui</file>
-        <file compressed="true">ui/widgets/explore-view/genre-horizontal-card.ui</file>
         <!--CSS-->
         <file compressed="true">ui/style/overrides.css</file>
         <!--Media-->
@@ -19,5 +18,24 @@
         <file compressed="true">ui/icons/scalable/actions/rating_star_empty.svg</file>
         <file compressed="true">ui/icons/scalable/actions/rating_star_half.svg</file>
         <file compressed="true">ui/icons/scalable/actions/rating_star_full.svg</file>
+        <!--New Experimental System below-->
+        <!--Genre Horizontal Banner Widget-->
+        <file compressed="true">ui/widgets/genre-horizontal-banner/style.css</file>
+        <file compressed="true">ui/widgets/genre-horizontal-banner/definition.ui</file>
+        <!--Show Preview Widget-->
+        <file compressed="true">ui/widgets/show-preview/style.css</file>
+        <file compressed="true">ui/widgets/show-preview/definition.ui</file>
+        <!--Privacy Label-->
+        <file compressed="true">ui/widgets/privacy-label/popup-style.css</file>
+        <file compressed="true">ui/widgets/privacy-label/popup-definition.ui</file>
+        <!--Large Show Poster Widget-->
+        <file compressed="true">ui/widgets/large-show-poster/style.css</file>
+        <file compressed="true">ui/widgets/large-show-poster/definition.ui</file>
+        <!--Entry Poster Preview Widget-->
+        <file compressed="true">ui/widgets/entry-poster-preview/style.css</file>
+        <file compressed="true">ui/widgets/entry-poster-preview/definition.ui</file>
+        <!--Game Poster Preview Widget-->
+        <file compressed="true">ui/widgets/game-poster-preview/style.css</file>
+        <file compressed="true">ui/widgets/game-poster-preview/definition.ui</file>
     </gresource>
 </gresources>
