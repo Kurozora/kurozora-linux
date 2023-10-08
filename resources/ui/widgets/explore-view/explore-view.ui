@@ -141,7 +141,7 @@
                             </object>
                         </child>
                         <!--Long Time Favorites-->
-                        <child>
+                        <!--<child>
                             <object class="GtkLabel">
                                 <property name="css-classes">section-header</property>
                                 <property name="halign">start</property>
@@ -162,7 +162,7 @@
                             <object class="GtkSeparator">
                                 <property name="orientation">horizontal</property>
                             </object>
-                        </child>
+                        </child>-->
                         <!--What Are We Watching-->
                         <child>
                             <object class="GtkLabel">
@@ -189,7 +189,7 @@
                             </object>
                         </child>
                         <!--Hot Tracks-->
-                        <child>
+                        <!--<child>
                             <object class="GtkLabel">
                                 <property name="css-classes">section-header</property>
                                 <property name="halign">start</property>
@@ -210,7 +210,7 @@
                             <object class="GtkSeparator">
                                 <property name="orientation">horizontal</property>
                             </object>
-                        </child>
+                        </child>-->
                         <!--Quick Links-->
                         <child>
                             <object class="GtkLabel">

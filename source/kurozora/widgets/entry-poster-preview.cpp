@@ -10,7 +10,7 @@ namespace kurozora
     EntryPosterPreview::EntryPosterPreview(int anime_id)
     {
         addCssFile("/kurozora/ui/widgets/entry-poster-preview/style.css");
-        builder = std::shared_ptr<Gtk::Builder>(Gtk::Builder::create_from_resource("/kurozora/ui/widgets/explore-view/entry-poster-preview.ui"));
+        builder = std::shared_ptr<Gtk::Builder>(Gtk::Builder::create_from_resource("/kurozora/ui/widgets/entry-poster-preview/definition.ui"));
         container_box = std::unique_ptr<Gtk::Box>(builder->get_widget<Gtk::Box>("container-box"));
         this->insert_child_at_start(*container_box);
 
