@@ -1,4 +1,4 @@
-#include "../../include/explore-view/explore-view.h"
+#include "explore-view.h"
 #include <thread>
 #include <nlohmann/json.hpp>
 #include "../../include/utils/gtk/nested-scroll-workaround.h"
