@@ -1,4 +1,4 @@
-#include "../../include/backend/game.h"
+#include "../backend/game.h"
 #include <cpr/cpr.h>
 #include <sstream>
 #include <iostream>

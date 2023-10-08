@@ -1,5 +1,5 @@
 #include "show-preview.h"
-#include "../../include/backend/anime.h"
+#include "../backend/anime.h"
 #include <cpr/cpr.h>
 #include <exception>
 #include <sstream>

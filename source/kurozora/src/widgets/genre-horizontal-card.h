@@ -3,7 +3,7 @@
 #include <gtkmm.h>
 #include <memory>
 #include <vector>
-#include "../../include/backend/genre.h"
+#include "../backend/genre.h"
 #include "../../src/framework/widget.h"
 
 namespace kurozora

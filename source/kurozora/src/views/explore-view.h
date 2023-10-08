@@ -8,7 +8,7 @@
 #include "../../src/widgets/game-poster-preview.h"
 #include "../../src/widgets/large-show-poster.h"
 #include "../../src/widgets/genre-horizontal-card.h"
-#include "../../include/backend/explore.h"
+#include "../backend/explore.h"
 
 namespace kurozora
 {

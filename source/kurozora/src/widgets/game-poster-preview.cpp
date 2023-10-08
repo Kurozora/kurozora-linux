@@ -1,5 +1,5 @@
 #include "game-poster-preview.h"
-#include "../../include/backend/game.h"
+#include "../backend/game.h"
 #include "../../include/utils/api/tagline.h"
 #include <thread>
 #include <string>

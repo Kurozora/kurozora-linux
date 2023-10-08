@@ -1,5 +1,5 @@
 #include "entry-poster-preview.h"
-#include "../../include/backend/anime.h"
+#include "../backend/anime.h"
 #include "../../include/utils/api/tagline.h"
 #include <thread>
 #include <string>

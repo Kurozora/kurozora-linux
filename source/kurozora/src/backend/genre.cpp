@@ -1,4 +1,4 @@
-#include "../../include/backend/genre.h"
+#include "../backend/genre.h"
 #include <cpr/cpr.h>
 #include <sstream>
 #include <iostream>
