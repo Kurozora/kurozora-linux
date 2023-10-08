@@ -10,7 +10,7 @@
 
 namespace kurozora
 {
-    class LargeShowPoster : public kz::fw::WidgetLoader
+    class LargeShowPoster : public kz::fw::WidgetHelper
     {
     public:
         LargeShowPoster(int anime_id);

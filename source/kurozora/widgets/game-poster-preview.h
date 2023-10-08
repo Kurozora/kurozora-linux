@@ -8,7 +8,7 @@
 
 namespace kurozora
 {
-    class GamePosterPreview : public kz::fw::WidgetLoader
+    class GamePosterPreview : public kz::fw::WidgetHelper
     {
     public:
         GamePosterPreview(const std::string& game_id);

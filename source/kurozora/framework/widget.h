@@ -11,7 +11,7 @@ namespace kz::fw
     //The first function displays some placeholders/temporary stuff while retrieving data
     //from somehere (ex: API, Disk), once it's ready it calls the draw fucntion to display
     //the fetched data or the result of the loading process.
-    class WidgetLoader : public Gtk::Box
+    class WidgetHelper : public Gtk::Box
     {
     public:
         void addCssFile(std::string gresource_path);

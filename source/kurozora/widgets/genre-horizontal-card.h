@@ -8,7 +8,7 @@
 
 namespace kurozora
 {
-    class GenreHorizontalCard : public kz::fw::WidgetLoader
+    class GenreHorizontalCard : public kz::fw::WidgetHelper
     {
     public:
         GenreHorizontalCard(const std::string& genre_id);

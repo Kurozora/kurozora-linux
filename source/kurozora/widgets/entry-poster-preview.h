@@ -8,7 +8,7 @@
 
 namespace kurozora
 {
-    class EntryPosterPreview : public kz::fw::WidgetLoader
+    class EntryPosterPreview : public kz::fw::WidgetHelper
     {
     public:
         EntryPosterPreview(int anime_id);

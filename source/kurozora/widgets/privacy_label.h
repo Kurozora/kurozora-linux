@@ -6,7 +6,7 @@
 
 namespace kurozora
 {
-    class PrivacyLabel : public kz::fw::WidgetLoader
+    class PrivacyLabel : public kz::fw::WidgetHelper
     {
     public:
         PrivacyLabel(Gtk::Window* parent, std::shared_ptr<Gtk::Builder> builder, const std::string&& label_id);

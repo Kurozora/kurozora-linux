@@ -10,7 +10,7 @@
 
 namespace kurozora
 {
-    class ShowPreview : public kz::fw::WidgetLoader
+    class ShowPreview : public kz::fw::WidgetHelper
     {
     public:
         ShowPreview(int anime_id);
