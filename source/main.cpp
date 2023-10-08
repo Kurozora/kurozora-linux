@@ -1,4 +1,4 @@
-#include "kurozora/include/main-window.h"
+#include "kurozora/src/main-window.h"
 #include <iostream>
 
 int main(int argc, char* argv[])

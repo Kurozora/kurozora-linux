@@ -1,7 +1,7 @@
 #include "genre-horizontal-card.h"
 #include "../../include/backend/genre.h"
 #include "../../include/utils/api/tagline.h"
-#include "../../include/main-window.h"
+#include "../main-window.h"
 #include <thread>
 #include <string>
 #include <cpr/cpr.h>
