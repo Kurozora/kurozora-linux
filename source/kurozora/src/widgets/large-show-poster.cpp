@@ -1,7 +1,7 @@
 #include "large-show-poster.h"
 #include "../backend/anime.h"
-#include "../../include/utils/api/tagline.h"
-#include "../../include/utils/time/parse_time.h"
+#include "../utils/api/tagline.h"
+#include "../utils/time/parse_time.h"
 #include <cpr/cpr.h>
 #include <exception>
 #include <sstream>

@@ -1,4 +1,4 @@
-#include "../../../include/utils/api/tagline.h"
+#include "tagline.h"
 namespace kurozora::utils::api
 {
     std::optional<std::string> compose_tagline(const nlohmann::json& json_object)

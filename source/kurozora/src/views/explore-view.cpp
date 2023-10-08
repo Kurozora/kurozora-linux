@@ -1,7 +1,7 @@
 #include "explore-view.h"
 #include <thread>
 #include <nlohmann/json.hpp>
-#include "../../include/utils/gtk/nested-scroll-workaround.h"
+#include "../utils/gtk/nested-scroll-workaround.h"
 
 namespace kurozora
 {

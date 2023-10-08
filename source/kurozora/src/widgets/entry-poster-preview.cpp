@@ -1,6 +1,6 @@
 #include "entry-poster-preview.h"
 #include "../backend/anime.h"
-#include "../../include/utils/api/tagline.h"
+#include "../utils/api/tagline.h"
 #include <thread>
 #include <string>
 #include <cpr/cpr.h>

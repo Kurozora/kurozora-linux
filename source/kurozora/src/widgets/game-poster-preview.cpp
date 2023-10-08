@@ -1,6 +1,6 @@
 #include "game-poster-preview.h"
 #include "../backend/game.h"
-#include "../../include/utils/api/tagline.h"
+#include "../utils/api/tagline.h"
 #include <thread>
 #include <string>
 #include <cpr/cpr.h>

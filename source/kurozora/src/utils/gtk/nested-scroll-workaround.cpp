@@ -1,7 +1,7 @@
 #include <gtkmm.h>
 #include <memory>
 #include <sstream>
-#include "../../../include/utils/gtk/nested-scroll-workaround.h"
+#include "nested-scroll-workaround.h"
 
 namespace kurozora::utils::gtk
 {
