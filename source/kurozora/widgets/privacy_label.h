@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../src/framework/widget.h"
+#include "../framework/widget.h"
 
 #include <gtkmm.h>
 

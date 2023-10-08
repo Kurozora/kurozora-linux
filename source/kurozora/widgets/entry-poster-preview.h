@@ -4,7 +4,7 @@
 #include <memory>
 #include <vector>
 #include "../backend/anime.h"
-#include "../../src/framework/widget.h"
+#include "../framework/widget.h"
 
 namespace kurozora
 {

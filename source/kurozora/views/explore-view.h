@@ -2,12 +2,12 @@
 
 #include <gtkmm.h>
 #include <cpr/cpr.h>
-#include "../../src/widgets/privacy_label.h"
-#include "../../src/widgets/show-preview.h"
-#include "../../src/widgets/entry-poster-preview.h"
-#include "../../src/widgets/game-poster-preview.h"
-#include "../../src/widgets/large-show-poster.h"
-#include "../../src/widgets/genre-horizontal-card.h"
+#include "../widgets/privacy_label.h"
+#include "../widgets/show-preview.h"
+#include "../widgets/entry-poster-preview.h"
+#include "../widgets/game-poster-preview.h"
+#include "../widgets/large-show-poster.h"
+#include "../widgets/genre-horizontal-card.h"
 #include "../backend/explore.h"
 
 namespace kurozora
