@@ -11,9 +11,9 @@ namespace kurozora
     class EntryPosterPreview : public kz::fw::WidgetHelper
     {
     public:
-        EntryPosterPreview(int anime_id);
+        EntryPosterPreview(std::string anime_id);
     private:
-        int anime_id;
+        std::string anime_id;
         std::unique_ptr<backend::Anime> anime;
         std::shared_ptr<Gtk::Builder> builder;
         std::unique_ptr<Gtk::Box> container_box;

@@ -13,9 +13,9 @@ namespace kurozora
     class ShowPreview : public kz::fw::WidgetHelper
     {
     public:
-        ShowPreview(int anime_id);
+        ShowPreview(std::string anime_id);
     private:
-        int anime_id;
+        std::string anime_id;
         std::shared_ptr<Gtk::Builder> builder;
         std::unique_ptr<Gtk::Box> box;
         std::unique_ptr<Gtk::Box> loading_overlay;

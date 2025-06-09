@@ -11,7 +11,7 @@ namespace kurozora::backend
     class Anime
     {
     public:
-        Anime(int anime_id);
+        Anime(std::string anime_id);
     // This should not be public and writable, it's temporary
     public:
         std::shared_ptr<nlohmann::json> json_object;

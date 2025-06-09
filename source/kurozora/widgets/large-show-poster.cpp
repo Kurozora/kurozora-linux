@@ -9,7 +9,7 @@
 namespace kurozora
 {
     // TODO: This should take an anime ID and fetch the existing method starting from that, using an helper method
-    LargeShowPoster::LargeShowPoster(int anime_id)
+    LargeShowPoster::LargeShowPoster(std::string anime_id)
     {
         addCssFile("/kurozora/ui/widgets/large-show-poster/style.css");
         builder = std::shared_ptr<Gtk::Builder>(Gtk::Builder::create_from_resource("/kurozora/ui/widgets/large-show-poster/definition.ui"));

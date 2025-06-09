@@ -13,9 +13,9 @@ namespace kurozora
     class LargeShowPoster : public kz::fw::WidgetHelper
     {
     public:
-        LargeShowPoster(int anime_id);
+        LargeShowPoster(std::string anime_id);
     private:
-        int anime_id;
+        std::string anime_id;
         std::unique_ptr<backend::Anime> anime;
         std::shared_ptr<Gtk::Builder> builder;
         std::unique_ptr<Gtk::Box> box;
