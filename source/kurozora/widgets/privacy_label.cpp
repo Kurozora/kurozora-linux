@@ -34,9 +34,17 @@ namespace kurozora
                     if (!cached)
                     {
                         cpr::Response response = cpr::Get(
-                            cpr::Url("https://api.kurozora.app/v1/legal/privacy-policy")
+                            cpr::Url("https://api.kurozora.app/v1/legal/privacy-policy"),
+                            cpr::Header({{"User-Agent", "Kurozora/1.12.3 (app.kurozora.linux; build:1234; Linux 6.0.0) libcurl/1.1.1"}}),
+                            cpr::Header({{"X-Api-Key", "9t7WozArnqL30HLj3Y5aLfaB1LFFmdFJsCDOSkN6"}})
                         );
-                        if (response.status_code != 200) { throw std::runtime_error("Error: Couldn't retrieve privacy policy"); }
+                        if (response.status_code != 200) {
+                            std::stringstream ss;
+                            ss << "Error: Couldn't retrieve privacy policy.\nHTTP Status Code: "
+                                << response.status_code
+                                << "\nReponse Body: " << response.text;
+                            throw std::runtime_error(ss.str());
+                        }
                         nlohmann::json response_object = nlohmann::json::parse(response.text);
                         if (!response_object["data"]["attributes"]["text"].is_string()) { throw std::runtime_error("Error: malformed response"); }
                         this->policy_text = response_object["data"]["attributes"]["text"];

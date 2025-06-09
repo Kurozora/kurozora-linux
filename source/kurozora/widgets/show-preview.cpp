@@ -95,6 +95,8 @@ namespace kurozora
             {
                 // A picture URL has been specified, retrieve banner and replace placeholder immage
                 cpr::Response response = cpr::Get(
+                    cpr::Header({{"User-Agent", "Kurozora/1.12.3 (app.kurozora.linux; build:1234; Linux 6.0.0) libcurl/1.1.1"}}),
+                    cpr::Header({{"X-Api-Key", "9t7WozArnqL30HLj3Y5aLfaB1LFFmdFJsCDOSkN6"}}),
                     cpr::Url(json_object["banner"]["url"])
                 );
                 if (response.status_code != 200) { throw std::runtime_error("Error: Couldn't retrieve banner image"); }
